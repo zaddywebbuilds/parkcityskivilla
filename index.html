@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <title>Park City Ski Villa | Premier 2-Bedroom Ski-in Villa, Park City Utah</title>
-<meta name="description" content="Premier 2-bedroom ski-in villa at Westgate Park City Resort. 1,100 sq ft, sleeps 8, full kitchen, dual steam showers. Presidents' Week Feb 13-20, 2026.">
-<meta name="keywords" content="Park City ski villa, Westgate Park City 2 bedroom villa rental, Park City ski villa Presidents Day 2026, Park City ski villa sleeps 8, Westgate Park City villa rent by owner, Park City ski villa February, Park City 2 bedroom ski villa, ski-in ski-out Park City rental, Park City Mountain Resort villa rental, Presidents week Park City 2026">
+<meta name="description" content="Premier 2-bedroom ski-in villa at Westgate Park City Resort. 1,100 sq ft, sleeps 8, full kitchen, dual steam showers. Presidents' Week Feb 13-20, 2027.">
+<meta name="keywords" content="Park City ski villa, Westgate Park City 2 bedroom villa rental, Park City ski villa Presidents Day 2027, Park City ski villa sleeps 8, Westgate Park City villa rent by owner, Park City ski villa February, Park City 2 bedroom ski villa, ski-in ski-out Park City rental, Park City Mountain Resort villa rental, Presidents week Park City 2027">
 <meta name="author" content="Park City Ski Villa">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <link rel="canonical" href="https://zaddywebbuilds.github.io/parkcityskivilla/">
@@ -17,7 +17,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Park City Ski Villa">
 <meta property="og:title" content="Park City Ski Villa | Premier 2-Bedroom Villa at Westgate Park City Resort">
-<meta property="og:description" content="1,100 sq ft ski-in villa, sleeps 8, GE Monogram kitchen, dual steam showers. Available Presidents' Week, Feb 13-20, 2026.">
+<meta property="og:description" content="1,100 sq ft ski-in villa, sleeps 8, GE Monogram kitchen, dual steam showers. Available Presidents' Week, Feb 13-20, 2027.">
 <meta property="og:url" content="https://zaddywebbuilds.github.io/parkcityskivilla/">
 <meta property="og:image" content="https://zaddywebbuilds.github.io/parkcityskivilla/images/og-preview.jpg">
 <meta property="og:image:type" content="image/jpeg">
@@ -30,7 +30,7 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Park City Ski Villa | Premier 2BR Ski-in Villa">
-<meta name="twitter:description" content="1,100 sq ft ski-in luxury villa, sleeps 8. Presidents' Week Feb 13-20, 2026 at Westgate Park City Resort.">
+<meta name="twitter:description" content="1,100 sq ft ski-in luxury villa, sleeps 8. Presidents' Week Feb 13-20, 2027 at Westgate Park City Resort.">
 <meta name="twitter:image" content="https://zaddywebbuilds.github.io/parkcityskivilla/images/og-preview.jpg">
 
 <!-- Geo tags -->
@@ -100,7 +100,10 @@
         {"@type": "LocationFeatureSpecification", "name": "On-Site Restaurant", "value": 2},
         {"@type": "LocationFeatureSpecification", "name": "On-Site Grocery and Liquor Store", "value": true},
         {"@type": "LocationFeatureSpecification", "name": "Fitness Center", "value": true},
-        {"@type": "LocationFeatureSpecification", "name": "Arcade", "value": true}
+        {"@type": "LocationFeatureSpecification", "name": "Arcade", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Childcare", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Ski and Snowboard Rentals", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Yoga Studio", "value": true}
       ],
       "containedInPlace": {
         "@type": "Hotel",
@@ -133,15 +136,15 @@
           "name": "Is it really ski-in / ski-out at Park City Mountain Resort?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. The villa is located inside Westgate Park City Resort & Spa, which has direct ski-in/ski-out access to Park City Mountain Resort, the largest ski resort in the United States, with 330+ trails across 7,300 acres."
+            "text": "Yes. The villa is located inside Westgate Park City Resort & Spa, which has direct ski-in/ski-out access to Park City Mountain Resort, the one of the largest ski resorts in the United States, with 330+ trails across 7,300 acres."
           }
         },
         {
           "@type": "Question",
-          "name": "What exact dates is the villa available for Presidents' Week 2026?",
+          "name": "What exact dates is the villa available for Presidents' Week 2027?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The villa is available February 13-20, 2026, a full 7-night stay that includes Presidents' Day on February 16. It is booked as a complete two-bedroom unit only; we do not split the rooms separately."
+            "text": "The villa is available February 13-20, 2027, a full 7-night stay that includes Presidents' Day on February 15. It is booked as a complete two-bedroom unit only; we do not split the rooms separately."
           }
         },
         {
@@ -1204,21 +1207,16 @@ footer {
   will-change: transform;
 }
 
-/* ── Scroll reveal (progressive enhancement) ──
-   Content is visible by default. The `js` class, set by script on first
-   paint, opts elements into the hidden starting state, so the
-   page is fully readable without JS, for crawlers, and if the observer fails. */
-.sr { transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); }
-.js .sr { opacity: 0; transform: translateY(22px); }
-.js .sr.up { opacity: 1; transform: none; }
-.sr-d1 { transition-delay: 0.1s; }
-.sr-d2 { transition-delay: 0.2s; }
-.sr-d3 { transition-delay: 0.3s; }
+/* ── No reveal gate ──
+   Everything renders visible on first paint. The previous fade started
+   each block at opacity 0 and waited on an observer, which meant content
+   could sit blank if that observer was slow, throttled in a background
+   tab, or never fired at all. */
+.sr, .sr-d1, .sr-d2, .sr-d3 { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
   /* Paused in script too; this keeps the first frame composited cleanly. */
   .hero-feature video { animation: none; }
-  .sr, .js .sr, .sr-d1, .sr-d2, .sr-d3 { opacity: 1; transform: none; transition: none; }
   .btn:hover, .hs-card:hover { transform: none; }
 }
 
@@ -1251,8 +1249,6 @@ footer {
 </style>
 </head>
 <body>
-
-<script>document.documentElement.classList.add('js');</script>
 
 <!-- ── Navigation ── -->
 <nav class="nav" id="site-nav" aria-label="Main navigation">
@@ -1334,7 +1330,7 @@ footer {
 <div class="avail-bar" role="alert" aria-label="Presidents Week availability">
   <span class="avail-tag">Now Booking</span>
   <p class="avail-copy" style="margin:0">
-    <strong>Presidents' Week 2026. February 13-20.</strong>
+    <strong>Presidents' Week 2027. February 13-20.</strong>
     The hardest ski week to book in Park City. One villa, eight guests, booked whole.
   </p>
   <span class="avail-dates" aria-label="February 13 to 20">Feb 13-20</span>
@@ -1429,7 +1425,7 @@ footer {
   <div class="about-intro sr sr-d1">
     <p>The Premier Two-Bedroom Villa at Westgate Park City Resort &amp; Spa gives you 1,100 square feet of living space. Two complete bedrooms, two full bathrooms, and two separate living areas mean eight guests have room to spread out after a day on the mountain.</p>
     <p>Each bedroom holds a king bed dressed in luxury linens. Each living area holds a leather queen sleeper sofa. The kitchen is fully equipped: center island, premium stone countertops, GE Monogram Series stainless steel appliances, a full range with oven, a two-zone wine and beverage chiller, plus a secondary kitchenette.</p>
-    <p>The two private bathrooms each include a walk-in steam shower. One adds a separate soaking tub. An in-unit washer and dryer means you can pack for a week and actually live in it, inside a resort with ski-in/ski-out access to the largest ski resort in the United States.</p>
+    <p>The two private bathrooms each include a walk-in steam shower. One adds a separate soaking tub. An in-unit washer and dryer means you can pack for a week and actually live in it, inside a resort with ski-in/ski-out access to one of the largest ski resorts in the United States.</p>
   </div>
 
   <div class="feature-grid">
@@ -1439,7 +1435,7 @@ footer {
       </div>
       <div class="feat-body">
         <h3 class="feat-t">Ski-in / Ski-out</h3>
-          <p class="feat-d">Direct access to Park City Mountain Resort. 330+ trails, 41 lifts, the largest resort in the US.</p>
+          <p class="feat-d">Direct access to Park City Mountain Resort. 330+ trails, 41 lifts, one of the largest resorts in the US.</p>
       </div>
     </article>
 
@@ -1579,7 +1575,7 @@ footer {
 <section id="resort" class="section" aria-labelledby="resort-h2">
   <span class="eyebrow sr">The Resort</span>
   <h2 id="resort-h2" class="section-title sr sr-d1">What the rest of Westgate adds</h2>
-  <p class="section-lead sr sr-d1">The villa is yours for the week. The resort around it is what most Park City rentals cannot offer: an award-winning spa, two restaurants, a market, pools open year round, and somewhere for the kids to go.</p>
+  <p class="section-lead sr sr-d1">The villa is yours for the week. The resort around it is what most Park City rentals cannot offer: an award-winning spa, two restaurants, a market and liquor store, pools open year round, on-site childcare and ski rentals at the door.</p>
 
   <div class="resort-grid">
       <article class="ra sr">
@@ -1623,6 +1619,27 @@ footer {
         <div class="ra-rule" aria-hidden="true"></div>
         <p class="ra-d">A family activities programme that changes monthly, and an on-site arcade a few steps from the villa for the evenings nobody wants to go back out.</p>
       </article>
+
+      <article class="ra sr">
+        <div class="ra-tag">Families</div>
+        <h3 class="ra-t">On-Site Childcare</h3>
+        <div class="ra-rule" aria-hidden="true"></div>
+        <p class="ra-d">Childcare is available at the resort, so the adults in the party can take a full day on the mountain or an evening out without arranging a sitter in an unfamiliar town.</p>
+      </article>
+
+      <article class="ra sr sr-d1">
+        <div class="ra-tag">Gear</div>
+        <h3 class="ra-t">Ski &amp; Snowboard Rentals</h3>
+        <div class="ra-rule" aria-hidden="true"></div>
+        <p class="ra-d">Rentals on the property, so nobody has to fly with skis or drive into town on the first morning to get fitted.</p>
+      </article>
+
+      <article class="ra sr sr-d2">
+        <div class="ra-tag">Fitness</div>
+        <h3 class="ra-t">Fitness Center &amp; Yoga Studio</h3>
+        <div class="ra-rule" aria-hidden="true"></div>
+        <p class="ra-d">A fitness centre and a separate yoga studio, both on site, for the mornings before the lifts open and the days the legs need a rest.</p>
+      </article>
   </div>
 </section>
 
@@ -1634,17 +1651,17 @@ footer {
       <span class="eyebrow">Availability</span>
       <h2 id="presidents-h2" class="section-title">Presidents' Week is the hardest week to book in Park City</h2>
       <p>Every February, families across the country plan months in advance for Presidents' Day week. Schools close. Flights fill. Park City Mountain Resort hits peak lift traffic. Nightly rates for comparable villas on VRBO and Airbnb reach $800-$1,200+ during this window, because demand is high and supply is limited.</p>
-      <p>We own units 1 and 2 at Westgate Park City Resort. Together they form this Premier Two-Bedroom Villa. Available February 13-20, 2026, booked as a single two-bedroom unit only.</p>
+      <p>We own units 1 and 2 at Westgate Park City Resort. Together they form this Premier Two-Bedroom Villa. Available February 13-20, 2027, booked as a single two-bedroom unit only.</p>
       <a href="#contact" class="btn btn-gold btn-lg sr-d1">Inquire About This Week</a>
     </div>
     <div class="pw-card tilt-card sr sr-d2">
       <div class="pw-dates">Feb 13-20</div>
-      <div class="pw-yr">2026 &nbsp;·&nbsp; 7 Nights</div>
-      <div class="pw-row"><strong>Check-in</strong>&nbsp; Friday, February 13</div>
-      <div class="pw-row"><strong>Check-out</strong>&nbsp; Friday, February 20</div>
+      <div class="pw-yr">2027 &nbsp;·&nbsp; 7 Nights</div>
+      <div class="pw-row"><strong>Check-in</strong>&nbsp; Saturday, February 13</div>
+      <div class="pw-row"><strong>Check-out</strong>&nbsp; Saturday, February 20</div>
       <div class="pw-row"><strong>Guests</strong>&nbsp; Up to 8</div>
       <div class="pw-row"><strong>Bedrooms</strong>&nbsp; 2 King + 2 Sofas</div>
-      <div class="pw-row"><strong>Includes</strong>&nbsp; Presidents' Day (Feb 16)</div>
+      <div class="pw-row"><strong>Includes</strong>&nbsp; Presidents' Day (Feb 15)</div>
       <div class="pw-row"><strong>Booking</strong>&nbsp; Full villa only, not split</div>
       <div class="pw-note">This week books fast. Contact us below for pricing and to confirm availability. Direct booking, owner to renter, with no platform fees.</div>
     </div>
@@ -1671,15 +1688,15 @@ footer {
         Is it really ski-in / ski-out at Park City Mountain Resort?
         <span class="faq-icon" aria-hidden="true">+</span>
       </button>
-      <div class="faq-a">Yes. The villa is located inside Westgate Park City Resort &amp; Spa, which has direct ski-in/ski-out access to Park City Mountain Resort, the largest ski resort in the United States, with 330+ trails across 7,300 acres.</div>
+      <div class="faq-a">Yes. The villa is located inside Westgate Park City Resort &amp; Spa, which has direct ski-in/ski-out access to Park City Mountain Resort, the one of the largest ski resorts in the United States, with 330+ trails across 7,300 acres.</div>
     </div>
 
     <div class="faq-item" role="listitem">
       <button class="faq-q" aria-expanded="false">
-        What exact dates is the villa available for Presidents' Week 2026?
+        What exact dates is the villa available for Presidents' Week 2027?
         <span class="faq-icon" aria-hidden="true">+</span>
       </button>
-      <div class="faq-a">The villa is available February 13-20, 2026, a full 7-night stay that includes Presidents' Day on February 16. It is booked as a complete two-bedroom unit only; we do not split the rooms separately.</div>
+      <div class="faq-a">The villa is available February 13-20, 2027, a full 7-night stay that includes Presidents' Day on February 15. It is booked as a complete two-bedroom unit only; we do not split the rooms separately.</div>
     </div>
 
     <div class="faq-item" role="listitem">
@@ -1711,7 +1728,7 @@ footer {
         What does the resort itself offer beyond the villa?
         <span class="faq-icon" aria-hidden="true">+</span>
       </button>
-      <div class="faq-a">Guests have the run of Westgate Park City Resort &amp; Spa. That includes Serenity Spa, a Best of State winner for Best Destination Spa every year since 2017, with fourteen treatment rooms; Edge Steakhouse and the award-winning Drafts Burger Bar; The Marketplace &amp; Liquor Store on site for groceries and beer; the largest indoor and outdoor heated pool in Park City with two spa tubs and an adults-only relaxation pool; and an activities centre and arcade for families.</div>
+      <div class="faq-a">Guests have the run of Westgate Park City Resort &amp; Spa. That includes Serenity Spa, a Best of State winner for Best Destination Spa every year since 2017, with fourteen treatment rooms; Edge Steakhouse and the award-winning Drafts Burger Bar; The Marketplace &amp; Liquor Store on site for groceries and beer; the largest indoor and outdoor heated pool in Park City with two spa tubs and an adults-only relaxation pool; an activities centre and arcade; on-site childcare; ski and snowboard rentals; and a fitness centre and yoga studio.</div>
     </div>
 
     <div class="faq-item" role="listitem">
@@ -1737,7 +1754,7 @@ footer {
         </div>
         <div class="loc-card-body">
           <h3 class="feat-t">Park City Mountain Resort</h3>
-            <p class="feat-d">The villa opens onto it. 7,300 acres and 41 lifts across the largest ski resort in the country.</p>
+            <p class="feat-d">The villa opens onto it. 7,300 acres and 41 lifts across one of the largest ski resorts in the country.</p>
         </div>
       </article>
 
@@ -1789,16 +1806,6 @@ footer {
             <p class="feat-d">About 45 minutes door to door, with direct flights from across the country.</p>
         </div>
       </article>
-
-      <article class="loc-card loc-card--w3 sr sr-d1">
-        <div class="loc-card-media">
-          <img srcset="images/park-city-sundance-480.webp 480w, images/park-city-sundance-960.webp 960w, images/park-city-sundance.webp 1448w" sizes="(max-width: 620px) calc(100vw - 40px), (max-width: 1040px) 46vw, 31vw" src="images/park-city-sundance.webp" alt="Crowds on Main Street outside the Egyptian Theatre during the Sundance Film Festival" width="1448" height="1086" loading="lazy" decoding="async">
-        </div>
-        <div class="loc-card-body">
-          <h3 class="feat-t">Sundance Film Festival</h3>
-            <p class="feat-d">Park City hosts Sundance every January, and Main Street becomes the centre of it.</p>
-        </div>
-      </article>
   </div>
 </section>
 
@@ -1841,7 +1848,7 @@ footer {
         </div>
         <div class="cf-f">
           <label for="f-dt">Dates of Interest</label>
-          <input type="text" id="f-dt" name="dates" placeholder="Feb 13-20, 2026" value="Feb 13-20, 2026">
+          <input type="text" id="f-dt" name="dates" placeholder="Feb 13-20, 2027" value="Feb 13-20, 2027">
         </div>
       </div>
       <div class="cf-f">
@@ -1855,7 +1862,7 @@ footer {
 
     <div class="ci sr sr-d3">
       <div class="ci-alert">
-        <strong>Presidents' Week 2026: Feb 13-20</strong><br>
+        <strong>Presidents' Week 2027: Feb 13-20</strong><br>
         This is the most in-demand ski week of the year in Park City. Reach out early. The villa rents as a complete two-bedroom unit, not split into individual rooms.
       </div>
       <div class="ci-card">
@@ -2046,25 +2053,6 @@ footer {
       card.style.transform = 'perspective(600px) rotateY(0deg) rotateX(0deg) translateZ(0)';
     });
   });
-
-  /* ── Scroll reveal ──
-     revealAll() is the escape hatch: without IntersectionObserver, and on a
-     watchdog timer, so a stalled observer can never leave content invisible. */
-  function revealAll() {
-    document.querySelectorAll('.sr').forEach(function (el) { el.classList.add('up'); });
-  }
-
-  if ('IntersectionObserver' in window) {
-    var obs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) { entry.target.classList.add('up'); obs.unobserve(entry.target); }
-      });
-    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.sr').forEach(function (el) { obs.observe(el); });
-    setTimeout(revealAll, 3000);
-  } else {
-    revealAll();
-  }
 
   /* ── FAQ accordion ── */
   document.querySelectorAll('.faq-q').forEach(function (btn) {
