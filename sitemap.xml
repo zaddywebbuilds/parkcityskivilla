@@ -1,10 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://parkcityskivilla.com/</loc>
     <lastmod>2026-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://parkcityskivilla.com/images/park-city-ski-villa-living-area.jpg</image:loc>
+      <image:title>Park City ski villa living area</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://parkcityskivilla.com/images/park-city-ski-villa-king-bedroom.jpg</image:loc>
+      <image:title>King bedroom in the Park City two-bedroom ski villa</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://parkcityskivilla.com/images/park-city-ski-villa-kitchen.jpg</image:loc>
+      <image:title>GE Monogram kitchen with center island</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://parkcityskivilla.com/images/park-city-ski-villa-living-room.jpg</image:loc>
+      <image:title>Villa living room with queen sleeper sofa</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://parkcityskivilla.com/images/park-city-ski-villa-dining-kitchen.jpg</image:loc>
+      <image:title>Dining area and open-plan kitchen</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://parkcityskivilla.com/images/park-city-ski-villa-second-bedroom.jpg</image:loc>
+      <image:title>Second king bedroom</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://parkcityskivilla.com/images/park-city-ski-villa-steam-shower.jpg</image:loc>
+      <image:title>Private bathroom with walk-in steam shower</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://parkcityskivilla.com/images/park-city-ski-villa-suite-living.jpg</image:loc>
+      <image:title>Suite living area</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://parkcityskivilla.com/images/park-city-ski-villa-kitchenette.jpg</image:loc>
+      <image:title>Kitchenette with granite countertops</image:title>
+    </image:image>
   </url>
 </urlset>
