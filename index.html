@@ -330,6 +330,19 @@ img { display: block; max-width: 100%; }
 @media (max-width: 768px) {
   .nav-links .nav-link { display: none; }
 }
+@media (max-width: 480px) {
+  /* At phone width the logo and the CTA collide, so shrink both and let
+     the logo truncate rather than run underneath the button. */
+  .nav { padding-inline: 16px; gap: 10px; }
+  .nav-logo {
+    font-size: 0.98rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+  }
+  .nav .btn { font-size: 0.62rem; padding: 8px 12px; white-space: nowrap; flex-shrink: 0; }
+}
 
 /* ── Hero: no background image; every photo is a surface element ── */
 .hero {
@@ -691,22 +704,95 @@ img { display: block; max-width: 100%; }
   margin: 0 0 22px;
 }
 
-.about-hl { display: flex; flex-direction: column; gap: 12px; }
-
-.hl {
-  display: flex; gap: 14px; align-items: flex-start;
-  padding: 18px 18px;
-  background: var(--bg-2);
-  border: 1px solid var(--border);
-  border-left: 2px solid var(--gold-dim);
-  border-radius: var(--r);
-  transition: border-left-color 0.25s var(--ease), background 0.25s var(--ease);
+/* ── Feature cards: each villa selling point carries its own photograph ── */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 44px;
 }
-.hl:hover { border-left-color: var(--gold); background: var(--surface); }
 
-.hl-icon { font-size: 1.25rem; flex-shrink: 0; margin-top: 1px; }
-.hl-t { font-size: 0.78rem; font-weight: 600; color: var(--gold); letter-spacing: 0.04em; margin-bottom: 3px; }
-.hl-d { font-size: 0.82rem; color: var(--snow-muted); line-height: 1.5; }
+.feat {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: var(--bg-2);
+  aspect-ratio: 4 / 3;
+  transition: border-color 0.25s var(--ease), transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.feat:hover {
+  border-color: var(--border-gold);
+  transform: translateY(-3px);
+  box-shadow: 0 18px 46px rgba(0,0,0,0.45);
+}
+
+/* The photograph fills the card; the copy sits on top of it. */
+.feat-media { position: absolute; inset: 0; overflow: hidden; }
+.feat-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s var(--ease);
+}
+.feat:hover .feat-media img { transform: scale(1.05); }
+
+.feat-body {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 72px 22px 20px;
+  background: linear-gradient(
+    to top,
+    rgba(16,10,5,0.96) 0%,
+    rgba(16,10,5,0.82) 38%,
+    rgba(16,10,5,0.34) 70%,
+    transparent 100%
+  );
+}
+.feat-t {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.12;
+  color: var(--snow);
+  margin: 0 0 7px;
+  letter-spacing: -0.005em;
+  text-wrap: balance;
+}
+.feat-rule {
+  width: 26px; height: 2px;
+  background: var(--gold);
+  margin-bottom: 10px;
+  transition: width 0.35s var(--ease);
+}
+.feat:hover .feat-rule { width: 46px; }
+.feat-d {
+  font-size: 0.83rem;
+  color: rgba(237,231,226,0.80);
+  line-height: 1.6;
+  max-width: 46ch;
+}
+
+.feat--wide { grid-column: span 2; aspect-ratio: 8 / 3.1; }
+.feat--wide .feat-t { font-size: 1.95rem; }
+.feat--wide .feat-body { padding: 86px 28px 24px; }
+
+@media (max-width: 900px) {
+  .feature-grid { grid-template-columns: repeat(2, 1fr); }
+  .feat--wide { grid-column: span 2; }
+}
+@media (max-width: 560px) {
+  .feature-grid { grid-template-columns: 1fr; }
+  /* The aspect ratio lives on the card now, not the image, so the wide
+     card has to be reset here or it collapses to a letterbox strip. */
+  .feat--wide { grid-column: span 1; aspect-ratio: 4 / 3; }
+  .feat--wide .feat-t { font-size: 1.5rem; }
+  .feat--wide .feat-body { padding: 72px 22px 20px; }
+}
 
 /* ── Amenities ── */
 #amenities {
@@ -1180,43 +1266,75 @@ footer {
       <p>Each bedroom holds a king bed dressed in luxury linens. Each living area holds a leather queen sleeper sofa. The kitchen is fully equipped: center island, premium stone countertops, GE Monogram Series stainless steel appliances, a full range with oven, a two-zone wine and beverage chiller, plus a secondary kitchenette. You can cook real meals here.</p>
       <p>The two private bathrooms each include a walk-in steam shower. One adds a separate soaking tub. An in-unit washer and dryer means you can pack for a week and actually live in it. All of this sits inside Westgate Park City Resort &amp; Spa, with ski-in/ski-out access to Park City Mountain Resort, the largest ski resort in the United States.</p>
     </div>
-    <div class="about-hl sr sr-d2">
-      <div class="hl tilt-card">
-        <span class="hl-icon">🏔️</span>
-        <div>
-          <div class="hl-t">Ski-in / Ski-out</div>
-          <div class="hl-d">Direct access to Park City Mountain Resort. 330+ trails, 41 lifts, the largest resort in the US.</div>
-        </div>
+  </div>
+
+  <div class="feature-grid">
+
+    <article class="feat feat--wide sr">
+      <div class="feat-media">
+        <img src="images/park-city-ski-villa-ski-in-balcony.webp"
+             alt="Balcony with a fire pit overlooking the ski runs and chairlifts at Park City Mountain Resort"
+             width="1448" height="1086" loading="lazy" decoding="async">
       </div>
-      <div class="hl tilt-card">
-        <span class="hl-icon">🍳</span>
-        <div>
-          <div class="hl-t">GE Monogram Kitchen</div>
-          <div class="hl-d">Full kitchen with center island, stone countertops, two-zone wine chiller, every appliance included.</div>
-        </div>
+      <div class="feat-body">
+        <h3 class="feat-t">Ski-in / Ski-out</h3>
+        <div class="feat-rule" aria-hidden="true"></div>
+        <p class="feat-d" style="margin:0">Direct access to Park City Mountain Resort. 330+ trails, 41 lifts, the largest resort in the US.</p>
       </div>
-      <div class="hl tilt-card">
-        <span class="hl-icon">🚿</span>
-        <div>
-          <div class="hl-t">Dual Steam Showers</div>
-          <div class="hl-d">Two private bathrooms, both with walk-in steam showers. One includes a separate soaking tub.</div>
-        </div>
+    </article>
+
+    <article class="feat sr sr-d1">
+      <div class="feat-media">
+        <img src="images/park-city-ski-villa-gourmet-kitchen.webp"
+             alt="Villa kitchen with a stone island, stainless range and wine chiller"
+             width="1448" height="1086" loading="lazy" decoding="async">
       </div>
-      <div class="hl tilt-card">
-        <span class="hl-icon">🧺</span>
-        <div>
-          <div class="hl-t">In-Unit Washer &amp; Dryer</div>
-          <div class="hl-d">Pack light, ski every day. Full laundry in the villa, so no hotel fees and no waiting.</div>
-        </div>
+      <div class="feat-body">
+        <h3 class="feat-t">GE Monogram Kitchen</h3>
+        <div class="feat-rule" aria-hidden="true"></div>
+        <p class="feat-d" style="margin:0">Full kitchen with center island, stone countertops, two-zone wine chiller, every appliance included.</p>
       </div>
-      <div class="hl tilt-card">
-        <span class="hl-icon">🛏️</span>
-        <div>
-          <div class="hl-t">Sleeps 8 Guests</div>
-          <div class="hl-d">2 king beds + 2 leather queen sleeper sofas across separate bedrooms and living areas.</div>
-        </div>
+    </article>
+
+    <article class="feat sr">
+      <div class="feat-media">
+        <img src="images/park-city-ski-villa-steam-shower-bath.webp"
+             alt="Villa bathroom with two walk-in steam showers and a freestanding soaking tub"
+             width="1448" height="1086" loading="lazy" decoding="async">
       </div>
-    </div>
+      <div class="feat-body">
+        <h3 class="feat-t">Dual Steam Showers</h3>
+        <div class="feat-rule" aria-hidden="true"></div>
+        <p class="feat-d" style="margin:0">Two private bathrooms, both with walk-in steam showers. One includes a separate soaking tub.</p>
+      </div>
+    </article>
+
+    <article class="feat sr sr-d1">
+      <div class="feat-media">
+        <img src="images/park-city-ski-villa-laundry.webp"
+             alt="In-unit laundry with full size washer and dryer and folded towels"
+             width="1448" height="1086" loading="lazy" decoding="async">
+      </div>
+      <div class="feat-body">
+        <h3 class="feat-t">In-Unit Washer &amp; Dryer</h3>
+        <div class="feat-rule" aria-hidden="true"></div>
+        <p class="feat-d" style="margin:0">Pack light, ski every day. Full laundry in the villa, so no hotel fees and no waiting.</p>
+      </div>
+    </article>
+
+    <article class="feat sr sr-d2">
+      <div class="feat-media">
+        <img src="images/park-city-ski-villa-great-room.webp"
+             alt="Open great room with fireplace, seating and beds, looking out to the snow covered mountain"
+             width="1448" height="1086" loading="lazy" decoding="async">
+      </div>
+      <div class="feat-body">
+        <h3 class="feat-t">Sleeps 8 Guests</h3>
+        <div class="feat-rule" aria-hidden="true"></div>
+        <p class="feat-d" style="margin:0">2 king beds and 2 leather queen sleeper sofas across separate bedrooms and living areas.</p>
+      </div>
+    </article>
+
   </div>
 </section>
 
