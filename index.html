@@ -346,10 +346,13 @@ img { display: block; max-width: 100%; }
 .hero {
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  /* Copy column deliberately narrower than the photograph: the image
+     carries the page, the headline sits tight to the left edge. */
+  grid-template-columns: 0.62fr 1fr;
   align-items: center;
-  gap: clamp(32px, 5vw, 68px);
+  gap: clamp(24px, 3vw, 44px);
   padding: clamp(92px, 13vh, 140px) var(--gutter) clamp(48px, 7vh, 76px);
+  padding-left: clamp(18px, 3vw, 44px);
   max-width: calc(var(--max) + var(--gutter) * 2);
   margin: 0 auto;
   overflow: visible;
@@ -447,7 +450,15 @@ img { display: block; max-width: 100%; }
 }
 
 @media (max-width: 960px) {
-  .hero { grid-template-columns: 1fr; gap: 40px; min-height: 0; padding-top: clamp(92px, 16vh, 130px); }
+  /* Once stacked there is no image to sit beside, so the copy returns to
+     the page gutter and lines up with every section below it. */
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    min-height: 0;
+    padding-top: clamp(92px, 16vh, 130px);
+    padding-left: var(--gutter);
+  }
   .hero-content { max-width: 100%; }
   .hero-stack { max-width: 560px; }
 }
@@ -475,9 +486,11 @@ img { display: block; max-width: 100%; }
 
 .hero h1 {
   font-family: var(--serif);
-  font-size: clamp(2.8rem, 6.5vw, 6rem);
+  /* Sized so "A two-bedroom ski villa" holds one line in the narrower
+     copy column; any larger and "villa" drops on its own. */
+  font-size: clamp(2rem, 3.3vw, 2.95rem);
   font-weight: 300;
-  line-height: 1.02;
+  line-height: 1.04;
   margin: 0 0 10px;
   letter-spacing: -0.02em;
 }
