@@ -693,30 +693,44 @@ img { display: block; max-width: 100%; }
 
 .about-grid {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 72px;
-  align-items: start;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 56px;
+  /* stretch, not start: the columns must end on the same line, otherwise
+     the shorter one leaves a dead block of background beside the taller. */
+  align-items: stretch;
 }
 
+.about-body { display: flex; flex-direction: column; }
+.about-body .section-title { margin-bottom: 20px; }
 .about-body p {
   color: var(--snow-muted);
   line-height: 1.9;
   margin: 0 0 22px;
 }
+.about-body p:last-child { margin-bottom: 0; }
 
 /* ── Feature list: photo thumbnail beside the copy, stacked in the
    right column alongside the villa description ── */
-.about-hl { display: flex; flex-direction: column; gap: 10px; }
+.about-hl {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+}
 
 .feat {
   display: grid;
-  grid-template-columns: 104px 1fr;
+  grid-template-columns: 112px 1fr;
   align-items: stretch;
   overflow: hidden;
   border-radius: 4px;
   border: 1px solid var(--border);
   background: var(--bg-2);
   transition: border-color 0.25s var(--ease), background 0.25s var(--ease);
+  /* Cards share the column height evenly so the stack ends level with the
+     prose beside it instead of running long or short. */
+  flex: 1 1 0;
+  min-height: 98px;
 }
 .feat:hover { border-color: var(--border-gold); background: var(--surface); }
 
@@ -733,7 +747,13 @@ img { display: block; max-width: 100%; }
 }
 .feat:hover .feat-media img { transform: scale(1.06); }
 
-.feat-body { padding: 13px 16px 14px 15px; min-width: 0; }
+.feat-body {
+  padding: 13px 16px 14px 15px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .feat-t {
   font-family: var(--serif);
   font-size: 1.12rem;
@@ -806,7 +826,8 @@ img { display: block; max-width: 100%; }
 .pw-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px; align-items: center;
+  gap: 60px;
+  align-items: stretch;
   position: relative; z-index: 1;
 }
 
@@ -814,6 +835,9 @@ img { display: block; max-width: 100%; }
 .pw-text p { color: var(--snow-muted); line-height: 1.85; margin-bottom: 18px; }
 
 .pw-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background: var(--surface);
   border: 1px solid var(--border);
   border-top: 2px solid var(--gold);
@@ -892,7 +916,8 @@ img { display: block; max-width: 100%; }
 .loc-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 56px; align-items: start;
+  gap: 56px;
+  align-items: stretch;
   margin-top: 44px;
 }
 
@@ -928,7 +953,8 @@ img { display: block; max-width: 100%; }
 .loc-map-addr span { font-size: 0.76rem; color: var(--snow-muted); }
 .loc-map-dir { flex-shrink: 0; }
 
-.loc-pts { display: flex; flex-direction: column; gap: 10px; }
+.loc-pts { display: flex; flex-direction: column; gap: 10px; height: 100%; }
+.loc-pt { flex: 1 1 0; min-height: 64px; align-items: center; }
 .loc-pt {
   display: flex; gap: 14px; align-items: flex-start;
   padding: 14px 16px;
@@ -949,7 +975,8 @@ img { display: block; max-width: 100%; }
 .contact-grid {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
-  gap: 64px; align-items: start;
+  gap: 64px;
+  align-items: stretch;
   margin-top: 44px;
 }
 
@@ -982,7 +1009,10 @@ select option { background: var(--surface); }
 #form-msg.ok { color: var(--gold-lt); }
 #form-msg.err { color: #e06060; }
 
-.ci { display: flex; flex-direction: column; gap: 12px; }
+.ci { display: flex; flex-direction: column; gap: 12px; height: 100%; }
+/* The alert keeps its natural size; the three cards share what's left so
+   the column ends level with the form. */
+.ci-card { flex: 1 1 0; display: flex; flex-direction: column; justify-content: center; }
 
 .ci-alert {
   background: var(--gold-dim);
@@ -1047,6 +1077,13 @@ footer {
   .gi { grid-column: auto !important; grid-row: auto !important; }
   .gi img { aspect-ratio: 4/3; height: auto; }
   .about-grid, .pw-grid, .loc-grid, .contact-grid { grid-template-columns: 1fr; gap: 44px; }
+
+  /* Once the columns stack there is no neighbouring column to match, so
+     release the equal-height stretch. Leaving it on forces every card to a
+     fixed height that is shorter than its own text, and overflow:hidden
+     then silently clips the copy. */
+  .about-hl, .loc-pts, .ci { height: auto; }
+  .feat, .loc-pt, .ci-card { flex: 0 0 auto; min-height: 0; }
 }
 @media (max-width: 560px) {
   .gallery-grid { grid-template-columns: 1fr; }
@@ -1221,13 +1258,12 @@ footer {
 
 <!-- ── About ── -->
 <section id="about" class="section" aria-labelledby="about-h2">
-  <span class="eyebrow sr">The Villa</span>
-  <h2 id="about-h2" class="section-title sr sr-d1">
-    1,100 square feet,<br><em style="font-style:italic;">two bedrooms, sleeps eight</em>
-  </h2>
-
   <div class="about-grid">
     <div class="about-body sr sr-d1">
+      <span class="eyebrow">The Villa</span>
+      <h2 id="about-h2" class="section-title">
+        1,100 square feet,<br><em style="font-style:italic;">two bedrooms, sleeps eight</em>
+      </h2>
       <p>The Premier Two-Bedroom Villa at Westgate Park City Resort &amp; Spa gives you 1,100 square feet of living space. Two complete bedrooms, two full bathrooms, and two separate living areas mean eight guests have room to spread out after a day on the mountain.</p>
       <p>Each bedroom holds a king bed dressed in luxury linens. Each living area holds a leather queen sleeper sofa. The kitchen is fully equipped: center island, premium stone countertops, GE Monogram Series stainless steel appliances, a full range with oven, a two-zone wine and beverage chiller, plus a secondary kitchenette. You can cook real meals here.</p>
       <p>The two private bathrooms each include a walk-in steam shower. One adds a separate soaking tub. An in-unit washer and dryer means you can pack for a week and actually live in it. All of this sits inside Westgate Park City Resort &amp; Spa, with ski-in/ski-out access to Park City Mountain Resort, the largest ski resort in the United States.</p>
