@@ -34,8 +34,8 @@
 <!-- Geo tags -->
 <meta name="geo.region" content="US-UT">
 <meta name="geo.placename" content="Park City, Utah">
-<meta name="geo.position" content="40.6870;-111.5447">
-<meta name="ICBM" content="40.6870, -111.5447">
+<meta name="geo.position" content="40.6844315;-111.5547043">
+<meta name="ICBM" content="40.6844315, -111.5547043">
 
 <!-- Rich Schema: VacationRental -->
 <script type="application/ld+json">
@@ -64,8 +64,8 @@
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": 40.6870,
-        "longitude": -111.5447
+        "latitude": 40.6844315,
+        "longitude": -111.5547043
       },
       "numberOfRooms": 2,
       "floorSize": {
@@ -529,9 +529,18 @@ img { display: block; max-width: 100%; }
    Everything below the hero sits above the fixed snow canvas on its own
    opaque ground, so snow reads only behind the hero. */
 .section {
-  padding: 84px var(--gutter);
+  padding: 52px var(--gutter);
   max-width: calc(var(--max) + var(--gutter) * 2);
   margin: 0 auto;
+}
+
+/* Segments butt directly against each other: the dividing line is the
+   background change plus a hairline rule, never empty space. */
+#gallery, #about, #amenities, #presidents, #faq, #location, #contact {
+  margin-block: 0;
+}
+#about, #presidents, #faq, #location, #contact {
+  border-top: 1px solid var(--border);
 }
 
 .stats-bar, .avail-bar, #gallery, #about, #amenities,
@@ -542,7 +551,7 @@ img { display: block; max-width: 100%; }
 #about, #presidents, #location { background: var(--bg); }
 
 /* ── Gallery ── */
-#gallery { background: var(--bg-2); padding-block: 84px; }
+#gallery { background: var(--bg-2); padding-block: 52px; }
 
 .gallery-header {
   padding: 0 var(--gutter);
@@ -807,21 +816,33 @@ img { display: block; max-width: 100%; }
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--r);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.loc-map-frame {
+  width: 100%;
   aspect-ratio: 4/3;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  gap: 12px; padding: 32px; text-align: center;
+  border: 0;
+  display: block;
+  /* Google's embed renders light; soften it toward the page without
+     washing out the pin or street labels. */
+  filter: grayscale(0.25) contrast(1.05) brightness(0.92);
 }
-.loc-map-icon { font-size: 2.2rem; }
-.loc-map strong { font-size: 0.95rem; color: var(--snow); }
-.loc-map span { font-size: 0.82rem; color: var(--snow-muted); }
-.loc-map a {
-  margin-top: 8px; color: var(--gold);
-  font-size: 0.72rem; letter-spacing: 0.1em;
-  text-decoration: none; border-bottom: 1px solid var(--border-gold);
-  padding-bottom: 2px; transition: border-color 0.2s, color 0.2s;
+.loc-map-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding: 14px 16px;
+  border-top: 1px solid var(--border);
+  background: var(--bg-2);
 }
-.loc-map a:hover { color: var(--gold-lt); border-color: var(--gold); }
+.loc-map-addr { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.loc-map-addr strong { font-size: 0.86rem; color: var(--snow); }
+.loc-map-addr span { font-size: 0.76rem; color: var(--snow-muted); }
+.loc-map-dir { flex-shrink: 0; }
 
 .loc-pts { display: flex; flex-direction: column; gap: 10px; }
 .loc-pt {
@@ -1364,10 +1385,22 @@ footer {
 
   <div class="loc-grid">
     <div class="loc-map sr sr-d1">
-      <span class="loc-map-icon" aria-hidden="true">📍</span>
-      <strong>Westgate Park City Resort &amp; Spa</strong>
-      <span>3000 Canyons Resort Drive<br>Park City, UT 84098</span>
-      <a href="https://maps.google.com/?q=Westgate+Park+City+Resort+Spa+3000+Canyons+Resort+Drive+Park+City+UT" target="_blank" rel="noopener noreferrer">Open in Google Maps &nearr;</a>
+      <iframe
+        class="loc-map-frame"
+        title="Map showing Westgate Park City Resort &amp; Spa, 3000 Canyons Resort Drive, Park City, Utah"
+        src="https://maps.google.com/maps?q=Westgate%20Park%20City%20Resort%20%26%20Spa%2C%203000%20Canyons%20Resort%20Drive%2C%20Park%20City%2C%20UT%2084098&amp;z=15&amp;output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen></iframe>
+      <div class="loc-map-bar">
+        <div class="loc-map-addr">
+          <strong>Westgate Park City Resort &amp; Spa</strong>
+          <span>3000 Canyons Resort Drive, Park City, UT 84098</span>
+        </div>
+        <a class="btn btn-gold loc-map-dir"
+           href="https://www.google.com/maps/dir/?api=1&amp;destination=Westgate%20Park%20City%20Resort%20%26%20Spa%2C%203000%20Canyons%20Resort%20Drive%2C%20Park%20City%2C%20UT%2084098"
+           target="_blank" rel="noopener noreferrer">Get Directions</a>
+      </div>
     </div>
     <div class="loc-pts sr sr-d2">
       <div class="loc-pt">
