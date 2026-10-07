@@ -914,10 +914,6 @@ img { display: block; max-width: 100%; }
   padding: 17px 20px 20px;
   border-top: 1px solid var(--border);
 }
-/* Text cards have no photograph, so the copy gets the whole card. */
-.ra--text .ra-body { padding: 26px 22px 28px; border-top: none; }
-.ra--text:hover { background: var(--surface); }
-
 .ra-tag {
   font-size: 0.58rem;
   font-weight: 700;
@@ -1327,6 +1323,50 @@ footer {
   transform-style: preserve-3d;
   transition: transform 0.3s var(--ease);
   will-change: transform;
+}
+
+
+/* ── Footer ── */
+.f-inner {
+  max-width: calc(var(--max) + var(--gutter) * 2);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 28px;
+}
+.f-col-t {
+  font-size: 0.6rem; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: #e8be85; margin-bottom: 12px;
+}
+.f-col p, .f-col li {
+  font-size: 0.78rem;
+  color: rgba(253,246,236,0.62);
+  line-height: 1.7;
+  margin: 0 0 6px;
+}
+.f-col ul { list-style: none; margin: 0; padding: 0; }
+.f-col a {
+  color: rgba(253,246,236,0.62);
+  text-decoration: none;
+  transition: color 0.2s;
+  /* Inline-block with padding gives these a 44px tap area on touch
+     without changing how the column reads. */
+  display: inline-block;
+  padding-block: 12px;
+}
+.f-col a:hover { color: #e8be85; }
+.f-bar {
+  max-width: calc(var(--max) + var(--gutter) * 2);
+  margin: 0 auto;
+  padding-top: 22px;
+  border-top: 1px solid rgba(253,246,236,0.10);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 14px;
+}
+@media (max-width: 760px) {
+  .f-inner { grid-template-columns: 1fr; gap: 30px; }
 }
 
 /* ── No reveal gate ──
@@ -1775,7 +1815,13 @@ footer {
         </div>
       </article>
 
-      <article class="ra ra--text sr sr-d2">
+      <article class="ra ra--img sr sr-d2">
+        <div class="ra-media">
+          <img srcset="images/resort-edge-steakhouse-480.webp 480w, images/resort-edge-steakhouse-960.webp 960w, images/resort-edge-steakhouse.webp 1448w"
+               sizes="(max-width: 580px) calc(100vw - 40px), (max-width: 900px) 46vw, 31vw"
+               src="images/resort-edge-steakhouse.webp" alt="Candlelit steakhouse dining room with an open fire grill and mountain views at dusk"
+               width="1448" height="1086" loading="lazy" decoding="async">
+        </div>
         <div class="ra-body">
           <div class="ra-tag">Dining</div>
           <h3 class="ra-t">Edge Steakhouse</h3>
@@ -1784,7 +1830,13 @@ footer {
         </div>
       </article>
 
-      <article class="ra ra--text sr">
+      <article class="ra ra--img sr">
+        <div class="ra-media">
+          <img srcset="images/resort-drafts-burger-bar-480.webp 480w, images/resort-drafts-burger-bar-960.webp 960w, images/resort-drafts-burger-bar.webp 1448w"
+               sizes="(max-width: 580px) calc(100vw - 40px), (max-width: 900px) 46vw, 31vw"
+               src="images/resort-drafts-burger-bar.webp" alt="Burgers, fries and a flight of beers on a bar table with the taps and slopes behind"
+               width="1448" height="1086" loading="lazy" decoding="async">
+        </div>
         <div class="ra-body">
           <div class="ra-tag">Dining</div>
           <h3 class="ra-t">Drafts Burger Bar</h3>
@@ -1793,7 +1845,13 @@ footer {
         </div>
       </article>
 
-      <article class="ra ra--text sr sr-d1">
+      <article class="ra ra--img sr sr-d1">
+        <div class="ra-media">
+          <img srcset="images/resort-marketplace-480.webp 480w, images/resort-marketplace-960.webp 960w, images/resort-marketplace.webp 1448w"
+               sizes="(max-width: 580px) calc(100vw - 40px), (max-width: 900px) 46vw, 31vw"
+               src="images/resort-marketplace.webp" alt="Resort market with fresh produce, baked goods, a coffee bar and shelves of wine"
+               width="1448" height="1086" loading="lazy" decoding="async">
+        </div>
         <div class="ra-body">
           <div class="ra-tag">On Site</div>
           <h3 class="ra-t">The Marketplace &amp; Liquor Store</h3>
@@ -1802,7 +1860,13 @@ footer {
         </div>
       </article>
 
-      <article class="ra ra--text sr sr-d2">
+      <article class="ra ra--img sr sr-d2">
+        <div class="ra-media">
+          <img srcset="images/resort-childcare-480.webp 480w, images/resort-childcare-960.webp 960w, images/resort-childcare.webp 1448w"
+               sizes="(max-width: 580px) calc(100vw - 40px), (max-width: 900px) 46vw, 31vw"
+               src="images/resort-childcare.webp" alt="Warm kids playroom with a teepee, soft seating, books and toys looking out to the snow"
+               width="1448" height="1086" loading="lazy" decoding="async">
+        </div>
         <div class="ra-body">
           <div class="ra-tag">Families</div>
           <h3 class="ra-t">On-Site Childcare</h3>
@@ -1924,7 +1988,7 @@ footer {
         </div>
         <div class="loc-card-body">
           <h3 class="feat-t">Park City Mountain Resort</h3>
-            <p class="feat-d">The villa opens onto it. 7,300 acres and 41 lifts across one of the largest ski resorts in the country.</p>
+            <p class="feat-d">The villa opens onto it. 7,300 acres and 41 lifts across one of the largest ski resorts in the country, and a 2002 Winter Olympics host.</p>
         </div>
       </article>
 
@@ -1953,7 +2017,7 @@ footer {
         </div>
         <div class="loc-card-body">
           <h3 class="feat-t">Deer Valley Resort</h3>
-            <p class="feat-d">About 10 minutes by car. Skiers only, and famous for its grooming.</p>
+            <p class="feat-d">About 10 minutes by car. Skiers only, famous for its grooming, and a confirmed venue for the 2034 Winter Olympics.</p>
         </div>
       </article>
 
@@ -2094,18 +2158,48 @@ footer {
 </div>
 
 <footer role="contentinfo">
-  <div class="f-logo">Park City <span>Ski Villa</span></div>
-  <p class="f-copy" style="margin:0;">
-    &copy; 2026 Park City Ski Villa &nbsp;&middot;&nbsp; Westgate Park City Resort &amp; Spa, Utah
-  </p>
-  <nav class="f-links" aria-label="Footer navigation">
-    <a href="#gallery">Gallery</a>
-    <a href="#amenities">Amenities</a>
-    <a href="#resort">Resort</a>
-    <a href="#direct">Book Direct</a>
-    <a href="#faq">FAQ</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <div class="f-inner">
+    <div class="f-col">
+      <div class="f-col-t">The Villa</div>
+      <p><strong style="color:rgba(253,246,236,0.86);">Park City Ski Villa</strong></p>
+      <p>Premier Two-Bedroom Villa, units 1 &amp; 2 combined.<br>
+         Westgate Park City Resort &amp; Spa<br>
+         3000 Canyons Resort Drive, Park City, UT 84098</p>
+      <p>Rented directly by the owners. We are not Westgate Resorts and we are not a letting agency.</p>
+    </div>
+
+    <div class="f-col">
+      <div class="f-col-t">Enquiries</div>
+      <ul>
+        <li><a href="#contact">Check availability</a></li>
+        <li>stay@parkcityskivilla.com</li>
+        <li>Replies within 24 hours</li>
+      </ul>
+    </div>
+
+    <div class="f-col">
+      <div class="f-col-t">Booking</div>
+      <ul>
+        <li><a href="#direct">Why book direct</a></li>
+        <li><a href="#faq">Questions</a></li>
+        <li><a href="#resort">Resort amenities</a></li>
+        <li>Deposit, cancellation and rental terms are confirmed in writing before any payment is taken.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="f-bar">
+    <div class="f-logo">Park City <span>Ski Villa</span></div>
+    <p class="f-copy" style="margin:0;">&copy; 2026 Park City Ski Villa &nbsp;&middot;&nbsp; Park City, Utah</p>
+    <nav class="f-links" aria-label="Footer navigation">
+      <a href="#gallery">Gallery</a>
+      <a href="#amenities">Amenities</a>
+      <a href="#resort">Resort</a>
+      <a href="#direct">Book Direct</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
 </footer>
 
 <!-- ── Scripts ── -->
@@ -2314,28 +2408,83 @@ footer {
     barSync();
   }
 
-  /* ── Contact form ── */
+  /* ── Enquiry form ──
+     FORM_ENDPOINT is the one line to change when a form service is set up
+     (Formspree, Web3Forms, Getform all take a plain POST and need no server
+     of your own). Leave it empty and the form falls back to opening the
+     visitor's mail client with everything filled in.
+
+     What it must never do is claim an enquiry was sent when nothing left
+     the browser. An earlier version did exactly that, so somebody could
+     believe they had asked about a $6,000 week and simply never hear back. */
+  var FORM_ENDPOINT = '';
+  var OWNER_EMAIL   = 'stay@parkcityskivilla.com';
+
   var form = document.getElementById('booking-form');
-  var msg = document.getElementById('form-msg');
+  var msg  = document.getElementById('form-msg');
+
+  function say(text, ok) {
+    msg.textContent = text;
+    msg.className = 'cf-note ' + (ok ? 'ok' : 'err');
+    msg.hidden = false;
+  }
+
+  function values() {
+    var get = function (id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; };
+    return {
+      first: get('f-fn'), last: get('f-ln'), email: get('f-em'),
+      phone: get('f-ph'), guests: get('f-gu'), dates: get('f-dt'), message: get('f-mg')
+    };
+  }
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    var name  = document.getElementById('f-fn').value.trim();
-    var email = document.getElementById('f-em').value.trim();
-    var re    = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    var v = values();
+    var validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.email);
 
-    if (!name) {
-      msg.textContent = 'Please enter your first name.';
-      msg.className = 'cf-note err'; msg.hidden = false; return;
-    }
-    if (!re.test(email)) {
-      msg.textContent = 'Please enter a valid email address.';
-      msg.className = 'cf-note err'; msg.hidden = false; return;
+    if (!v.first) { say('Please enter your first name.', false); return; }
+    if (!validEmail) { say('Please enter a valid email address.', false); return; }
+
+    var submitBtn = form.querySelector('button[type=submit]');
+
+    if (FORM_ENDPOINT) {
+      submitBtn.disabled = true;
+      say('Sending your enquiry...', true);
+      fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      }).then(function (res) {
+        if (!res.ok) throw new Error('bad status ' + res.status);
+        say('Thanks, ' + v.first + '. Your enquiry is in. We will reply to ' + v.email + ' within 24 hours.', true);
+        form.querySelectorAll('input, textarea, select, button[type=submit]')
+            .forEach(function (el) { el.disabled = true; });
+      }).catch(function () {
+        submitBtn.disabled = false;
+        say('That did not send. Please email ' + OWNER_EMAIL + ' directly and we will come straight back to you.', false);
+      });
+      return;
     }
 
-    msg.textContent = 'Thanks, ' + name + '! Your inquiry is on its way. We\'ll reply to ' + email + ' within 24 hours.';
-    msg.className = 'cf-note ok'; msg.hidden = false;
-    form.querySelectorAll('input, textarea, select, button[type=submit]').forEach(function (el) { el.disabled = true; });
+    /* No endpoint configured: hand the enquiry to their mail client rather
+       than pretending it was delivered. */
+    var subject = 'Villa enquiry: ' + (v.dates || 'Park City Ski Villa');
+    var body = [
+      'Name: ' + v.first + (v.last ? ' ' + v.last : ''),
+      'Email: ' + v.email,
+      v.phone ? 'Phone: ' + v.phone : '',
+      v.guests ? 'Guests: ' + v.guests : '',
+      'Dates: ' + (v.dates || '-'),
+      '',
+      v.message || ''
+    ].filter(Boolean).join('\n');
+
+    window.location.href = 'mailto:' + OWNER_EMAIL +
+      '?subject=' + encodeURIComponent(subject) +
+      '&body=' + encodeURIComponent(body);
+
+    say('Your email app should open with this enquiry ready to send. If nothing happens, email ' +
+        OWNER_EMAIL + ' and we will reply within 24 hours.', true);
   });
 
 })();
