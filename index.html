@@ -1113,6 +1113,89 @@ img { display: block; max-width: 100%; }
   .loc-map { min-height: 340px; }
 }
 
+
+/* ── Why book direct ── */
+#direct {
+  background: var(--bg-2);
+  border-top: 1px solid var(--border);
+}
+.direct-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2px;
+  margin-top: 36px;
+}
+.bd {
+  background: var(--bg);
+  padding: 26px 22px 28px;
+  border-top: 2px solid var(--gold-dim);
+  transition: border-top-color 0.25s var(--ease), background 0.25s var(--ease);
+}
+.bd:hover { border-top-color: var(--gold); background: var(--surface); }
+.bd-n {
+  font-family: var(--serif);
+  font-size: 1.9rem;
+  font-weight: 500;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 10px;
+  font-variant-numeric: tabular-nums;
+}
+.bd-t {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--snow);
+  margin: 0 0 6px;
+}
+.bd-d { font-size: 0.79rem; color: var(--snow-muted); line-height: 1.6; margin: 0; }
+
+@media (max-width: 860px) { .direct-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .direct-grid { grid-template-columns: 1fr; } }
+
+/* ── Sticky booking bar ──
+   Phones only: the hero CTA scrolls away on a page this long, so the
+   enquiry route follows the reader down. Hidden again once the form
+   itself is on screen, where it would just cover the fields. */
+.sticky-cta {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 400;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+  background: rgba(20,13,7,0.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid var(--border-gold);
+  transform: translateY(110%);
+  transition: transform 0.32s var(--ease);
+}
+.sticky-cta.up { transform: translateY(0); }
+.sticky-meta { min-width: 0; }
+.sticky-dates {
+  font-family: var(--serif);
+  font-size: 1.02rem;
+  color: var(--gold);
+  line-height: 1.1;
+  white-space: nowrap;
+}
+.sticky-sub {
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--snow-muted);
+  margin-top: 2px;
+  white-space: nowrap;
+}
+.sticky-cta .btn { flex-shrink: 0; min-height: 44px; }
+
+@media (max-width: 900px) { .sticky-cta { display: flex; } }
+@media (prefers-reduced-motion: reduce) { .sticky-cta { transition: none; } }
+
 /* ── Contact ── */
 #contact { background: var(--bg-2); border-top: 1px solid var(--border); }
 
@@ -1809,6 +1892,35 @@ footer {
   </div>
 </section>
 
+<!-- ── Why book direct ── -->
+<section id="direct" class="section" aria-labelledby="direct-h2">
+  <span class="eyebrow">Booking</span>
+  <h2 id="direct-h2" class="section-title">Why book direct with the owners</h2>
+
+  <div class="direct-grid">
+    <div class="bd">
+      <div class="bd-n">0%</div>
+      <h3 class="bd-t">No platform fees</h3>
+      <p class="bd-d">Booking sites add a service fee to every stay. Coming to us directly, there isn't one.</p>
+    </div>
+    <div class="bd">
+      <div class="bd-n">1:1</div>
+      <h3 class="bd-t">Straight to the owners</h3>
+      <p class="bd-d">You deal with the people who own the villa, not a channel manager or a call centre.</p>
+    </div>
+    <div class="bd">
+      <div class="bd-n">8</div>
+      <h3 class="bd-t">The whole villa</h3>
+      <p class="bd-d">Both units, all 1,100 square feet, for your group alone. We don't split it or share it.</p>
+    </div>
+    <div class="bd">
+      <div class="bd-n">24h</div>
+      <h3 class="bd-t">Answered within a day</h3>
+      <p class="bd-d">Send an enquiry and you'll hear back from us inside 24 hours, with real availability.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ── Contact / Book ── -->
 <section id="contact" class="section" aria-labelledby="contact-h2">
   <span class="eyebrow sr">Book Your Stay</span>
@@ -1885,6 +1997,15 @@ footer {
 </section>
 
 <!-- ── Footer ── -->
+<!-- ── Sticky booking bar (phones) ── -->
+<div class="sticky-cta" id="sticky-cta" aria-hidden="true">
+  <div class="sticky-meta">
+    <div class="sticky-dates">Feb 13&ndash;20, 2027</div>
+    <div class="sticky-sub">7 nights &middot; Sleeps 8</div>
+  </div>
+  <a href="#contact" class="btn btn-gold">Check Availability</a>
+</div>
+
 <footer role="contentinfo">
   <div class="f-logo">Park City <span>Ski Villa</span></div>
   <p class="f-copy" style="margin:0;">
@@ -1894,6 +2015,7 @@ footer {
     <a href="#gallery">Gallery</a>
     <a href="#amenities">Amenities</a>
     <a href="#resort">Resort</a>
+    <a href="#direct">Book Direct</a>
     <a href="#faq">FAQ</a>
     <a href="#contact">Contact</a>
   </nav>
@@ -2069,6 +2191,41 @@ footer {
       }
     });
   });
+
+
+  /* ── Sticky booking bar ──
+     Driven by scroll position rather than IntersectionObserver. This is a
+     conversion element, so it should not depend on a callback that can be
+     throttled or coalesced in a backgrounded tab: if it fails to fire the
+     bar simply never appears, and nothing on screen says so. Reading
+     offsets on scroll always resolves. */
+  var bar = document.getElementById('sticky-cta');
+  if (bar) {
+    var heroActions = document.querySelector('.hero-actions');
+    var contactSec  = document.getElementById('contact');
+    var lastShown = null;
+
+    function barSync() {
+      var y = window.scrollY || window.pageYOffset;
+      var vh = window.innerHeight;
+      var heroBottom = heroActions.getBoundingClientRect().bottom + y;
+      var contactTop = contactSec.getBoundingClientRect().top + y;
+
+      var pastHero  = y + 120 > heroBottom;
+      var formInView = y + vh > contactTop + 120;
+      var show = pastHero && !formInView;
+
+      if (show !== lastShown) {
+        lastShown = show;
+        bar.classList.toggle('up', show);
+        bar.setAttribute('aria-hidden', show ? 'false' : 'true');
+      }
+    }
+
+    window.addEventListener('scroll', barSync, { passive: true });
+    window.addEventListener('resize', barSync, { passive: true });
+    barSync();
+  }
 
   /* ── Contact form ── */
   var form = document.getElementById('booking-form');
