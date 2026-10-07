@@ -867,8 +867,9 @@ img { display: block; max-width: 100%; }
 
 /* ── Resort amenities ──
    Five image cards carry the strongest draws; four text cards hold the
-   rest. Nine cells over three rows of three, so no slot is left empty
-   and image and text cards never sit at different heights in a row. */
+   rest. Nine cells over three rows of three, so no slot is left empty.
+   Copy always sits beneath the photograph, never over it: the same
+   pattern as the villa feature cards, so an image is never obscured. */
 #resort {
   background: var(--bg-2);
   border-top: 1px solid var(--border);
@@ -882,15 +883,12 @@ img { display: block; max-width: 100%; }
 }
 
 .ra {
-  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   overflow: hidden;
   border-radius: 10px;
   border: 1px solid var(--border);
-  background: var(--bg);
-  min-height: 330px;
+  background: var(--bg-2);
   transition: border-color 0.25s var(--ease), transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
 }
 .ra:hover {
@@ -899,34 +897,25 @@ img { display: block; max-width: 100%; }
   box-shadow: 0 20px 48px rgba(0,0,0,0.5);
 }
 
-/* Image cards: photograph fills the card, copy sits on a scrim over it */
-.ra-media { position: absolute; inset: 0; overflow: hidden; }
+/* The photograph takes the top of the card and keeps its full frame. */
+.ra-media { position: relative; overflow: hidden; }
 .ra-media img {
-  width: 100%; height: 100%;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
   object-fit: cover;
   display: block;
   transition: transform 0.6s var(--ease);
 }
-.ra--img:hover .ra-media img { transform: scale(1.05); }
+.ra--img:hover .ra-media img { transform: scale(1.04); }
 
-.ra--img .ra-body {
-  position: relative;
-  z-index: 2;
-  padding: 72px 22px 24px;
-  background: linear-gradient(
-    to top,
-    rgba(14,9,4,0.96) 0%,
-    rgba(14,9,4,0.88) 45%,
-    rgba(14,9,4,0.38) 78%,
-    transparent 100%
-  );
+.ra-body {
+  flex: 1;
+  padding: 17px 20px 20px;
+  border-top: 1px solid var(--border);
 }
-.ra--img .ra-t { color: #fdf6ec; }
-.ra--img .ra-d { color: rgba(253,246,236,0.82); }
-
-/* Text cards: same frame, no photograph, so the copy gets the room */
-.ra--text { background: var(--bg); }
-.ra--text .ra-body { padding: 28px 24px 30px; }
+/* Text cards have no photograph, so the copy gets the whole card. */
+.ra--text .ra-body { padding: 26px 22px 28px; border-top: none; }
 .ra--text:hover { background: var(--surface); }
 
 .ra-tag {
@@ -935,21 +924,21 @@ img { display: block; max-width: 100%; }
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--gold);
-  margin-bottom: 10px;
+  margin-bottom: 9px;
 }
 .ra-t {
   font-family: var(--serif);
-  font-size: 1.36rem;
+  font-size: 1.32rem;
   font-weight: 500;
   line-height: 1.2;
   color: var(--snow);
-  margin: 0 0 9px;
+  margin: 0 0 8px;
   text-wrap: balance;
 }
 .ra-rule {
   width: 22px; height: 2px;
   background: var(--gold);
-  margin-bottom: 12px;
+  margin-bottom: 11px;
   transition: width 0.35s var(--ease);
 }
 .ra:hover .ra-rule { width: 38px; }
@@ -965,9 +954,7 @@ img { display: block; max-width: 100%; }
 }
 @media (max-width: 580px) {
   .resort-grid { grid-template-columns: 1fr; }
-  .ra { min-height: 300px; }
 }
-
 
 /* ── Presidents' Week ── */
 #presidents { background: var(--bg); position: relative; overflow: hidden; }
