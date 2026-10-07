@@ -840,29 +840,32 @@ img { display: block; max-width: 100%; }
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
-
-.am-grid {
+.am-flat {
+  list-style: none;
+  margin: 36px 0 0;
+  padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-  gap: 2px;
-  margin-top: 44px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px 32px;
 }
-.am-col { background: var(--bg); padding: 22px 20px; }
-.am-col-t {
-  font-size: 0.6rem; font-weight: 700;
-  letter-spacing: 0.22em; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 14px;
-  padding-bottom: 10px; border-bottom: 1px solid var(--border);
+.am-flat li {
+  font-size: 0.86rem;
+  color: var(--snow-muted);
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding-bottom: 11px;
+  border-bottom: 1px solid var(--border);
 }
-.am-ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
-.am-ul li {
-  font-size: 0.83rem; color: var(--snow-muted);
-  display: flex; align-items: center; gap: 8px;
+.am-flat li::before {
+  content: '';
+  width: 4px; height: 4px;
+  background: var(--gold);
+  border-radius: 50%;
+  flex-shrink: 0;
 }
-.am-ul li::before {
-  content: ''; width: 3px; height: 3px;
-  background: var(--gold); border-radius: 50%; flex-shrink: 0;
-}
+@media (max-width: 860px) { .am-flat { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .am-flat { grid-template-columns: 1fr; } }
 
 
 /* ── Resort amenities ──
@@ -945,11 +948,18 @@ img { display: block; max-width: 100%; }
   margin: 0;
 }
 
+.ra--wide { grid-column: span 3; }
+.ra--wide .ra-media img { aspect-ratio: 32 / 9; }
+
 @media (max-width: 900px) {
   .resort-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ra--wide { grid-column: span 2; }
+  .ra--wide .ra-media img { aspect-ratio: 16 / 9; }
 }
 @media (max-width: 580px) {
   .resort-grid { grid-template-columns: 1fr; }
+  .ra--wide { grid-column: span 1; }
+  .ra--wide .ra-media img { aspect-ratio: 16 / 10; }
 }
 
 /* ── Presidents' Week ── */
@@ -1508,7 +1518,7 @@ footer {
   <div class="gallery-grid" role="list">
 
     <div class="gi sr" data-li="0" role="listitem" tabindex="0" aria-label="Open photo 1">
-      <img width="940" height="530" srcset="images/park-city-ski-villa-living-area-480.webp 480w, images/park-city-ski-villa-living-area.jpg 940w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 960px) 46vw, 31vw" src="images/park-city-ski-villa-living-area.jpg"
+      <img width="1920" height="1082" srcset="images/park-city-ski-villa-living-area-480.webp 480w, images/park-city-ski-villa-living-area-960.webp 960w, images/park-city-ski-villa-living-area-1440.webp 1440w, images/park-city-ski-villa-living-area.jpg 1920w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 960px) 46vw, 31vw" src="images/park-city-ski-villa-living-area.jpg"
            alt="Premier Two-Bedroom Villa spacious living area with luxury furnishings" loading="lazy">
       <div class="gi-veil" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m21 21-3.5-3.5"/><path d="M11 8v6M8 11h6" stroke-width="1.5"/></svg>
@@ -1516,53 +1526,24 @@ footer {
     </div>
 
     <div class="gi sr sr-d1" data-li="1" role="listitem" tabindex="0" aria-label="Open photo 2">
-      <img width="940" height="530" srcset="images/park-city-ski-villa-king-bedroom-480.webp 480w, images/park-city-ski-villa-king-bedroom.jpg 940w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 960px) 46vw, 31vw" src="images/park-city-ski-villa-king-bedroom.jpg"
+      <img width="1920" height="1082" srcset="images/park-city-ski-villa-king-bedroom-480.webp 480w, images/park-city-ski-villa-king-bedroom-960.webp 960w, images/park-city-ski-villa-king-bedroom-1440.webp 1440w, images/park-city-ski-villa-king-bedroom.jpg 1920w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 960px) 46vw, 31vw" src="images/park-city-ski-villa-king-bedroom.jpg"
            alt="Master bedroom with king bed, luxury linens, and mountain views" loading="lazy">
       <div class="gi-veil" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="6"/><path d="m21 21-3.5-3.5"/></svg></div>
     </div>
 
     <div class="gi sr sr-d2" data-li="2" role="listitem" tabindex="0" aria-label="Open photo 3">
-      <img width="940" height="530" srcset="images/park-city-ski-villa-kitchen-480.webp 480w, images/park-city-ski-villa-kitchen.jpg 940w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 960px) 46vw, 31vw" src="images/park-city-ski-villa-kitchen.jpg"
+      <img width="1920" height="1082" srcset="images/park-city-ski-villa-kitchen-480.webp 480w, images/park-city-ski-villa-kitchen-960.webp 960w, images/park-city-ski-villa-kitchen-1440.webp 1440w, images/park-city-ski-villa-kitchen.jpg 1920w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 960px) 46vw, 31vw" src="images/park-city-ski-villa-kitchen.jpg"
            alt="Fully equipped kitchen with GE Monogram appliances and center island" loading="lazy">
       <div class="gi-veil" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="6"/><path d="m21 21-3.5-3.5"/></svg></div>
     </div>
 
-    <div class="gi sr sr-d3" data-li="3" role="listitem" tabindex="0" aria-label="Open photo 4">
-      <img width="940" height="530" srcset="images/park-city-ski-villa-living-room-480.webp 480w, images/park-city-ski-villa-living-room.jpg 940w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 960px) 46vw, 31vw" src="images/park-city-ski-villa-living-room.jpg"
-           alt="Living room with leather queen sleeper sofa and premium décor" loading="lazy">
-      <div class="gi-veil" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="6"/><path d="m21 21-3.5-3.5"/></svg></div>
-    </div>
 
-    <div class="gi sr" data-li="4" role="listitem" tabindex="0" aria-label="Open photo 5">
-      <img width="940" height="530" srcset="images/park-city-ski-villa-dining-kitchen-480.webp 480w, images/park-city-ski-villa-dining-kitchen.jpg 940w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 960px) 46vw, 31vw" src="images/park-city-ski-villa-dining-kitchen.jpg"
-           alt="Dining area and open-plan kitchen with stone countertops" loading="lazy">
-      <div class="gi-veil" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="6"/><path d="m21 21-3.5-3.5"/></svg></div>
-    </div>
+  </div>
 
-    <div class="gi sr sr-d1" data-li="5" role="listitem" tabindex="0" aria-label="Open photo 6">
-      <img width="1600" height="900" srcset="images/park-city-ski-villa-second-bedroom-480.webp 480w, images/park-city-ski-villa-second-bedroom-960.webp 960w, images/park-city-ski-villa-second-bedroom.jpg 1600w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 960px) 46vw, 31vw" src="images/park-city-ski-villa-second-bedroom.jpg"
-           alt="Second king bedroom with luxury bedding and warm lighting" loading="lazy">
-      <div class="gi-veil" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="6"/><path d="m21 21-3.5-3.5"/></svg></div>
-    </div>
-
-    <div class="gi sr sr-d2" data-li="6" role="listitem" tabindex="0" aria-label="Open photo 7">
-      <img width="1600" height="900" srcset="images/park-city-ski-villa-steam-shower-480.webp 480w, images/park-city-ski-villa-steam-shower-960.webp 960w, images/park-city-ski-villa-steam-shower.jpg 1600w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 960px) 46vw, 31vw" src="images/park-city-ski-villa-steam-shower.jpg"
-           alt="Private bathroom with walk-in steam shower" loading="lazy">
-      <div class="gi-veil" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="6"/><path d="m21 21-3.5-3.5"/></svg></div>
-    </div>
-
-    <div class="gi sr sr-d3" data-li="7" role="listitem" tabindex="0" aria-label="Open photo 8">
-      <img width="1600" height="900" srcset="images/park-city-ski-villa-suite-living-480.webp 480w, images/park-city-ski-villa-suite-living-960.webp 960w, images/park-city-ski-villa-suite-living.jpg 1600w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 960px) 46vw, 31vw" src="images/park-city-ski-villa-suite-living.jpg"
-           alt="Suite living area with sleeper sofa and kitchenette" loading="lazy">
-      <div class="gi-veil" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="6"/><path d="m21 21-3.5-3.5"/></svg></div>
-    </div>
-
-    <div class="gi sr" data-li="8" role="listitem" tabindex="0" aria-label="Open photo 9">
-      <img width="1600" height="900" srcset="images/park-city-ski-villa-kitchenette-480.webp 480w, images/park-city-ski-villa-kitchenette-960.webp 960w, images/park-city-ski-villa-kitchenette.jpg 1600w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 960px) 46vw, 31vw" src="images/park-city-ski-villa-kitchenette.jpg"
-           alt="Kitchenette with granite countertops and stainless steel appliances" loading="lazy">
-      <div class="gi-veil" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="6"/><path d="m21 21-3.5-3.5"/></svg></div>
-    </div>
-
+  <div class="gallery-more">
+    <button type="button" class="btn btn-ghost btn-lg" id="view-all-photos">
+      View all 9 photos
+    </button>
   </div>
 </section>
 
@@ -1655,82 +1636,24 @@ footer {
 
 <!-- ── Amenities ── -->
 <section id="amenities" class="section" aria-labelledby="amenities-h2">
-  <span class="eyebrow sr">Full Amenity List</span>
-  <h2 id="amenities-h2" class="section-title sr sr-d1">Everything included, nothing extra to book</h2>
+  <span class="eyebrow">Also in the villa</span>
+  <h2 id="amenities-h2" class="section-title">The practical things</h2>
+  <p class="section-lead">The headline features have their own place above. These are the rest, the parts nobody photographs but everybody wants to know are there.</p>
 
-  <div class="am-grid">
-    <div class="am-col sr">
-      <div class="am-col-t">Sleeping</div>
-      <ul class="am-ul">
-        <li>2 King Beds</li>
-        <li>2 Queen Sleeper Sofas</li>
-        <li>Luxury Linens &amp; Pillows</li>
-        <li>Separate Bedrooms</li>
-        <li>Sleeps Up to 8 Guests</li>
-      </ul>
-    </div>
-    <div class="am-col sr sr-d1">
-      <div class="am-col-t">Kitchen</div>
-      <ul class="am-ul">
-        <li>GE Monogram Appliances</li>
-        <li>Range (Stovetop &amp; Oven)</li>
-        <li>Refrigerator</li>
-        <li>Dishwasher</li>
-        <li>Microwave</li>
-        <li>Coffee / Tea Maker</li>
-        <li>Center Island</li>
-        <li>Premium Stone Countertops</li>
-        <li>Secondary Kitchenette</li>
-        <li>Two-Zone Wine Chiller</li>
-        <li>Full Cookware &amp; Utensils</li>
-      </ul>
-    </div>
-    <div class="am-col sr sr-d2">
-      <div class="am-col-t">Bathrooms</div>
-      <ul class="am-ul">
-        <li>2 Full Private Bathrooms</li>
-        <li>2 Walk-in Steam Showers</li>
-        <li>1 Separate Soaking Tub</li>
-        <li>Hairdryer</li>
-        <li>Luxury Toiletries</li>
-      </ul>
-    </div>
-    <div class="am-col sr sr-d3">
-      <div class="am-col-t">In-Unit</div>
-      <ul class="am-ul">
-        <li>Washer / Dryer</li>
-        <li>Cable TV with Premium Channels</li>
-        <li>Air Conditioning &amp; Heating</li>
-        <li>Ceiling Fan</li>
-        <li>In-Room Safe</li>
-        <li>Iron &amp; Ironing Board</li>
-        <li>Alarm Clock Radio</li>
-        <li>Phone with Voicemail</li>
-      </ul>
-    </div>
-    <div class="am-col sr">
-      <div class="am-col-t">Resort Access</div>
-      <ul class="am-ul">
-        <li>Ski-in / Ski-out</li>
-        <li>Park City Mountain Resort</li>
-        <li>Westgate Spa</li>
-        <li>Resort Pool &amp; Hot Tub</li>
-        <li>Fitness Center</li>
-        <li>Concierge</li>
-      </ul>
-    </div>
-    <div class="am-col sr sr-d1">
-      <div class="am-col-t">General</div>
-      <ul class="am-ul">
-        <li>1,100 Square Feet</li>
-        <li>2 Bedrooms / 2 Bathrooms</li>
-        <li>Non-Smoking Unit</li>
-        <li>2 Separate Living Areas</li>
-        <li>Dining Area</li>
-        <li>Private Unit Entrance</li>
-      </ul>
-    </div>
-  </div>
+  <ul class="am-flat">
+    <li>Air conditioning &amp; heating</li>
+    <li>Ceiling fans</li>
+    <li>Cable TV with premium channels</li>
+    <li>In-room safe</li>
+    <li>Iron &amp; ironing board</li>
+    <li>Hairdryer</li>
+    <li>Alarm clock radio</li>
+    <li>Phone with voicemail</li>
+    <li>Luxury linens, towels &amp; toiletries</li>
+    <li>Full cookware, pots, pans &amp; dishes</li>
+    <li>Dining area</li>
+    <li>Non-smoking throughout</li>
+  </ul>
 </section>
 
 <!-- ── Resort amenities ── -->
@@ -1817,51 +1740,6 @@ footer {
 
       <article class="ra ra--img sr sr-d2">
         <div class="ra-media">
-          <img srcset="images/resort-edge-steakhouse-480.webp 480w, images/resort-edge-steakhouse-960.webp 960w, images/resort-edge-steakhouse.webp 1448w"
-               sizes="(max-width: 580px) calc(100vw - 40px), (max-width: 900px) 46vw, 31vw"
-               src="images/resort-edge-steakhouse.webp" alt="Candlelit steakhouse dining room with an open fire grill and mountain views at dusk"
-               width="1448" height="1086" loading="lazy" decoding="async">
-        </div>
-        <div class="ra-body">
-          <div class="ra-tag">Dining</div>
-          <h3 class="ra-t">Edge Steakhouse</h3>
-          <div class="ra-rule" aria-hidden="true"></div>
-          <p class="ra-d">The resort's top-rated restaurant: a traditional American steakhouse menu rebuilt by an award-winning chef and culinary team.</p>
-        </div>
-      </article>
-
-      <article class="ra ra--img sr">
-        <div class="ra-media">
-          <img srcset="images/resort-drafts-burger-bar-480.webp 480w, images/resort-drafts-burger-bar-960.webp 960w, images/resort-drafts-burger-bar.webp 1448w"
-               sizes="(max-width: 580px) calc(100vw - 40px), (max-width: 900px) 46vw, 31vw"
-               src="images/resort-drafts-burger-bar.webp" alt="Burgers, fries and a flight of beers on a bar table with the taps and slopes behind"
-               width="1448" height="1086" loading="lazy" decoding="async">
-        </div>
-        <div class="ra-body">
-          <div class="ra-tag">Dining</div>
-          <h3 class="ra-t">Drafts Burger Bar</h3>
-          <div class="ra-rule" aria-hidden="true"></div>
-          <p class="ra-d">Best of State award-winning brew pub, open daily for breakfast, lunch and dinner. Gourmet burgers, sports on, and a long list of beers on tap.</p>
-        </div>
-      </article>
-
-      <article class="ra ra--img sr sr-d1">
-        <div class="ra-media">
-          <img srcset="images/resort-marketplace-480.webp 480w, images/resort-marketplace-960.webp 960w, images/resort-marketplace.webp 1448w"
-               sizes="(max-width: 580px) calc(100vw - 40px), (max-width: 900px) 46vw, 31vw"
-               src="images/resort-marketplace.webp" alt="Resort market with fresh produce, baked goods, a coffee bar and shelves of wine"
-               width="1448" height="1086" loading="lazy" decoding="async">
-        </div>
-        <div class="ra-body">
-          <div class="ra-tag">On Site</div>
-          <h3 class="ra-t">The Marketplace &amp; Liquor Store</h3>
-          <div class="ra-rule" aria-hidden="true"></div>
-          <p class="ra-d">The resort's own market and liquor store, open daily. Cold beer, groceries, baked goods, snacks and Starbucks coffee without leaving the property.</p>
-        </div>
-      </article>
-
-      <article class="ra ra--img sr sr-d2">
-        <div class="ra-media">
           <img srcset="images/resort-childcare-480.webp 480w, images/resort-childcare-960.webp 960w, images/resort-childcare.webp 1448w"
                sizes="(max-width: 580px) calc(100vw - 40px), (max-width: 900px) 46vw, 31vw"
                src="images/resort-childcare.webp" alt="Warm kids playroom with a teepee, soft seating, books and toys looking out to the snow"
@@ -1872,6 +1750,22 @@ footer {
           <h3 class="ra-t">On-Site Childcare</h3>
           <div class="ra-rule" aria-hidden="true"></div>
           <p class="ra-d">Childcare is available at the resort, so the adults in the party can take a full day on the mountain or an evening out without arranging a sitter in an unfamiliar town.</p>
+        </div>
+      </article>
+
+      <article class="ra ra--img ra--wide">
+        <div class="ra-media">
+          <img srcset="images/resort-edge-steakhouse-480.webp 480w, images/resort-edge-steakhouse-960.webp 960w, images/resort-edge-steakhouse.webp 1448w"
+               sizes="(max-width: 580px) calc(100vw - 40px), (max-width: 900px) 94vw, 96vw"
+               src="images/resort-edge-steakhouse.webp"
+               alt="Candlelit steakhouse dining room with an open fire grill and mountain views at dusk"
+               width="1448" height="1086" loading="lazy" decoding="async">
+        </div>
+        <div class="ra-body">
+          <div class="ra-tag">Dining &amp; Provisions</div>
+          <h3 class="ra-t">Three places to eat and shop, without leaving</h3>
+          <div class="ra-rule" aria-hidden="true"></div>
+          <p class="ra-d"><strong style="color:var(--snow);">Edge Steakhouse</strong> is the resort's top-rated restaurant, an American steakhouse menu rebuilt by an award-winning chef. <strong style="color:var(--snow);">Drafts Burger Bar</strong> is a Best of State brew pub open daily for breakfast, lunch and dinner. <strong style="color:var(--snow);">The Marketplace &amp; Liquor Store</strong> carries cold beer, groceries, baked goods and Starbucks coffee.</p>
         </div>
       </article>
   </div>
@@ -2329,6 +2223,9 @@ footer {
     el.addEventListener('click', function () { openLB(i); });
     el.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLB(i); } });
   });
+
+  var viewAll = document.getElementById('view-all-photos');
+  if (viewAll) viewAll.addEventListener('click', function () { openLB(0); });
 
   document.getElementById('lb-x').addEventListener('click', closeLB);
   lb.addEventListener('click', function (e) { if (e.target === lb) closeLB(); });
