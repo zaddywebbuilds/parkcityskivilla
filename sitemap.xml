@@ -7,6 +7,10 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
+      <image:loc>https://parkcityskivilla.com/images/park-city-ski-villa-mountain-view.webp</image:loc>
+      <image:title>Park City ski villa living area with mountain view</image:title>
+    </image:image>
+    <image:image>
       <image:loc>https://parkcityskivilla.com/images/park-city-ski-villa-living-area.jpg</image:loc>
       <image:title>Park City ski villa living area</image:title>
     </image:image>

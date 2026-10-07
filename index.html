@@ -19,17 +19,18 @@
 <meta property="og:title" content="Park City Ski Villa | Premier 2-Bedroom Villa at Westgate Park City Resort">
 <meta property="og:description" content="1,100 sq ft ski-in villa, sleeps 8, GE Monogram kitchen, dual steam showers. Available Presidents' Week, Feb 13-20, 2026.">
 <meta property="og:url" content="https://parkcityskivilla.com/">
-<meta property="og:image" content="https://parkcityskivilla.com/images/park-city-ski-villa-living-area.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Premier Two-Bedroom Villa living area at Westgate Park City Resort">
+<meta property="og:image" content="https://parkcityskivilla.com/images/park-city-ski-villa-mountain-view.webp">
+<meta property="og:image:type" content="image/webp">
+<meta property="og:image:width" content="1672">
+<meta property="og:image:height" content="941">
+<meta property="og:image:alt" content="Living area opening onto a balcony above the ski runs in Park City, Utah">
 <meta property="og:locale" content="en_US">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Park City Ski Villa | Premier 2BR Ski-in Villa">
 <meta name="twitter:description" content="1,100 sq ft ski-in luxury villa, sleeps 8. Presidents' Week Feb 13-20, 2026 at Westgate Park City Resort.">
-<meta name="twitter:image" content="https://parkcityskivilla.com/images/park-city-ski-villa-living-area.jpg">
+<meta name="twitter:image" content="https://parkcityskivilla.com/images/park-city-ski-villa-mountain-view.webp">
 
 <!-- Geo tags -->
 <meta name="geo.region" content="US-UT">
@@ -49,6 +50,7 @@
       "description": "Premier Two-Bedroom Villa at Westgate Park City Resort & Spa. 1,100 square feet, sleeps up to 8 guests, 2 king beds, 2 queen sleeper sofas, fully equipped GE Monogram kitchen with center island and two-zone wine chiller, dual walk-in steam showers, separate soaking tub, in-unit washer/dryer, ski-in/ski-out access to Park City Mountain Resort.",
       "url": "https://parkcityskivilla.com/",
       "image": [
+        "https://parkcityskivilla.com/images/park-city-ski-villa-mountain-view.webp",
         "https://parkcityskivilla.com/images/park-city-ski-villa-living-area.jpg",
         "https://parkcityskivilla.com/images/park-city-ski-villa-king-bedroom.jpg",
         "https://parkcityskivilla.com/images/park-city-ski-villa-kitchen.jpg",
@@ -177,20 +179,26 @@
    Dark mountain luxury. Single deliberate theme.
    =================================================== */
 :root {
-  /* Color tokens */
-  --bg:           #06101c;
-  --bg-2:         #09172a;
-  --surface:      #0d2040;
-  --surface-2:    #102847;
-  --border:       rgba(255,255,255,0.07);
-  --border-gold:  rgba(201,162,66,0.2);
-  --gold:         #c9a242;
-  --gold-lt:      #e4c878;
-  --gold-dim:     rgba(201,162,66,0.10);
-  --snow:         #f0ede6;
-  --snow-muted:   rgba(240,237,230,0.55);
-  --snow-dim:     rgba(240,237,230,0.22);
-  --overlay:      rgba(6,16,28,0.70);
+  /* Color tokens sampled from the hero photograph.
+     Ground = the espresso of the dark wood and shadow. Primary accent =
+     the lamp glow. Secondary = the one cool note in the frame, the sky.
+     Text = the warm cream of the walls and bedding. */
+  --bg:           #140d07;  /* deepest shadow / dark wood        */
+  --bg-2:         #1c1309;  /* warm charcoal, one step up         */
+  --surface:      #26190e;  /* mid wood tone                      */
+  --surface-2:    #312114;  /* lifted wood                        */
+  --border:       rgba(237,231,226,0.09);
+  --border-gold:  rgba(239,197,124,0.26);
+  --gold:         #efc57c;  /* lamp glow, H38 S78% L71%           */
+  --gold-lt:      #f7dcab;
+  --gold-dim:     rgba(239,197,124,0.11);
+  --wood:         #d0a37e;  /* wood floor, H27 S46% L65%          */
+  --sky:          #9bc1ea;  /* window sky, H211 S65% L76%         */
+  --sky-dim:      rgba(155,193,234,0.13);
+  --snow:         #ede7e2;  /* warm cream wall, H27 S23% L90%     */
+  --snow-muted:   rgba(237,231,226,0.58);
+  --snow-dim:     rgba(237,231,226,0.26);
+  --overlay:      rgba(20,13,7,0.72);
 
   color-scheme: dark;
 
@@ -289,7 +297,7 @@ img { display: block; max-width: 100%; }
   transition: background 0.4s var(--ease), border-color 0.4s var(--ease), backdrop-filter 0.4s;
 }
 .nav.scrolled {
-  background: rgba(6,16,28,0.90);
+  background: rgba(20,13,7,0.92);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
@@ -326,18 +334,16 @@ img { display: block; max-width: 100%; }
 /* ── Hero: no background image; every photo is a surface element ── */
 .hero {
   position: relative;
-  min-height: min(92vh, 860px);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(32px, 5vw, 72px);
-  align-items: center;
-  padding: clamp(96px, 14vh, 150px) var(--gutter) clamp(64px, 9vh, 110px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(28px, 4vw, 48px);
+  padding: clamp(92px, 13vh, 140px) var(--gutter) clamp(40px, 6vh, 64px);
   max-width: calc(var(--max) + var(--gutter) * 2);
   margin: 0 auto;
   overflow: visible;
   background:
-    radial-gradient(ellipse 80% 60% at 20% 0%,  rgba(201,162,66,0.07) 0%, transparent 60%),
-    radial-gradient(ellipse 70% 50% at 90% 85%, rgba(23,58,110,0.28) 0%, transparent 65%);
+    radial-gradient(ellipse 80% 60% at 20% 0%,  rgba(239,197,124,0.09) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 50% at 90% 85%, rgba(155,193,234,0.10) 0%, transparent 65%);
 }
 
 /* Snow drifts over the page ground, never over the photos */
@@ -352,6 +358,39 @@ img { display: block; max-width: 100%; }
   position: relative;
   z-index: 3;
   max-width: 620px;
+}
+
+/* ── Hero feature image: a real <img>, raised off the surface ── */
+.hero-feature {
+  position: relative;
+  z-index: 3;
+  margin: 0;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: 0 26px 70px rgba(0,0,0,0.55), 0 3px 10px rgba(0,0,0,0.3);
+}
+.hero-feature img {
+  width: 100%;
+  /* height:auto is load-bearing: the width/height attributes are there to
+     reserve layout space and avoid CLS, but without this the attribute
+     height wins over aspect-ratio and the image renders stretched. */
+  height: auto;
+  aspect-ratio: 1672 / 941;
+  object-fit: cover;
+  display: block;
+}
+.hero-feature figcaption {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 44px 20px 14px;
+  background: linear-gradient(to top, rgba(20,13,7,0.90) 0%, transparent 100%);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--snow);
 }
 
 /* ── Hero photo stack: real <img> elements, raised off the surface ── */
@@ -391,7 +430,7 @@ img { display: block; max-width: 100%; }
   position: absolute;
   left: 0; right: 0; bottom: 0;
   padding: 26px 16px 12px;
-  background: linear-gradient(to top, rgba(4,11,20,0.92) 0%, transparent 100%);
+  background: linear-gradient(to top, rgba(20,13,7,0.92) 0%, transparent 100%);
   font-size: 0.65rem;
   font-weight: 500;
   letter-spacing: 0.12em;
@@ -413,7 +452,7 @@ img { display: block; max-width: 100%; }
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(201,162,66,0.12);
+  background: rgba(239,197,124,0.12);
   border: 1px solid var(--border-gold);
   border-radius: 2px;
   padding: 6px 14px;
@@ -479,7 +518,7 @@ img { display: block; max-width: 100%; }
   font-family: var(--serif);
   font-size: 2rem;
   font-weight: 500;
-  color: var(--gold);
+  color: var(--wood);
   line-height: 1;
   font-variant-numeric: tabular-nums;
 }
@@ -494,9 +533,9 @@ img { display: block; max-width: 100%; }
 
 /* ── Availability banner ── */
 .avail-bar {
-  background: linear-gradient(90deg, #0f0900 0%, #1e1200 30%, #1e1200 70%, #0f0900 100%);
-  border-top: 1px solid rgba(201,162,66,0.15);
-  border-bottom: 1px solid rgba(201,162,66,0.15);
+  background: linear-gradient(90deg, #1a1006 0%, #2b1b0c 30%, #2b1b0c 70%, #1a1006 100%);
+  border-top: 1px solid rgba(239,197,124,0.18);
+  border-bottom: 1px solid rgba(239,197,124,0.18);
   padding: 14px var(--gutter);
   display: flex;
   align-items: center;
@@ -506,7 +545,7 @@ img { display: block; max-width: 100%; }
 }
 .avail-tag {
   background: var(--gold);
-  color: #0a0600;
+  color: #1a1006;
   font-size: 0.57rem;
   font-weight: 700;
   letter-spacing: 0.2em;
@@ -579,11 +618,13 @@ img { display: block; max-width: 100%; }
   object-fit: cover;
   transition: transform 0.55s var(--ease), filter 0.3s var(--ease);
 }
-.gi:hover img { transform: scale(1.06); filter: brightness(1.08) saturate(1.1); }
+.gi { border: 1px solid transparent; transition: border-color 0.25s var(--ease); }
+.gi:hover { border-color: var(--border-gold); }
+.gi:hover img { transform: scale(1.06); filter: brightness(1.08) saturate(1.06); }
 
 .gi-veil {
   position: absolute; inset: 0;
-  background: rgba(6,16,28,0.5);
+  background: rgba(20,13,7,0.55);
   opacity: 0;
   display: flex; align-items: center; justify-content: center;
   transition: opacity 0.25s var(--ease);
@@ -591,21 +632,12 @@ img { display: block; max-width: 100%; }
 .gi:hover .gi-veil { opacity: 1; }
 .gi-veil svg { width: 30px; height: 30px; color: #fff; }
 
-.gi-placeholder {
-  width: 100%; height: 100%;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center; gap: 8px;
-  background: var(--surface-2);
-  cursor: default;
-}
-.gi-placeholder-icon { font-size: 1.4rem; opacity: 0.25; }
-.gi-placeholder-text { font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--snow-dim); }
 
 /* ── Lightbox ── */
 #lb {
   display: none;
   position: fixed; inset: 0; z-index: 9000;
-  background: rgba(3,8,16,0.97);
+  background: rgba(12,8,4,0.97);
   flex-direction: column;
   align-items: center; justify-content: center;
   padding: 20px;
@@ -714,7 +746,7 @@ img { display: block; max-width: 100%; }
   font-family: var(--serif);
   font-size: min(32vw, 340px);
   font-weight: 300;
-  color: rgba(201,162,66,0.035);
+  color: rgba(239,197,124,0.04);
   line-height: 1;
   pointer-events: none; user-select: none;
 }
@@ -740,7 +772,7 @@ img { display: block; max-width: 100%; }
 .pw-card::before {
   content: '';
   position: absolute; inset: 0;
-  background: radial-gradient(ellipse at top left, rgba(201,162,66,0.06) 0%, transparent 65%);
+  background: radial-gradient(ellipse at top left, rgba(239,197,124,0.07) 0%, transparent 65%);
   border-radius: var(--r);
   pointer-events: none;
 }
@@ -836,7 +868,7 @@ img { display: block; max-width: 100%; }
   gap: 14px;
   flex-wrap: wrap;
   padding: 14px 16px;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--sky-dim);
   background: var(--bg-2);
 }
 .loc-map-addr { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
@@ -850,10 +882,11 @@ img { display: block; max-width: 100%; }
   padding: 14px 16px;
   background: var(--bg-2);
   border: 1px solid var(--border);
+  border-left: 2px solid var(--sky-dim);
   border-radius: var(--r);
-  transition: border-color 0.2s var(--ease);
+  transition: border-left-color 0.2s var(--ease), background 0.2s var(--ease);
 }
-.loc-pt:hover { border-color: var(--border-gold); }
+.loc-pt:hover { border-left-color: var(--sky); background: var(--surface); }
 .loc-ico { font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
 .loc-n { font-size: 0.84rem; font-weight: 500; color: var(--snow); margin-bottom: 2px; }
 .loc-d { font-size: 0.78rem; color: var(--snow-muted); }
@@ -919,7 +952,7 @@ select option { background: var(--surface); }
 
 /* ── Footer ── */
 footer {
-  background: #030b14;
+  background: #0e0905;
   border-top: 1px solid var(--border);
   padding: 36px var(--gutter);
   display: flex; align-items: center;
@@ -1007,26 +1040,12 @@ footer {
     </div>
   </div>
 
-  <div class="hero-stack">
-    <figure class="hs-card hs-card--tall" style="margin:0;">
-      <img src="images/park-city-ski-villa-living-area.jpg"
-           alt="Premier Two-Bedroom Villa living area at Westgate Park City Resort, Park City Utah"
-           width="940" height="530" fetchpriority="high" decoding="async">
-      <figcaption class="hs-caption">The Living Area</figcaption>
-    </figure>
-    <figure class="hs-card hs-card--sm" style="margin:0;">
-      <img src="images/park-city-ski-villa-king-bedroom.jpg"
-           alt="King bedroom with luxury linens in the Park City ski villa"
-           width="940" height="530" loading="lazy" decoding="async">
-      <figcaption class="hs-caption">King Bedroom</figcaption>
-    </figure>
-    <figure class="hs-card hs-card--sm" style="margin:0;">
-      <img src="images/park-city-ski-villa-kitchen.jpg"
-           alt="GE Monogram kitchen with center island in the two-bedroom villa"
-           width="940" height="530" loading="lazy" decoding="async">
-      <figcaption class="hs-caption">Full Kitchen</figcaption>
-    </figure>
-  </div>
+  <figure class="hero-feature">
+    <img src="images/park-city-ski-villa-mountain-view.webp"
+         alt="Open-plan living area with a balcony looking out over snow-covered ski runs in Park City, Utah"
+         width="1672" height="941" fetchpriority="high" decoding="async">
+    <figcaption>Park City, Utah</figcaption>
+  </figure>
 </section>
 
 <!-- ── Stats bar ── -->
@@ -1133,12 +1152,6 @@ footer {
            alt="Kitchenette with granite countertops and stainless steel appliances" loading="lazy">
       <div class="gi-veil" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="6"/><path d="m21 21-3.5-3.5"/></svg></div>
     </div>
-
-    <!-- 4 placeholder slots for future custom photography -->
-    <div class="gi sr sr-d1"><div class="gi-placeholder"><span class="gi-placeholder-icon">📸</span><span class="gi-placeholder-text">Photo Coming Soon</span></div></div>
-    <div class="gi sr sr-d2"><div class="gi-placeholder"><span class="gi-placeholder-icon">📸</span><span class="gi-placeholder-text">Photo Coming Soon</span></div></div>
-    <div class="gi sr sr-d3"><div class="gi-placeholder"><span class="gi-placeholder-icon">📸</span><span class="gi-placeholder-text">Photo Coming Soon</span></div></div>
-    <div class="gi sr"><div class="gi-placeholder"><span class="gi-placeholder-icon">📸</span><span class="gi-placeholder-text">Photo Coming Soon</span></div></div>
 
   </div>
 </section>
