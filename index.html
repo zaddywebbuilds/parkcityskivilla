@@ -93,7 +93,14 @@
         {"@type": "LocationFeatureSpecification", "name": "GE Monogram Appliances", "value": true},
         {"@type": "LocationFeatureSpecification", "name": "Wine/Beverage Chiller", "value": true},
         {"@type": "LocationFeatureSpecification", "name": "Cable TV Premium Channels", "value": true},
-        {"@type": "LocationFeatureSpecification", "name": "In-Room Safe", "value": true}
+        {"@type": "LocationFeatureSpecification", "name": "In-Room Safe", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "On-Site Spa", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Heated Indoor and Outdoor Pool", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Hot Tub", "value": 2},
+        {"@type": "LocationFeatureSpecification", "name": "On-Site Restaurant", "value": 2},
+        {"@type": "LocationFeatureSpecification", "name": "On-Site Grocery and Liquor Store", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Fitness Center", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Arcade", "value": true}
       ],
       "containedInPlace": {
         "@type": "Hotel",
@@ -118,23 +125,23 @@
           "name": "How many guests does the Park City ski villa sleep?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The Premier Two-Bedroom Villa sleeps up to 8 guests: 2 king beds (one per bedroom) and 2 leather queen sleeper sofas in the separate living areas."
+            "text": "The Premier Two-Bedroom Villa sleeps up to 8 guests: 2 king beds, one in each private bedroom, and 2 leather queen sleeper sofas in the two separate living areas. It suits two families or one large group."
           }
         },
         {
           "@type": "Question",
-          "name": "Is the villa ski-in ski-out at Park City Mountain Resort?",
+          "name": "Is it really ski-in / ski-out at Park City Mountain Resort?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. The villa is located at Westgate Park City Resort & Spa, which offers direct ski-in/ski-out access to Park City Mountain Resort, the largest ski resort in the United States."
+            "text": "Yes. The villa is located inside Westgate Park City Resort & Spa, which has direct ski-in/ski-out access to Park City Mountain Resort, the largest ski resort in the United States, with 330+ trails across 7,300 acres."
           }
         },
         {
           "@type": "Question",
-          "name": "What dates is the villa available for Presidents' Week 2026?",
+          "name": "What exact dates is the villa available for Presidents' Week 2026?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The villa is available February 13-20, 2026, covering the full Presidents' Day week including Presidents' Day (February 16). This is rented as a complete two-bedroom unit, not split into individual rooms."
+            "text": "The villa is available February 13-20, 2026, a full 7-night stay that includes Presidents' Day on February 16. It is booked as a complete two-bedroom unit only; we do not split the rooms separately."
           }
         },
         {
@@ -142,15 +149,39 @@
           "name": "Does the villa have a full kitchen?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. The villa features a fully equipped kitchen with a center island, premium stone countertops, GE Monogram Series stainless steel appliances including a range, dishwasher, and refrigerator, plus an extra kitchenette and a two-zone wine/beverage chiller."
+            "text": "Yes. A fully equipped GE Monogram Series kitchen with a center island, premium stone countertops, full range (stovetop and oven), refrigerator, dishwasher, microwave, coffee maker, two-zone wine/beverage chiller, and a secondary kitchenette. Full cookware, pots, pans, and utensils are all included."
           }
         },
         {
           "@type": "Question",
-          "name": "Is there a washer and dryer in the villa?",
+          "name": "Is there laundry in the villa?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. The Premier Two-Bedroom Villa includes an in-unit washer and dryer, ideal for week-long ski stays."
+            "text": "Yes. The villa includes an in-unit washer and dryer, which is essential for a ski week. Pack light and wash your gear mid-stay without any extra fees or scheduling."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How close is the villa to Historic Main Street, Park City?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Historic Main Street in Park City, known for its restaurants, boutiques, galleries, and nightlife, is about a 5-minute drive from the resort. The area also has shuttle and rideshare access."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does the resort itself offer beyond the villa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Guests have the run of Westgate Park City Resort & Spa. That includes Serenity Spa, a Best of State winner for Best Destination Spa every year since 2017, with fourteen treatment rooms; Edge Steakhouse and the award-winning Drafts Burger Bar; The Marketplace & Liquor Store on site for groceries and beer; the largest indoor and outdoor heated pool in Park City with two spa tubs and an adults-only relaxation pool; and an activities centre and arcade for families."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I book or get a price?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Use the contact form below to send an inquiry with your party size and dates. This is a direct owner-to-renter booking with no platform fees. We respond within 24 hours."
           }
         }
       ]
@@ -397,18 +428,20 @@ img { display: block; max-width: 100%; }
   background: var(--surface);
   box-shadow: 0 26px 70px rgba(0,0,0,0.55), 0 3px 10px rgba(0,0,0,0.3);
 }
+.hero-feature video,
 .hero-feature img {
   width: 100%;
   /* height:auto is load-bearing: the width/height attributes are there to
      reserve layout space and avoid CLS, but without this the attribute
-     height wins over aspect-ratio and the image renders stretched. */
+     height wins over aspect-ratio and the media renders stretched. */
   height: auto;
-  /* Cropped squarer than the source 16:9 so it fills the column beside
-     the headline instead of sitting as a thin band. */
-  aspect-ratio: 5 / 4;
+  /* The clip is 736x400; squaring it up slightly fills the column beside
+     the headline without cropping away the window and the view. */
+  aspect-ratio: 3 / 2;
   object-fit: cover;
-  object-position: 62% center;
+  object-position: center;
   display: block;
+  background: var(--surface);
 }
 .hero-feature figcaption {
   position: absolute;
@@ -828,6 +861,59 @@ img { display: block; max-width: 100%; }
   background: var(--gold); border-radius: 50%; flex-shrink: 0;
 }
 
+
+/* ── Resort amenities: what the wider resort adds beyond the villa ── */
+#resort {
+  background: var(--bg-2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.resort-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2px;
+  margin-top: 40px;
+}
+.ra {
+  background: var(--bg);
+  padding: 26px 24px 28px;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.25s var(--ease);
+}
+.ra:hover { background: var(--surface); }
+.ra-tag {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 11px;
+}
+.ra-t {
+  font-family: var(--serif);
+  font-size: 1.34rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--snow);
+  margin: 0 0 9px;
+}
+.ra-rule {
+  width: 22px; height: 2px;
+  background: var(--gold);
+  margin-bottom: 12px;
+  transition: width 0.35s var(--ease);
+}
+.ra:hover .ra-rule { width: 38px; }
+.ra-d {
+  font-size: 0.83rem;
+  color: var(--snow-muted);
+  line-height: 1.65;
+  margin: 0;
+}
+@media (max-width: 900px) { .resort-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 580px) { .resort-grid { grid-template-columns: 1fr; } }
+
 /* ── Presidents' Week ── */
 #presidents { background: var(--bg); position: relative; overflow: hidden; }
 
@@ -1130,6 +1216,8 @@ footer {
 .sr-d3 { transition-delay: 0.3s; }
 
 @media (prefers-reduced-motion: reduce) {
+  /* Paused in script too; this keeps the first frame composited cleanly. */
+  .hero-feature video { animation: none; }
   .sr, .js .sr, .sr-d1, .sr-d2, .sr-d3 { opacity: 1; transform: none; transition: none; }
   .btn:hover, .hs-card:hover { transform: none; }
 }
@@ -1172,6 +1260,7 @@ footer {
   <div class="nav-links">
     <a href="#gallery" class="nav-link">Gallery</a>
     <a href="#amenities" class="nav-link">Amenities</a>
+    <a href="#resort" class="nav-link">Resort</a>
     <a href="#presidents" class="nav-link">Availability</a>
     <a href="#contact" class="nav-link">Book</a>
     <a href="#contact" class="btn btn-gold" aria-label="Check availability">Check Availability</a>
@@ -1196,9 +1285,17 @@ footer {
   </div>
 
   <figure class="hero-feature">
-    <img srcset="images/park-city-ski-villa-mountain-view-480.webp 480w, images/park-city-ski-villa-mountain-view-960.webp 960w, images/park-city-ski-villa-mountain-view.webp 1672w" sizes="(max-width: 960px) calc(100vw - 40px), 46vw" src="images/park-city-ski-villa-mountain-view.webp"
-         alt="Open-plan living area with a balcony looking out over snow-covered ski runs in Park City, Utah"
-         width="1672" height="941" fetchpriority="high" decoding="async">
+    <video
+      id="hero-video"
+      poster="video/hero-poster.jpg"
+      width="736" height="400"
+      autoplay muted loop playsinline preload="metadata"
+      aria-label="The villa living area looking out over snow-covered ski runs in Park City, Utah">
+      <source src="video/hero.mp4" type="video/mp4">
+      <img src="video/hero-poster.jpg"
+           alt="Open-plan living area with a balcony looking out over snow-covered ski runs in Park City, Utah"
+           width="736" height="400">
+    </video>
     <figcaption>Park City, Utah</figcaption>
   </figure>
 </section>
@@ -1478,6 +1575,57 @@ footer {
   </div>
 </section>
 
+<!-- ── Resort amenities ── -->
+<section id="resort" class="section" aria-labelledby="resort-h2">
+  <span class="eyebrow sr">The Resort</span>
+  <h2 id="resort-h2" class="section-title sr sr-d1">What the rest of Westgate adds</h2>
+  <p class="section-lead sr sr-d1">The villa is yours for the week. The resort around it is what most Park City rentals cannot offer: an award-winning spa, two restaurants, a market, pools open year round, and somewhere for the kids to go.</p>
+
+  <div class="resort-grid">
+      <article class="ra sr">
+        <div class="ra-tag">Spa</div>
+        <h3 class="ra-t">Serenity Spa</h3>
+        <div class="ra-rule" aria-hidden="true"></div>
+        <p class="ra-d">Best of State winner for Best Destination Spa every year since 2017. Fourteen treatment rooms, a waterfall, salon, massage and body treatments, on the fourth floor of the Elk Building.</p>
+      </article>
+
+      <article class="ra sr sr-d1">
+        <div class="ra-tag">Dining</div>
+        <h3 class="ra-t">Edge Steakhouse</h3>
+        <div class="ra-rule" aria-hidden="true"></div>
+        <p class="ra-d">The resort's top-rated restaurant: a traditional American steakhouse menu rebuilt by an award-winning chef and culinary team.</p>
+      </article>
+
+      <article class="ra sr sr-d2">
+        <div class="ra-tag">Dining</div>
+        <h3 class="ra-t">Drafts Burger Bar</h3>
+        <div class="ra-rule" aria-hidden="true"></div>
+        <p class="ra-d">Best of State award-winning brew pub, open daily for breakfast, lunch and dinner. Gourmet burgers, sports on, and a long list of beers on tap.</p>
+      </article>
+
+      <article class="ra sr">
+        <div class="ra-tag">On Site</div>
+        <h3 class="ra-t">The Marketplace &amp; Liquor Store</h3>
+        <div class="ra-rule" aria-hidden="true"></div>
+        <p class="ra-d">The resort's own market and liquor store, open daily. Cold beer, groceries, baked goods, snacks and Starbucks coffee without leaving the property.</p>
+      </article>
+
+      <article class="ra sr sr-d1">
+        <div class="ra-tag">Pools</div>
+        <h3 class="ra-t">Heated Pools &amp; Spa Tubs</h3>
+        <div class="ra-rule" aria-hidden="true"></div>
+        <p class="ra-d">The largest indoor and outdoor pool in Park City, open year round, plus two spa tubs and a separate adults-only relaxation pool.</p>
+      </article>
+
+      <article class="ra sr sr-d2">
+        <div class="ra-tag">Families</div>
+        <h3 class="ra-t">Activities Center &amp; Arcade</h3>
+        <div class="ra-rule" aria-hidden="true"></div>
+        <p class="ra-d">A family activities programme that changes monthly, and an on-site arcade a few steps from the villa for the evenings nobody wants to go back out.</p>
+      </article>
+  </div>
+</section>
+
 <!-- ── Presidents' Week ── -->
 <section id="presidents" class="section" aria-labelledby="presidents-h2">
   <div class="pw-mark" aria-hidden="true">FEB</div>
@@ -1556,6 +1704,14 @@ footer {
         <span class="faq-icon" aria-hidden="true">+</span>
       </button>
       <div class="faq-a">Historic Main Street in Park City, known for its restaurants, boutiques, galleries, and nightlife, is about a 5-minute drive from the resort. The area also has shuttle and rideshare access.</div>
+    </div>
+
+    <div class="faq-item" role="listitem">
+      <button class="faq-q" aria-expanded="false">
+        What does the resort itself offer beyond the villa?
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-a">Guests have the run of Westgate Park City Resort &amp; Spa. That includes Serenity Spa, a Best of State winner for Best Destination Spa every year since 2017, with fourteen treatment rooms; Edge Steakhouse and the award-winning Drafts Burger Bar; The Marketplace &amp; Liquor Store on site for groceries and beer; the largest indoor and outdoor heated pool in Park City with two spa tubs and an adults-only relaxation pool; and an activities centre and arcade for families.</div>
     </div>
 
     <div class="faq-item" role="listitem">
@@ -1730,6 +1886,7 @@ footer {
   <nav class="f-links" aria-label="Footer navigation">
     <a href="#gallery">Gallery</a>
     <a href="#amenities">Amenities</a>
+    <a href="#resort">Resort</a>
     <a href="#faq">FAQ</a>
     <a href="#contact">Contact</a>
   </nav>
@@ -1790,6 +1947,42 @@ footer {
     else { lastT = 0; RAF = requestAnimationFrame(tick); }
   });
 
+
+
+  /* ── Hero video ──
+     Autoplay is a request, not a guarantee: browsers refuse it on metered
+     connections and in low-power mode, and the poster has to stand in. */
+  var hv = document.getElementById('hero-video');
+  if (hv) {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    function applyMotionPref() {
+      if (reduce.matches) {
+        hv.removeAttribute('autoplay');
+        hv.pause();
+      } else {
+        var p = hv.play();
+        if (p && p.catch) p.catch(function () { /* poster stands in */ });
+      }
+    }
+    applyMotionPref();
+    if (reduce.addEventListener) reduce.addEventListener('change', applyMotionPref);
+
+    /* Don't decode frames while the hero is scrolled out of view. */
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (reduce.matches) return;
+          if (e.isIntersecting) {
+            var p = hv.play();
+            if (p && p.catch) p.catch(function () {});
+          } else {
+            hv.pause();
+          }
+        });
+      }, { threshold: 0.1 }).observe(hv);
+    }
+  }
 
   /* ── Nav scroll state ── */
   var nav = document.getElementById('site-nav');
