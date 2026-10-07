@@ -865,7 +865,10 @@ img { display: block; max-width: 100%; }
 }
 
 
-/* ── Resort amenities: what the wider resort adds beyond the villa ── */
+/* ── Resort amenities ──
+   Five image cards carry the strongest draws; four text cards hold the
+   rest. Nine cells over three rows of three, so no slot is left empty
+   and image and text cards never sit at different heights in a row. */
 #resort {
   background: var(--bg-2);
   border-top: 1px solid var(--border);
@@ -874,32 +877,74 @@ img { display: block; max-width: 100%; }
 .resort-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 2px;
+  gap: 14px;
   margin-top: 40px;
 }
+
 .ra {
-  background: var(--bg);
-  padding: 26px 24px 28px;
+  position: relative;
   display: flex;
   flex-direction: column;
-  transition: background 0.25s var(--ease);
+  justify-content: flex-end;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  min-height: 330px;
+  transition: border-color 0.25s var(--ease), transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
 }
-.ra:hover { background: var(--surface); }
+.ra:hover {
+  border-color: var(--border-gold);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(0,0,0,0.5);
+}
+
+/* Image cards: photograph fills the card, copy sits on a scrim over it */
+.ra-media { position: absolute; inset: 0; overflow: hidden; }
+.ra-media img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s var(--ease);
+}
+.ra--img:hover .ra-media img { transform: scale(1.05); }
+
+.ra--img .ra-body {
+  position: relative;
+  z-index: 2;
+  padding: 72px 22px 24px;
+  background: linear-gradient(
+    to top,
+    rgba(14,9,4,0.96) 0%,
+    rgba(14,9,4,0.88) 45%,
+    rgba(14,9,4,0.38) 78%,
+    transparent 100%
+  );
+}
+.ra--img .ra-t { color: #fdf6ec; }
+.ra--img .ra-d { color: rgba(253,246,236,0.82); }
+
+/* Text cards: same frame, no photograph, so the copy gets the room */
+.ra--text { background: var(--bg); }
+.ra--text .ra-body { padding: 28px 24px 30px; }
+.ra--text:hover { background: var(--surface); }
+
 .ra-tag {
   font-size: 0.58rem;
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--gold);
-  margin-bottom: 11px;
+  margin-bottom: 10px;
 }
 .ra-t {
   font-family: var(--serif);
-  font-size: 1.34rem;
+  font-size: 1.36rem;
   font-weight: 500;
   line-height: 1.2;
   color: var(--snow);
   margin: 0 0 9px;
+  text-wrap: balance;
 }
 .ra-rule {
   width: 22px; height: 2px;
@@ -909,13 +954,20 @@ img { display: block; max-width: 100%; }
 }
 .ra:hover .ra-rule { width: 38px; }
 .ra-d {
-  font-size: 0.83rem;
+  font-size: 0.82rem;
   color: var(--snow-muted);
-  line-height: 1.65;
+  line-height: 1.62;
   margin: 0;
 }
-@media (max-width: 900px) { .resort-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 580px) { .resort-grid { grid-template-columns: 1fr; } }
+
+@media (max-width: 900px) {
+  .resort-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 580px) {
+  .resort-grid { grid-template-columns: 1fr; }
+  .ra { min-height: 300px; }
+}
+
 
 /* ── Presidents' Week ── */
 #presidents { background: var(--bg); position: relative; overflow: hidden; }
@@ -1656,72 +1708,120 @@ footer {
 
 <!-- ── Resort amenities ── -->
 <section id="resort" class="section" aria-labelledby="resort-h2">
-  <span class="eyebrow sr">The Resort</span>
-  <h2 id="resort-h2" class="section-title sr sr-d1">What the rest of Westgate adds</h2>
-  <p class="section-lead sr sr-d1">The villa is yours for the week. The resort around it is what most Park City rentals cannot offer: an award-winning spa, two restaurants, a market and liquor store, pools open year round, on-site childcare and ski rentals at the door.</p>
+  <span class="eyebrow">The Resort</span>
+  <h2 id="resort-h2" class="section-title">What the rest of Westgate adds</h2>
+  <p class="section-lead">The villa is yours for the week. The resort around it is what most Park City rentals cannot offer: an award-winning spa, two restaurants, a market and liquor store, pools open year round, on-site childcare and ski rentals at the door.</p>
 
   <div class="resort-grid">
-      <article class="ra sr">
-        <div class="ra-tag">Spa</div>
-        <h3 class="ra-t">Serenity Spa</h3>
-        <div class="ra-rule" aria-hidden="true"></div>
-        <p class="ra-d">Best of State winner for Best Destination Spa every year since 2017. Fourteen treatment rooms, a waterfall, salon, massage and body treatments, on the fourth floor of the Elk Building.</p>
+      <article class="ra ra--img sr">
+        <div class="ra-media">
+          <img srcset="images/resort-serenity-spa-480.webp 480w, images/resort-serenity-spa-960.webp 960w, images/resort-serenity-spa.webp 1448w"
+               sizes="(max-width: 580px) calc(100vw - 40px), (max-width: 900px) 46vw, 31vw"
+               src="images/resort-serenity-spa.webp" alt="Candlelit treatment room at Serenity Spa with a waterfall beyond the glass"
+               width="1448" height="1086" loading="lazy" decoding="async">
+        </div>
+        <div class="ra-body">
+          <div class="ra-tag">Spa</div>
+          <h3 class="ra-t">Serenity Spa</h3>
+          <div class="ra-rule" aria-hidden="true"></div>
+          <p class="ra-d">Best of State winner for Best Destination Spa every year since 2017. Fourteen treatment rooms, a waterfall, salon, massage and body treatments, on the fourth floor of the Elk Building.</p>
+        </div>
       </article>
 
-      <article class="ra sr sr-d1">
-        <div class="ra-tag">Dining</div>
-        <h3 class="ra-t">Edge Steakhouse</h3>
-        <div class="ra-rule" aria-hidden="true"></div>
-        <p class="ra-d">The resort's top-rated restaurant: a traditional American steakhouse menu rebuilt by an award-winning chef and culinary team.</p>
+      <article class="ra ra--img sr sr-d1">
+        <div class="ra-media">
+          <img srcset="images/resort-heated-pools-480.webp 480w, images/resort-heated-pools-960.webp 960w, images/resort-heated-pools.webp 1448w"
+               sizes="(max-width: 580px) calc(100vw - 40px), (max-width: 900px) 46vw, 31vw"
+               src="images/resort-heated-pools.webp" alt="Steaming outdoor pool and spa tub at dusk with snow-covered pines and mountains behind"
+               width="1448" height="1086" loading="lazy" decoding="async">
+        </div>
+        <div class="ra-body">
+          <div class="ra-tag">Pools</div>
+          <h3 class="ra-t">Heated Pools &amp; Spa Tubs</h3>
+          <div class="ra-rule" aria-hidden="true"></div>
+          <p class="ra-d">The largest indoor and outdoor pool in Park City, open year round, plus two spa tubs and a separate adults-only relaxation pool.</p>
+        </div>
       </article>
 
-      <article class="ra sr sr-d2">
-        <div class="ra-tag">Dining</div>
-        <h3 class="ra-t">Drafts Burger Bar</h3>
-        <div class="ra-rule" aria-hidden="true"></div>
-        <p class="ra-d">Best of State award-winning brew pub, open daily for breakfast, lunch and dinner. Gourmet burgers, sports on, and a long list of beers on tap.</p>
+      <article class="ra ra--img sr sr-d2">
+        <div class="ra-media">
+          <img srcset="images/resort-ski-rentals-480.webp 480w, images/resort-ski-rentals-960.webp 960w, images/resort-ski-rentals.webp 1448w"
+               sizes="(max-width: 580px) calc(100vw - 40px), (max-width: 900px) 46vw, 31vw"
+               src="images/resort-ski-rentals.webp" alt="Ski and snowboard rental shop with racked skis, boots and helmets, looking out to the slopes"
+               width="1448" height="1086" loading="lazy" decoding="async">
+        </div>
+        <div class="ra-body">
+          <div class="ra-tag">Gear</div>
+          <h3 class="ra-t">Ski &amp; Snowboard Rentals</h3>
+          <div class="ra-rule" aria-hidden="true"></div>
+          <p class="ra-d">Rentals on the property, so nobody has to fly with skis or drive into town on the first morning to get fitted.</p>
+        </div>
       </article>
 
-      <article class="ra sr">
-        <div class="ra-tag">On Site</div>
-        <h3 class="ra-t">The Marketplace &amp; Liquor Store</h3>
-        <div class="ra-rule" aria-hidden="true"></div>
-        <p class="ra-d">The resort's own market and liquor store, open daily. Cold beer, groceries, baked goods, snacks and Starbucks coffee without leaving the property.</p>
+      <article class="ra ra--img sr">
+        <div class="ra-media">
+          <img srcset="images/resort-activities-arcade-480.webp 480w, images/resort-activities-arcade-960.webp 960w, images/resort-activities-arcade.webp 1448w"
+               sizes="(max-width: 580px) calc(100vw - 40px), (max-width: 900px) 46vw, 31vw"
+               src="images/resort-activities-arcade.webp" alt="Resort games room with arcade cabinets, a pool table and a fireside lounge"
+               width="1448" height="1086" loading="lazy" decoding="async">
+        </div>
+        <div class="ra-body">
+          <div class="ra-tag">Families</div>
+          <h3 class="ra-t">Activities Center &amp; Arcade</h3>
+          <div class="ra-rule" aria-hidden="true"></div>
+          <p class="ra-d">A family activities programme that changes monthly, and an on-site arcade a few steps from the villa for the evenings nobody wants to go back out.</p>
+        </div>
       </article>
 
-      <article class="ra sr sr-d1">
-        <div class="ra-tag">Pools</div>
-        <h3 class="ra-t">Heated Pools &amp; Spa Tubs</h3>
-        <div class="ra-rule" aria-hidden="true"></div>
-        <p class="ra-d">The largest indoor and outdoor pool in Park City, open year round, plus two spa tubs and a separate adults-only relaxation pool.</p>
+      <article class="ra ra--img sr sr-d1">
+        <div class="ra-media">
+          <img srcset="images/resort-fitness-yoga-480.webp 480w, images/resort-fitness-yoga-960.webp 960w, images/resort-fitness-yoga.webp 1448w"
+               sizes="(max-width: 580px) calc(100vw - 40px), (max-width: 900px) 46vw, 31vw"
+               src="images/resort-fitness-yoga.webp" alt="Resort gym with treadmills and weights facing the mountains, and a yoga studio alongside"
+               width="1448" height="1086" loading="lazy" decoding="async">
+        </div>
+        <div class="ra-body">
+          <div class="ra-tag">Fitness</div>
+          <h3 class="ra-t">Fitness Center &amp; Yoga Studio</h3>
+          <div class="ra-rule" aria-hidden="true"></div>
+          <p class="ra-d">A fitness centre and a separate yoga studio, both on site, for the mornings before the lifts open and the days the legs need a rest.</p>
+        </div>
       </article>
 
-      <article class="ra sr sr-d2">
-        <div class="ra-tag">Families</div>
-        <h3 class="ra-t">Activities Center &amp; Arcade</h3>
-        <div class="ra-rule" aria-hidden="true"></div>
-        <p class="ra-d">A family activities programme that changes monthly, and an on-site arcade a few steps from the villa for the evenings nobody wants to go back out.</p>
+      <article class="ra ra--text sr sr-d2">
+        <div class="ra-body">
+          <div class="ra-tag">Dining</div>
+          <h3 class="ra-t">Edge Steakhouse</h3>
+          <div class="ra-rule" aria-hidden="true"></div>
+          <p class="ra-d">The resort's top-rated restaurant: a traditional American steakhouse menu rebuilt by an award-winning chef and culinary team.</p>
+        </div>
       </article>
 
-      <article class="ra sr">
-        <div class="ra-tag">Families</div>
-        <h3 class="ra-t">On-Site Childcare</h3>
-        <div class="ra-rule" aria-hidden="true"></div>
-        <p class="ra-d">Childcare is available at the resort, so the adults in the party can take a full day on the mountain or an evening out without arranging a sitter in an unfamiliar town.</p>
+      <article class="ra ra--text sr">
+        <div class="ra-body">
+          <div class="ra-tag">Dining</div>
+          <h3 class="ra-t">Drafts Burger Bar</h3>
+          <div class="ra-rule" aria-hidden="true"></div>
+          <p class="ra-d">Best of State award-winning brew pub, open daily for breakfast, lunch and dinner. Gourmet burgers, sports on, and a long list of beers on tap.</p>
+        </div>
       </article>
 
-      <article class="ra sr sr-d1">
-        <div class="ra-tag">Gear</div>
-        <h3 class="ra-t">Ski &amp; Snowboard Rentals</h3>
-        <div class="ra-rule" aria-hidden="true"></div>
-        <p class="ra-d">Rentals on the property, so nobody has to fly with skis or drive into town on the first morning to get fitted.</p>
+      <article class="ra ra--text sr sr-d1">
+        <div class="ra-body">
+          <div class="ra-tag">On Site</div>
+          <h3 class="ra-t">The Marketplace &amp; Liquor Store</h3>
+          <div class="ra-rule" aria-hidden="true"></div>
+          <p class="ra-d">The resort's own market and liquor store, open daily. Cold beer, groceries, baked goods, snacks and Starbucks coffee without leaving the property.</p>
+        </div>
       </article>
 
-      <article class="ra sr sr-d2">
-        <div class="ra-tag">Fitness</div>
-        <h3 class="ra-t">Fitness Center &amp; Yoga Studio</h3>
-        <div class="ra-rule" aria-hidden="true"></div>
-        <p class="ra-d">A fitness centre and a separate yoga studio, both on site, for the mornings before the lifts open and the days the legs need a rest.</p>
+      <article class="ra ra--text sr sr-d2">
+        <div class="ra-body">
+          <div class="ra-tag">Families</div>
+          <h3 class="ra-t">On-Site Childcare</h3>
+          <div class="ra-rule" aria-hidden="true"></div>
+          <p class="ra-d">Childcare is available at the resort, so the adults in the party can take a full day on the mountain or an evening out without arranging a sitter in an unfamiliar town.</p>
+        </div>
       </article>
   </div>
 </section>
