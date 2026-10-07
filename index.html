@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <title>Park City Ski Villa | Premier 2-Bedroom Ski-in Villa, Park City Utah</title>
-<meta name="description" content="Book the Premier Two-Bedroom Villa at Westgate Park City Resort. 1,100 sq ft, sleeps 8, ski-in/ski-out, GE Monogram kitchen, dual walk-in steam showers. Available Presidents' Week Feb 13-20, 2026.">
+<meta name="description" content="Premier 2-bedroom ski-in villa at Westgate Park City Resort. 1,100 sq ft, sleeps 8, full kitchen, dual steam showers. Presidents' Week Feb 13-20, 2026.">
 <meta name="keywords" content="Park City ski villa, Westgate Park City 2 bedroom villa rental, Park City ski villa Presidents Day 2026, Park City ski villa sleeps 8, Westgate Park City villa rent by owner, Park City ski villa February, Park City 2 bedroom ski villa, ski-in ski-out Park City rental, Park City Mountain Resort villa rental, Presidents week Park City 2026">
 <meta name="author" content="Park City Ski Villa">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
@@ -312,6 +312,11 @@ img { display: block; max-width: 100%; }
   color: var(--snow);
   text-decoration: none;
   flex-shrink: 0;
+  /* Flex to the bar height gives the brand link a 44px tap area without
+     changing how it looks. */
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
 }
 .nav-logo span { color: var(--gold); }
 
@@ -335,6 +340,8 @@ img { display: block; max-width: 100%; }
   /* At phone width the logo and the CTA collide, so shrink both and let
      the logo truncate rather than run underneath the button. */
   .nav { padding-inline: 16px; gap: 10px; }
+  /* 44px minimum tap height on everything touchable. */
+  .nav .btn { min-height: 44px; display: inline-flex; align-items: center; }
   .nav-logo {
     font-size: 0.98rem;
     white-space: nowrap;
@@ -727,7 +734,7 @@ img { display: block; max-width: 100%; }
 /* ── Feature cards: full-bleed photo, icon badge, copy over a scrim ── */
 .feature-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
 }
 
@@ -782,7 +789,7 @@ img { display: block; max-width: 100%; }
 }
 
 @media (max-width: 1040px) {
-  .feature-grid { grid-template-columns: repeat(2, 1fr); }
+  .feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 620px) {
   .about-intro { columns: 1; margin-bottom: 32px; }
@@ -929,8 +936,11 @@ img { display: block; max-width: 100%; }
   grid-auto-rows: 360px;
   /* 9 cells over 3 rows: a 2-wide card and the map close the first row,
      three cards fill the second, one 3-wide card closes the third, so no
-     cell is ever left empty. */
-  grid-template-columns: repeat(3, 1fr);
+     cell is ever left empty.
+     minmax(0,1fr), not 1fr: a plain 1fr floors at the content's own min
+     width, and the map tile used that to push its column wide and squash
+     the card beside it. */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
   margin-top: 44px;
 }
@@ -1004,7 +1014,7 @@ img { display: block; max-width: 100%; }
 .loc-map-dir { flex-shrink: 0; }
 
 @media (max-width: 1040px) {
-  .loc-grid { grid-template-columns: repeat(2, 1fr); }
+  .loc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .loc-card--w2, .loc-card--w3 { grid-column: span 2; aspect-ratio: 32 / 11; }
 }
 @media (max-width: 620px) {
@@ -1039,7 +1049,9 @@ input, textarea, select {
   width: 100%; background: var(--surface);
   border: 1px solid var(--border);
   color: var(--snow); font-family: var(--sans);
-  font-size: 0.88rem; padding: 11px 13px;
+  /* 16px minimum: anything smaller makes iOS Safari zoom the viewport when
+     a field takes focus, throwing the booking form off screen. */
+  font-size: 16px; padding: 12px 13px;
   border-radius: var(--r); outline: none;
   transition: border-color 0.2s var(--ease);
   -webkit-appearance: none;
@@ -1089,8 +1101,14 @@ footer {
 .f-logo { font-family: var(--serif); font-size: 1rem; color: var(--snow-muted); }
 .f-logo span { color: var(--gold); }
 .f-copy { font-size: 0.7rem; color: var(--snow-dim); text-align: center; }
-.f-links { display: flex; gap: 18px; }
-.f-links a { font-size: 0.7rem; color: var(--snow-dim); text-decoration: none; transition: color 0.2s; }
+.f-links { display: flex; gap: 8px; flex-wrap: wrap; }
+.f-links a {
+  font-size: 0.72rem; color: var(--snow-dim);
+  text-decoration: none; transition: color 0.2s;
+  /* Padding rather than font size gives these a 44px tap area. */
+  display: inline-flex; align-items: center;
+  min-height: 44px; padding-inline: 10px;
+}
 .f-links a:hover { color: var(--gold); }
 
 /* ── 3D perspective tilt on card hover ── */
@@ -1121,7 +1139,10 @@ footer {
   .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
   .gi { grid-column: auto !important; grid-row: auto !important; }
   .gi img { aspect-ratio: 4/3; height: auto; }
-  .pw-grid, .loc-grid, .contact-grid { grid-template-columns: 1fr; gap: 44px; }
+  /* .loc-grid is deliberately absent: it is a card grid now with its own
+     breakpoints, and forcing it to one column here left its 2-wide cards
+     spanning into an implicit second column of a different size. */
+  .pw-grid, .contact-grid { grid-template-columns: 1fr; gap: 44px; }
 
   /* Once the columns stack there is no neighbouring column to match, so
      release the equal-height stretch. Leaving it on forces every card to a
@@ -1175,7 +1196,7 @@ footer {
   </div>
 
   <figure class="hero-feature">
-    <img src="images/park-city-ski-villa-mountain-view.webp"
+    <img srcset="images/park-city-ski-villa-mountain-view-480.webp 480w, images/park-city-ski-villa-mountain-view-960.webp 960w, images/park-city-ski-villa-mountain-view.webp 1672w" sizes="(max-width: 960px) calc(100vw - 40px), 46vw" src="images/park-city-ski-villa-mountain-view.webp"
          alt="Open-plan living area with a balcony looking out over snow-covered ski runs in Park City, Utah"
          width="1672" height="941" fetchpriority="high" decoding="async">
     <figcaption>Park City, Utah</figcaption>
@@ -1232,7 +1253,7 @@ footer {
   <div class="gallery-grid" role="list">
 
     <div class="gi sr" data-li="0" role="listitem" tabindex="0" aria-label="Open photo 1">
-      <img src="images/park-city-ski-villa-living-area.jpg"
+      <img width="940" height="530" srcset="images/park-city-ski-villa-living-area-480.webp 480w, images/park-city-ski-villa-living-area.jpg 940w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 960px) 46vw, 31vw" src="images/park-city-ski-villa-living-area.jpg"
            alt="Premier Two-Bedroom Villa spacious living area with luxury furnishings" loading="lazy">
       <div class="gi-veil" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m21 21-3.5-3.5"/><path d="M11 8v6M8 11h6" stroke-width="1.5"/></svg>
@@ -1240,49 +1261,49 @@ footer {
     </div>
 
     <div class="gi sr sr-d1" data-li="1" role="listitem" tabindex="0" aria-label="Open photo 2">
-      <img src="images/park-city-ski-villa-king-bedroom.jpg"
+      <img width="940" height="530" srcset="images/park-city-ski-villa-king-bedroom-480.webp 480w, images/park-city-ski-villa-king-bedroom.jpg 940w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 960px) 46vw, 31vw" src="images/park-city-ski-villa-king-bedroom.jpg"
            alt="Master bedroom with king bed, luxury linens, and mountain views" loading="lazy">
       <div class="gi-veil" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="6"/><path d="m21 21-3.5-3.5"/></svg></div>
     </div>
 
     <div class="gi sr sr-d2" data-li="2" role="listitem" tabindex="0" aria-label="Open photo 3">
-      <img src="images/park-city-ski-villa-kitchen.jpg"
+      <img width="940" height="530" srcset="images/park-city-ski-villa-kitchen-480.webp 480w, images/park-city-ski-villa-kitchen.jpg 940w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 960px) 46vw, 31vw" src="images/park-city-ski-villa-kitchen.jpg"
            alt="Fully equipped kitchen with GE Monogram appliances and center island" loading="lazy">
       <div class="gi-veil" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="6"/><path d="m21 21-3.5-3.5"/></svg></div>
     </div>
 
     <div class="gi sr sr-d3" data-li="3" role="listitem" tabindex="0" aria-label="Open photo 4">
-      <img src="images/park-city-ski-villa-living-room.jpg"
+      <img width="940" height="530" srcset="images/park-city-ski-villa-living-room-480.webp 480w, images/park-city-ski-villa-living-room.jpg 940w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 960px) 46vw, 31vw" src="images/park-city-ski-villa-living-room.jpg"
            alt="Living room with leather queen sleeper sofa and premium décor" loading="lazy">
       <div class="gi-veil" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="6"/><path d="m21 21-3.5-3.5"/></svg></div>
     </div>
 
     <div class="gi sr" data-li="4" role="listitem" tabindex="0" aria-label="Open photo 5">
-      <img src="images/park-city-ski-villa-dining-kitchen.jpg"
+      <img width="940" height="530" srcset="images/park-city-ski-villa-dining-kitchen-480.webp 480w, images/park-city-ski-villa-dining-kitchen.jpg 940w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 960px) 46vw, 31vw" src="images/park-city-ski-villa-dining-kitchen.jpg"
            alt="Dining area and open-plan kitchen with stone countertops" loading="lazy">
       <div class="gi-veil" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="6"/><path d="m21 21-3.5-3.5"/></svg></div>
     </div>
 
     <div class="gi sr sr-d1" data-li="5" role="listitem" tabindex="0" aria-label="Open photo 6">
-      <img src="images/park-city-ski-villa-second-bedroom.jpg"
+      <img width="1600" height="900" srcset="images/park-city-ski-villa-second-bedroom-480.webp 480w, images/park-city-ski-villa-second-bedroom-960.webp 960w, images/park-city-ski-villa-second-bedroom.jpg 1600w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 960px) 46vw, 31vw" src="images/park-city-ski-villa-second-bedroom.jpg"
            alt="Second king bedroom with luxury bedding and warm lighting" loading="lazy">
       <div class="gi-veil" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="6"/><path d="m21 21-3.5-3.5"/></svg></div>
     </div>
 
     <div class="gi sr sr-d2" data-li="6" role="listitem" tabindex="0" aria-label="Open photo 7">
-      <img src="images/park-city-ski-villa-steam-shower.jpg"
+      <img width="1600" height="900" srcset="images/park-city-ski-villa-steam-shower-480.webp 480w, images/park-city-ski-villa-steam-shower-960.webp 960w, images/park-city-ski-villa-steam-shower.jpg 1600w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 960px) 46vw, 31vw" src="images/park-city-ski-villa-steam-shower.jpg"
            alt="Private bathroom with walk-in steam shower" loading="lazy">
       <div class="gi-veil" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="6"/><path d="m21 21-3.5-3.5"/></svg></div>
     </div>
 
     <div class="gi sr sr-d3" data-li="7" role="listitem" tabindex="0" aria-label="Open photo 8">
-      <img src="images/park-city-ski-villa-suite-living.jpg"
+      <img width="1600" height="900" srcset="images/park-city-ski-villa-suite-living-480.webp 480w, images/park-city-ski-villa-suite-living-960.webp 960w, images/park-city-ski-villa-suite-living.jpg 1600w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 960px) 46vw, 31vw" src="images/park-city-ski-villa-suite-living.jpg"
            alt="Suite living area with sleeper sofa and kitchenette" loading="lazy">
       <div class="gi-veil" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="6"/><path d="m21 21-3.5-3.5"/></svg></div>
     </div>
 
     <div class="gi sr" data-li="8" role="listitem" tabindex="0" aria-label="Open photo 9">
-      <img src="images/park-city-ski-villa-kitchenette.jpg"
+      <img width="1600" height="900" srcset="images/park-city-ski-villa-kitchenette-480.webp 480w, images/park-city-ski-villa-kitchenette-960.webp 960w, images/park-city-ski-villa-kitchenette.jpg 1600w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 960px) 46vw, 31vw" src="images/park-city-ski-villa-kitchenette.jpg"
            alt="Kitchenette with granite countertops and stainless steel appliances" loading="lazy">
       <div class="gi-veil" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="6"/><path d="m21 21-3.5-3.5"/></svg></div>
     </div>
@@ -1317,7 +1338,7 @@ footer {
   <div class="feature-grid">
     <article class="feat sr">
       <div class="feat-media">
-        <img src="images/park-city-ski-villa-ski-in-balcony.webp" alt="Balcony with a fire pit overlooking the ski runs and chairlifts at Park City Mountain Resort" width="1448" height="1086" loading="lazy" decoding="async">
+        <img srcset="images/park-city-ski-villa-ski-in-balcony-480.webp 480w, images/park-city-ski-villa-ski-in-balcony-960.webp 960w, images/park-city-ski-villa-ski-in-balcony.webp 1448w" sizes="(max-width: 620px) calc(100vw - 40px), (max-width: 1040px) 46vw, 31vw" src="images/park-city-ski-villa-ski-in-balcony.webp" alt="Balcony with a fire pit overlooking the ski runs and chairlifts at Park City Mountain Resort" width="1448" height="1086" loading="lazy" decoding="async">
       </div>
       <div class="feat-body">
         <h3 class="feat-t">Ski-in / Ski-out</h3>
@@ -1327,7 +1348,7 @@ footer {
 
     <article class="feat sr sr-d1">
       <div class="feat-media">
-        <img src="images/park-city-ski-villa-gourmet-kitchen.webp" alt="Villa kitchen with a stone island, stainless range and wine chiller" width="1448" height="1086" loading="lazy" decoding="async">
+        <img srcset="images/park-city-ski-villa-gourmet-kitchen-480.webp 480w, images/park-city-ski-villa-gourmet-kitchen-960.webp 960w, images/park-city-ski-villa-gourmet-kitchen.webp 1448w" sizes="(max-width: 620px) calc(100vw - 40px), (max-width: 1040px) 46vw, 31vw" src="images/park-city-ski-villa-gourmet-kitchen.webp" alt="Villa kitchen with a stone island, stainless range and wine chiller" width="1448" height="1086" loading="lazy" decoding="async">
       </div>
       <div class="feat-body">
         <h3 class="feat-t">GE Monogram Kitchen</h3>
@@ -1337,7 +1358,7 @@ footer {
 
     <article class="feat sr sr-d2">
       <div class="feat-media">
-        <img src="images/park-city-ski-villa-steam-shower-bath.webp" alt="Villa bathroom with two walk-in steam showers and a freestanding soaking tub" width="1448" height="1086" loading="lazy" decoding="async">
+        <img srcset="images/park-city-ski-villa-steam-shower-bath-480.webp 480w, images/park-city-ski-villa-steam-shower-bath-960.webp 960w, images/park-city-ski-villa-steam-shower-bath.webp 1448w" sizes="(max-width: 620px) calc(100vw - 40px), (max-width: 1040px) 46vw, 31vw" src="images/park-city-ski-villa-steam-shower-bath.webp" alt="Villa bathroom with two walk-in steam showers and a freestanding soaking tub" width="1448" height="1086" loading="lazy" decoding="async">
       </div>
       <div class="feat-body">
         <h3 class="feat-t">Dual Steam Showers</h3>
@@ -1347,7 +1368,7 @@ footer {
 
     <article class="feat sr">
       <div class="feat-media">
-        <img src="images/park-city-ski-villa-laundry.webp" alt="In-unit laundry with full size washer and dryer and folded towels" width="1448" height="1086" loading="lazy" decoding="async">
+        <img srcset="images/park-city-ski-villa-laundry-480.webp 480w, images/park-city-ski-villa-laundry-960.webp 960w, images/park-city-ski-villa-laundry.webp 1448w" sizes="(max-width: 620px) calc(100vw - 40px), (max-width: 1040px) 46vw, 31vw" src="images/park-city-ski-villa-laundry.webp" alt="In-unit laundry with full size washer and dryer and folded towels" width="1448" height="1086" loading="lazy" decoding="async">
       </div>
       <div class="feat-body">
         <h3 class="feat-t">In-Unit Washer &amp; Dryer</h3>
@@ -1357,7 +1378,7 @@ footer {
 
     <article class="feat sr sr-d1">
       <div class="feat-media">
-        <img src="images/park-city-ski-villa-great-room.webp" alt="Open great room with fireplace and seating looking out to the snow covered mountain" width="1448" height="1086" loading="lazy" decoding="async">
+        <img srcset="images/park-city-ski-villa-great-room-480.webp 480w, images/park-city-ski-villa-great-room-960.webp 960w, images/park-city-ski-villa-great-room.webp 1448w" sizes="(max-width: 620px) calc(100vw - 40px), (max-width: 1040px) 46vw, 31vw" src="images/park-city-ski-villa-great-room.webp" alt="Open great room with fireplace and seating looking out to the snow covered mountain" width="1448" height="1086" loading="lazy" decoding="async">
       </div>
       <div class="feat-body">
         <h3 class="feat-t">Sleeps 8 Guests</h3>
@@ -1367,7 +1388,7 @@ footer {
 
     <article class="feat sr sr-d2">
       <div class="feat-media">
-        <img src="images/park-city-ski-villa-suite-living.jpg" alt="Second living area in the villa with a queen sleeper sofa and kitchenette" width="1448" height="1086" loading="lazy" decoding="async">
+        <img srcset="images/park-city-ski-villa-suite-living-480.webp 480w, images/park-city-ski-villa-suite-living-960.webp 960w, images/park-city-ski-villa-suite-living.jpg 1600w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 960px) 46vw, 31vw" src="images/park-city-ski-villa-suite-living.jpg" alt="Second living area in the villa with a queen sleeper sofa and kitchenette" width="1448" height="1086" loading="lazy" decoding="async">
       </div>
       <div class="feat-body">
         <h3 class="feat-t">Two Living Areas</h3>
@@ -1556,7 +1577,7 @@ footer {
   <div class="loc-grid">
       <article class="loc-card loc-card--w2 sr">
         <div class="loc-card-media">
-          <img src="images/park-city-mountain-resort.webp" alt="Skiers riding the chairlift above Park City Mountain Resort village in winter" width="1448" height="1086" loading="lazy" decoding="async">
+          <img srcset="images/park-city-mountain-resort-480.webp 480w, images/park-city-mountain-resort-960.webp 960w, images/park-city-mountain-resort.webp 1448w" sizes="(max-width: 620px) calc(100vw - 40px), (max-width: 1040px) 46vw, 31vw" src="images/park-city-mountain-resort.webp" alt="Skiers riding the chairlift above Park City Mountain Resort village in winter" width="1448" height="1086" loading="lazy" decoding="async">
         </div>
         <div class="loc-card-body">
           <h3 class="feat-t">Park City Mountain Resort</h3>
@@ -1585,7 +1606,7 @@ footer {
 
       <article class="loc-card sr sr-d1">
         <div class="loc-card-media">
-          <img src="images/park-city-deer-valley.webp" alt="Groomed runs and lodges at Deer Valley Resort under snow" width="1448" height="1086" loading="lazy" decoding="async">
+          <img srcset="images/park-city-deer-valley-480.webp 480w, images/park-city-deer-valley-960.webp 960w, images/park-city-deer-valley.webp 1448w" sizes="(max-width: 620px) calc(100vw - 40px), (max-width: 1040px) 46vw, 31vw" src="images/park-city-deer-valley.webp" alt="Groomed runs and lodges at Deer Valley Resort under snow" width="1448" height="1086" loading="lazy" decoding="async">
         </div>
         <div class="loc-card-body">
           <h3 class="feat-t">Deer Valley Resort</h3>
@@ -1595,7 +1616,7 @@ footer {
 
       <article class="loc-card sr sr-d2">
         <div class="loc-card-media">
-          <img src="images/park-city-main-street.webp" alt="Historic Main Street in Park City lit up at twilight with snow on the ground" width="1448" height="1086" loading="lazy" decoding="async">
+          <img srcset="images/park-city-main-street-480.webp 480w, images/park-city-main-street-960.webp 960w, images/park-city-main-street.webp 1448w" sizes="(max-width: 620px) calc(100vw - 40px), (max-width: 1040px) 46vw, 31vw" src="images/park-city-main-street.webp" alt="Historic Main Street in Park City lit up at twilight with snow on the ground" width="1448" height="1086" loading="lazy" decoding="async">
         </div>
         <div class="loc-card-body">
           <h3 class="feat-t">Historic Main Street</h3>
@@ -1605,7 +1626,7 @@ footer {
 
       <article class="loc-card sr">
         <div class="loc-card-media">
-          <img src="images/park-city-slc-airport.webp" alt="Aircraft at Salt Lake City International Airport with snow covered mountains behind" width="1448" height="1086" loading="lazy" decoding="async">
+          <img srcset="images/park-city-slc-airport-480.webp 480w, images/park-city-slc-airport-960.webp 960w, images/park-city-slc-airport.webp 1448w" sizes="(max-width: 620px) calc(100vw - 40px), (max-width: 1040px) 46vw, 31vw" src="images/park-city-slc-airport.webp" alt="Aircraft at Salt Lake City International Airport with snow covered mountains behind" width="1448" height="1086" loading="lazy" decoding="async">
         </div>
         <div class="loc-card-body">
           <h3 class="feat-t">Salt Lake City Airport</h3>
@@ -1615,7 +1636,7 @@ footer {
 
       <article class="loc-card loc-card--w3 sr sr-d1">
         <div class="loc-card-media">
-          <img src="images/park-city-sundance.webp" alt="Crowds on Main Street outside the Egyptian Theatre during the Sundance Film Festival" width="1448" height="1086" loading="lazy" decoding="async">
+          <img srcset="images/park-city-sundance-480.webp 480w, images/park-city-sundance-960.webp 960w, images/park-city-sundance.webp 1448w" sizes="(max-width: 620px) calc(100vw - 40px), (max-width: 1040px) 46vw, 31vw" src="images/park-city-sundance.webp" alt="Crowds on Main Street outside the Egyptian Theatre during the Sundance Film Festival" width="1448" height="1086" loading="lazy" decoding="async">
         </div>
         <div class="loc-card-body">
           <h3 class="feat-t">Sundance Film Festival</h3>
