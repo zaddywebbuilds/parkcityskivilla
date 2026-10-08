@@ -52,10 +52,12 @@
       "url": "https://zaddywebbuilds.github.io/parkcityskivilla/",
       "image": [
         "https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-ski-villa-mountain-view.webp",
-        "https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-ski-villa-living-area.jpg",
+        "https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-ski-villa-kitchen-island.jpg",
+        "https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-ski-villa-living-room-fireplace.jpg",
         "https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-ski-villa-king-bedroom.jpg",
-        "https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-ski-villa-kitchen.jpg",
-        "https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-ski-villa-second-bedroom.jpg"
+        "https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-ski-villa-second-king-bedroom.jpg",
+        "https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-ski-villa-primary-bathroom.jpg",
+        "https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-ski-villa-steam-shower-bath.webp"
       ],
       "address": {
         "@type": "PostalAddress",
@@ -684,9 +686,9 @@ img { display: block; max-width: 100%; }
 }
 
 .gi { position: relative; overflow: hidden; cursor: pointer; background: var(--surface); }
+/* Nine photos tile a 4x3 grid exactly: the lead shot takes a 2x2 block,
+   the remaining eight fill the other eight cells. */
 .gi:nth-child(1) { grid-column: span 2; grid-row: span 2; }
-.gi:nth-child(6) { grid-column: span 2; }
-.gi:nth-child(8) { grid-column: span 2; }
 
 .gi img {
   width: 100%; height: 100%;
@@ -1518,31 +1520,64 @@ footer {
   <div class="gallery-grid" role="list">
 
     <div class="gi sr" data-li="0" role="listitem" tabindex="0" aria-label="Open photo 1">
-      <img width="1920" height="1082" srcset="images/park-city-ski-villa-living-area-480.webp 480w, images/park-city-ski-villa-living-area-960.webp 960w, images/park-city-ski-villa-living-area-1440.webp 1440w, images/park-city-ski-villa-living-area.jpg 1920w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 960px) 46vw, 31vw" src="images/park-city-ski-villa-living-area.jpg"
-           alt="Premier Two-Bedroom Villa spacious living area with luxury furnishings" loading="lazy">
-      <div class="gi-veil" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m21 21-3.5-3.5"/><path d="M11 8v6M8 11h6" stroke-width="1.5"/></svg>
-      </div>
+      <img width="1672" height="941" srcset="images/park-city-ski-villa-mountain-view-480.webp 480w, images/park-city-ski-villa-mountain-view-960.webp 960w, images/park-city-ski-villa-mountain-view.webp 1672w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 960px) 46vw, 48vw" src="images/park-city-ski-villa-mountain-view.webp"
+           alt="Living area of the Park City ski villa opening onto a balcony above the ski runs" loading="lazy" decoding="async">
+      <div class="gi-veil" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m21 21-3.5-3.5"/><path d="M11 8v6M8 11h6" stroke-width="1.5"/></svg></div>
     </div>
 
     <div class="gi sr sr-d1" data-li="1" role="listitem" tabindex="0" aria-label="Open photo 2">
-      <img width="1920" height="1082" srcset="images/park-city-ski-villa-king-bedroom-480.webp 480w, images/park-city-ski-villa-king-bedroom-960.webp 960w, images/park-city-ski-villa-king-bedroom-1440.webp 1440w, images/park-city-ski-villa-king-bedroom.jpg 1920w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 960px) 46vw, 31vw" src="images/park-city-ski-villa-king-bedroom.jpg"
-           alt="Master bedroom with king bed, luxury linens, and mountain views" loading="lazy">
-      <div class="gi-veil" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="6"/><path d="m21 21-3.5-3.5"/></svg></div>
+      <img width="1920" height="1082" srcset="images/park-city-ski-villa-kitchen-island-480.webp 480w, images/park-city-ski-villa-kitchen-island-960.webp 960w, images/park-city-ski-villa-kitchen-island-1440.webp 1440w, images/park-city-ski-villa-kitchen-island.jpg 1920w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 960px) 46vw, 23vw" src="images/park-city-ski-villa-kitchen-island.jpg"
+           alt="GE Monogram kitchen with center island, barstool seating and two-zone wine chiller" loading="lazy" decoding="async">
+      <div class="gi-veil" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m21 21-3.5-3.5"/></svg></div>
     </div>
 
     <div class="gi sr sr-d2" data-li="2" role="listitem" tabindex="0" aria-label="Open photo 3">
-      <img width="1920" height="1082" srcset="images/park-city-ski-villa-kitchen-480.webp 480w, images/park-city-ski-villa-kitchen-960.webp 960w, images/park-city-ski-villa-kitchen-1440.webp 1440w, images/park-city-ski-villa-kitchen.jpg 1920w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 960px) 46vw, 31vw" src="images/park-city-ski-villa-kitchen.jpg"
-           alt="Fully equipped kitchen with GE Monogram appliances and center island" loading="lazy">
-      <div class="gi-veil" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="6"/><path d="m21 21-3.5-3.5"/></svg></div>
+      <img width="1920" height="1082" srcset="images/park-city-ski-villa-living-room-fireplace-480.webp 480w, images/park-city-ski-villa-living-room-fireplace-960.webp 960w, images/park-city-ski-villa-living-room-fireplace-1440.webp 1440w, images/park-city-ski-villa-living-room-fireplace.jpg 1920w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 960px) 46vw, 23vw" src="images/park-city-ski-villa-living-room-fireplace.jpg"
+           alt="Villa living room with marble fireplace, smart TV and queen sleeper sofa" loading="lazy" decoding="async">
+      <div class="gi-veil" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m21 21-3.5-3.5"/></svg></div>
     </div>
 
+    <div class="gi sr sr-d3" data-li="3" role="listitem" tabindex="0" aria-label="Open photo 4">
+      <img width="1920" height="1082" srcset="images/park-city-ski-villa-king-bedroom-480.webp 480w, images/park-city-ski-villa-king-bedroom-960.webp 960w, images/park-city-ski-villa-king-bedroom-1440.webp 1440w, images/park-city-ski-villa-king-bedroom.jpg 1920w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 960px) 46vw, 23vw" src="images/park-city-ski-villa-king-bedroom.jpg"
+           alt="King bedroom with upholstered headboard and sliding barn door to the bathroom" loading="lazy" decoding="async">
+      <div class="gi-veil" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m21 21-3.5-3.5"/></svg></div>
+    </div>
+
+    <div class="gi sr sr-d3" data-li="4" role="listitem" tabindex="0" aria-label="Open photo 5">
+      <img width="1600" height="900" srcset="images/park-city-ski-villa-second-king-bedroom-480.webp 480w, images/park-city-ski-villa-second-king-bedroom-960.webp 960w, images/park-city-ski-villa-second-king-bedroom.jpg 1600w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 960px) 46vw, 23vw" src="images/park-city-ski-villa-second-king-bedroom.jpg"
+           alt="Second king bedroom with work desk and window over the resort grounds" loading="lazy" decoding="async">
+      <div class="gi-veil" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m21 21-3.5-3.5"/></svg></div>
+    </div>
+
+    <div class="gi sr sr-d3" data-li="5" role="listitem" tabindex="0" aria-label="Open photo 6">
+      <img width="1920" height="1082" srcset="images/park-city-ski-villa-primary-bathroom-480.webp 480w, images/park-city-ski-villa-primary-bathroom-960.webp 960w, images/park-city-ski-villa-primary-bathroom-1440.webp 1440w, images/park-city-ski-villa-primary-bathroom.jpg 1920w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 960px) 46vw, 23vw" src="images/park-city-ski-villa-primary-bathroom.jpg"
+           alt="Primary bathroom with freestanding soaking tub and double stone vanity" loading="lazy" decoding="async">
+      <div class="gi-veil" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m21 21-3.5-3.5"/></svg></div>
+    </div>
+
+    <div class="gi sr sr-d3" data-li="6" role="listitem" tabindex="0" aria-label="Open photo 7">
+      <img width="1600" height="900" srcset="images/park-city-ski-villa-second-bathroom-480.webp 480w, images/park-city-ski-villa-second-bathroom-960.webp 960w, images/park-city-ski-villa-second-bathroom.jpg 1600w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 960px) 46vw, 23vw" src="images/park-city-ski-villa-second-bathroom.jpg"
+           alt="Second bathroom with vanity, lit mirror and walk-in shower" loading="lazy" decoding="async">
+      <div class="gi-veil" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m21 21-3.5-3.5"/></svg></div>
+    </div>
+
+    <div class="gi sr sr-d3" data-li="7" role="listitem" tabindex="0" aria-label="Open photo 8">
+      <img width="1448" height="1086" srcset="images/park-city-ski-villa-steam-shower-bath-480.webp 480w, images/park-city-ski-villa-steam-shower-bath-960.webp 960w, images/park-city-ski-villa-steam-shower-bath.webp 1448w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 960px) 46vw, 23vw" src="images/park-city-ski-villa-steam-shower-bath.webp"
+           alt="Dual walk-in steam showers beside the soaking tub in the Park City ski villa" loading="lazy" decoding="async">
+      <div class="gi-veil" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m21 21-3.5-3.5"/></svg></div>
+    </div>
+
+    <div class="gi sr sr-d3" data-li="8" role="listitem" tabindex="0" aria-label="Open photo 9">
+      <img width="1920" height="1082" srcset="images/park-city-ski-villa-kitchenette-living-480.webp 480w, images/park-city-ski-villa-kitchenette-living-960.webp 960w, images/park-city-ski-villa-kitchenette-living-1440.webp 1440w, images/park-city-ski-villa-kitchenette-living.jpg 1920w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 960px) 46vw, 23vw" src="images/park-city-ski-villa-kitchenette-living.jpg"
+           alt="Kitchenette and living area with the bedroom alcove beyond" loading="lazy" decoding="async">
+      <div class="gi-veil" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m21 21-3.5-3.5"/></svg></div>
+    </div>
 
   </div>
 
   <div class="gallery-more">
     <button type="button" class="btn btn-ghost btn-lg" id="view-all-photos">
-      View all 9 photos
+      View photos full size
     </button>
   </div>
 </section>
@@ -2198,15 +2233,15 @@ footer {
 
   /* ── Lightbox ── */
   var IMGS = [
-    { src: 'images/park-city-ski-villa-living-area.jpg', alt: 'Premier Two-Bedroom Villa spacious living area' },
-    { src: 'images/park-city-ski-villa-king-bedroom.jpg', alt: 'Master bedroom with king bed and luxury linens' },
-    { src: 'images/park-city-ski-villa-kitchen.jpg', alt: 'Kitchen with GE Monogram appliances and center island' },
-    { src: 'images/park-city-ski-villa-living-room.jpg', alt: 'Living room with leather queen sleeper sofa' },
-    { src: 'images/park-city-ski-villa-dining-kitchen.jpg', alt: 'Dining area and open-plan kitchen' },
-    { src: 'images/park-city-ski-villa-second-bedroom.jpg', alt: 'Second king bedroom with luxury bedding' },
-    { src: 'images/park-city-ski-villa-steam-shower.jpg', alt: 'Private bathroom with walk-in steam shower' },
-    { src: 'images/park-city-ski-villa-suite-living.jpg', alt: 'Suite living area with sleeper sofa and kitchenette' },
-    { src: 'images/park-city-ski-villa-kitchenette.jpg', alt: 'Kitchenette with granite countertops' }
+    { src: 'images/park-city-ski-villa-mountain-view.webp', alt: 'Living area of the Park City ski villa opening onto a balcony above the ski runs' },
+    { src: 'images/park-city-ski-villa-kitchen-island.jpg', alt: 'GE Monogram kitchen with center island, barstool seating and two-zone wine chiller' },
+    { src: 'images/park-city-ski-villa-living-room-fireplace.jpg', alt: 'Villa living room with marble fireplace, smart TV and queen sleeper sofa' },
+    { src: 'images/park-city-ski-villa-king-bedroom.jpg', alt: 'King bedroom with upholstered headboard and sliding barn door to the bathroom' },
+    { src: 'images/park-city-ski-villa-second-king-bedroom.jpg', alt: 'Second king bedroom with work desk and window over the resort grounds' },
+    { src: 'images/park-city-ski-villa-primary-bathroom.jpg', alt: 'Primary bathroom with freestanding soaking tub and double stone vanity' },
+    { src: 'images/park-city-ski-villa-second-bathroom.jpg', alt: 'Second bathroom with vanity, lit mirror and walk-in shower' },
+    { src: 'images/park-city-ski-villa-steam-shower-bath.webp', alt: 'Dual walk-in steam showers beside the soaking tub in the Park City ski villa' },
+    { src: 'images/park-city-ski-villa-kitchenette-living.jpg', alt: 'Kitchenette and living area with the bedroom alcove beyond' }
   ];
 
   var lb = document.getElementById('lb');

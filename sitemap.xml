@@ -3,48 +3,48 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://zaddywebbuilds.github.io/parkcityskivilla/</loc>
-    <lastmod>2026-10-07</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-ski-villa-mountain-view.webp</image:loc>
-      <image:title>Park City ski villa living area with mountain view</image:title>
+      <image:title>Park City ski villa living area opening onto a balcony above the ski runs</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-ski-villa-living-area.jpg</image:loc>
-      <image:title>Park City ski villa living area</image:title>
+      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-ski-villa-kitchen-island.jpg</image:loc>
+      <image:title>GE Monogram kitchen with center island and two-zone wine chiller</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-ski-villa-living-room-fireplace.jpg</image:loc>
+      <image:title>Villa living room with marble fireplace and queen sleeper sofa</image:title>
     </image:image>
     <image:image>
       <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-ski-villa-king-bedroom.jpg</image:loc>
       <image:title>King bedroom in the Park City two-bedroom ski villa</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-ski-villa-kitchen.jpg</image:loc>
-      <image:title>GE Monogram kitchen with center island</image:title>
+      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-ski-villa-second-king-bedroom.jpg</image:loc>
+      <image:title>Second king bedroom with work desk</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-ski-villa-living-room.jpg</image:loc>
-      <image:title>Villa living room with queen sleeper sofa</image:title>
+      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-ski-villa-primary-bathroom.jpg</image:loc>
+      <image:title>Primary bathroom with freestanding soaking tub and double vanity</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-ski-villa-dining-kitchen.jpg</image:loc>
-      <image:title>Dining area and open-plan kitchen</image:title>
+      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-ski-villa-steam-shower-bath.webp</image:loc>
+      <image:title>Dual walk-in steam showers in the Park City ski villa</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-ski-villa-second-bedroom.jpg</image:loc>
-      <image:title>Second king bedroom</image:title>
+      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-ski-villa-second-bathroom.jpg</image:loc>
+      <image:title>Second bathroom with vanity</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-ski-villa-steam-shower.jpg</image:loc>
-      <image:title>Private bathroom with walk-in steam shower</image:title>
+      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-ski-villa-kitchenette-living.jpg</image:loc>
+      <image:title>Kitchenette and living area with bedroom beyond</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-ski-villa-suite-living.jpg</image:loc>
-      <image:title>Suite living area</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-ski-villa-kitchenette.jpg</image:loc>
-      <image:title>Kitchenette with granite countertops</image:title>
+      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-ski-villa-ski-in-balcony.webp</image:loc>
+      <image:title>Ski-in ski-out balcony above Park City Mountain Resort</image:title>
     </image:image>
   </url>
 </urlset>
