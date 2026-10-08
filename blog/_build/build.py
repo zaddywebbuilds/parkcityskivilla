@@ -456,16 +456,31 @@ def build_index(posts):
             continue
         cards = []
         for p in members:
+            im = SITE["images"][p["hero"]]
+            # thumbnails are small on screen, so only the narrow variants are offered
+            srcset = ", ".join(f"../images/{im['stem']}-{v}.webp {v}w" for v in im["variants"] if v <= 960)
             cards.append(
                 f'    <a class="pcard" href="{p["slug"]}/">\n'
-                f"      <h2>{e(p['title'])}</h2>\n"
-                f"      <p>{e(p['desc'])}</p>\n"
-                f'      <div class="pm">{human_date(p["date"])} &middot; {p["read"]} min read</div>\n'
-                f"    </a>"
+                f'      <div class="pcard-media">\n'
+                f'        <img src="../images/{im["stem"]}-960.webp" srcset="{srcset}"\n'
+                f'             sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1000px) 44vw, 30vw"\n'
+                f'             width="{im["w"]}" height="{im["h"]}" loading="lazy" decoding="async"\n'
+                f'             alt="{e(p["hero_alt"])}">\n'
+                f'      </div>\n'
+                f'      <div class="pcard-body">\n'
+                f'        <h3>{e(p["title"])}</h3>\n'
+                f'        <p>{e(p["desc"])}</p>\n'
+                f'        <div class="pm">{human_date(p["date"])} &middot; {p["read"]} min read</div>\n'
+                f'      </div>\n'
+                f'    </a>'
             )
+        n = len(members)
         groups_html.append(
-            f'  <h2 style="font-family:var(--serif);font-weight:400;font-size:1.5rem;'
-            f'margin:52px 0 4px;">{e(gname)}</h2>\n'
+            f'  <div class="pgroup">\n'
+            f'    <h2>{e(gname)}</h2>\n'
+            f'    <span class="rule"></span>\n'
+            f'    <span class="pcount">{n} guide{"s" if n != 1 else ""}</span>\n'
+            f'  </div>\n'
             f'  <div class="plist">\n' + "\n".join(cards) + "\n  </div>"
         )
 
@@ -486,6 +501,7 @@ def build_index(posts):
                         "url": f"{BASE}blog/{p['slug']}/",
                         "datePublished": p["date"],
                         "description": p["desc"],
+                        "image": f"{BASE}images/{SITE['images'][p['hero']]['stem']}.{SITE['images'][p['hero']]['ext']}",
                     }
                     for p in ordered
                 ],

@@ -1165,51 +1165,50 @@ img { display: block; max-width: 100%; }
 #guides { background: var(--bg-2); border-top: 1px solid var(--border); }
 
 .sec-lede {
-  max-width: 54ch;
-  margin: 0 0 34px;
-  color: var(--snow-muted);
-  font-size: 1.02rem;
-  line-height: 1.7;
+  max-width: 54ch; margin: 0 0 34px;
+  color: var(--snow-muted); font-size: 1.02rem; line-height: 1.7;
 }
 
 .gd-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 4px;
+  gap: 26px 24px;
 }
 @media (max-width: 1040px) { .gd-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 620px)  { .gd-grid { grid-template-columns: 1fr; } }
 
 .gd-card {
-  display: block;
-  padding: 26px 24px;
+  display: flex; flex-direction: column;
   background: var(--surface);
   border: 1px solid transparent;
   border-radius: var(--r);
+  overflow: hidden;
   text-decoration: none;
   transition: border-color 0.25s var(--ease), background 0.25s var(--ease), transform 0.25s var(--ease);
 }
 .gd-card:hover {
   border-color: var(--border-gold);
   background: var(--surface-2);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
 }
+
+.gd-media { aspect-ratio: 16 / 9; overflow: hidden; background: var(--bg-2); }
+.gd-media img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform 0.6s var(--ease), filter 0.3s var(--ease);
+}
+.gd-card:hover .gd-media img { transform: scale(1.05); filter: brightness(1.06) saturate(1.04); }
+
+.gd-body { padding: 20px 21px 22px; display: flex; flex-direction: column; flex: 1; }
 .gd-t {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: 1.22rem;
-  line-height: 1.25;
-  margin: 0 0 10px;
-  color: var(--snow);
+  font-family: var(--serif); font-weight: 400;
+  font-size: 1.2rem; line-height: 1.26;
+  margin: 0 0 9px; color: var(--snow);
+  transition: color 0.2s var(--ease);
 }
 .gd-card:hover .gd-t { color: var(--gold); }
-.gd-d {
-  margin: 0;
-  font-size: 0.9rem;
-  line-height: 1.65;
-  color: var(--snow-muted);
-}
-.gd-more { margin-top: 30px; }
+.gd-d { margin: 0; font-size: 0.88rem; line-height: 1.62; color: var(--snow-muted); }
+.gd-more { margin-top: 32px; }
 
 
 /* ── Why book direct ── */
@@ -1711,7 +1710,7 @@ footer {
 
     <article class="feat sr sr-d2">
       <div class="feat-media">
-        <img srcset="images/park-city-ski-villa-suite-living-480.webp 480w, images/park-city-ski-villa-suite-living-960.webp 960w, images/park-city-ski-villa-suite-living.jpg 1600w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 960px) 46vw, 31vw" src="images/park-city-ski-villa-suite-living.jpg" alt="Second living area in the villa with a queen sleeper sofa and kitchenette" width="1448" height="1086" loading="lazy" decoding="async">
+        <img srcset="images/park-city-ski-villa-suite-living-480.webp 480w, images/park-city-ski-villa-suite-living-960.webp 960w, images/park-city-ski-villa-suite-living.jpg 1600w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 960px) 46vw, 31vw" src="images/park-city-ski-villa-suite-living.jpg" alt="Second living area in the villa with a queen sleeper sofa and kitchenette" width="1600" height="900" loading="lazy" decoding="async">
       </div>
       <div class="feat-body">
         <h3 class="feat-t">Two Living Areas</h3>
@@ -1965,7 +1964,7 @@ footer {
   <div class="loc-grid">
       <article class="loc-card loc-card--w2 sr">
         <div class="loc-card-media">
-          <img srcset="images/park-city-mountain-resort-480.webp 480w, images/park-city-mountain-resort-960.webp 960w, images/park-city-mountain-resort.webp 1448w" sizes="(max-width: 620px) calc(100vw - 40px), (max-width: 1040px) 46vw, 31vw" src="images/park-city-mountain-resort.webp" alt="Skiers riding the chairlift above Park City Mountain Resort village in winter" width="1448" height="1086" loading="lazy" decoding="async">
+          <img srcset="images/park-city-mountain-resort-480.webp 480w, images/park-city-mountain-resort-960.webp 960w, images/park-city-mountain-resort.webp 1424w" sizes="(max-width: 620px) calc(100vw - 40px), (max-width: 1040px) 46vw, 31vw" src="images/park-city-mountain-resort.webp" alt="Skiers riding the chairlift above Park City Mountain Resort village in winter" width="1424" height="812" loading="lazy" decoding="async">
         </div>
         <div class="loc-card-body">
           <h3 class="feat-t">Park City Mountain Resort</h3>
@@ -1994,7 +1993,7 @@ footer {
 
       <article class="loc-card sr sr-d1">
         <div class="loc-card-media">
-          <img srcset="images/park-city-deer-valley-480.webp 480w, images/park-city-deer-valley-960.webp 960w, images/park-city-deer-valley.webp 1448w" sizes="(max-width: 620px) calc(100vw - 40px), (max-width: 1040px) 46vw, 31vw" src="images/park-city-deer-valley.webp" alt="Groomed runs and lodges at Deer Valley Resort under snow" width="1448" height="1086" loading="lazy" decoding="async">
+          <img srcset="images/park-city-deer-valley-480.webp 480w, images/park-city-deer-valley-960.webp 960w, images/park-city-deer-valley.webp 1424w" sizes="(max-width: 620px) calc(100vw - 40px), (max-width: 1040px) 46vw, 31vw" src="images/park-city-deer-valley.webp" alt="Groomed runs and lodges at Deer Valley Resort under snow" width="1424" height="779" loading="lazy" decoding="async">
         </div>
         <div class="loc-card-body">
           <h3 class="feat-t">Deer Valley Resort</h3>
@@ -2004,7 +2003,7 @@ footer {
 
       <article class="loc-card sr sr-d2">
         <div class="loc-card-media">
-          <img srcset="images/park-city-main-street-480.webp 480w, images/park-city-main-street-960.webp 960w, images/park-city-main-street.webp 1448w" sizes="(max-width: 620px) calc(100vw - 40px), (max-width: 1040px) 46vw, 31vw" src="images/park-city-main-street.webp" alt="Historic Main Street in Park City lit up at twilight with snow on the ground" width="1448" height="1086" loading="lazy" decoding="async">
+          <img srcset="images/park-city-main-street-480.webp 480w, images/park-city-main-street-960.webp 960w, images/park-city-main-street.webp 1424w" sizes="(max-width: 620px) calc(100vw - 40px), (max-width: 1040px) 46vw, 31vw" src="images/park-city-main-street.webp" alt="Historic Main Street in Park City lit up at twilight with snow on the ground" width="1424" height="797" loading="lazy" decoding="async">
         </div>
         <div class="loc-card-body">
           <h3 class="feat-t">Historic Main Street</h3>
@@ -2014,13 +2013,87 @@ footer {
 
       <article class="loc-card sr">
         <div class="loc-card-media">
-          <img srcset="images/park-city-slc-airport-480.webp 480w, images/park-city-slc-airport-960.webp 960w, images/park-city-slc-airport.webp 1448w" sizes="(max-width: 620px) calc(100vw - 40px), (max-width: 1040px) 46vw, 31vw" src="images/park-city-slc-airport.webp" alt="Aircraft at Salt Lake City International Airport with snow covered mountains behind" width="1448" height="1086" loading="lazy" decoding="async">
+          <img srcset="images/park-city-slc-airport-480.webp 480w, images/park-city-slc-airport-960.webp 960w, images/park-city-slc-airport.webp 1424w" sizes="(max-width: 620px) calc(100vw - 40px), (max-width: 1040px) 46vw, 31vw" src="images/park-city-slc-airport.webp" alt="Aircraft at Salt Lake City International Airport with snow covered mountains behind" width="1424" height="769" loading="lazy" decoding="async">
         </div>
         <div class="loc-card-body">
           <h3 class="feat-t">Salt Lake City Airport</h3>
             <p class="feat-d">About 45 minutes door to door, with direct flights from across the country.</p>
         </div>
       </article>
+  </div>
+</section>
+
+<!-- ── Guides ── -->
+<section id="guides" class="section" aria-labelledby="guides-h2">
+  <span class="eyebrow sr">Planning</span>
+  <h2 id="guides-h2" class="section-title sr sr-d1">Planning a Park City week</h2>
+  <p class="sec-lede sr sr-d1">Everything we have learned owning and skiing out of this villa. Lifts, transfers, what a week really costs, and how far ahead the February weeks go.</p>
+
+  <div class="gd-grid">
+    <a class="gd-card sr sr-d1" href="blog/canyons-village-ski-in-ski-out-presidents-week-2027/">
+      <div class="gd-media">
+        <img srcset="images/park-city-ski-villa-mountain-view-480.webp 480w, images/park-city-ski-villa-mountain-view-960.webp 960w" sizes="(max-width: 620px) calc(100vw - 40px), (max-width: 1040px) 46vw, 31vw"
+             src="images/park-city-ski-villa-mountain-view-960.webp" alt="Living area of a Canyons Village villa opening onto a balcony above the ski runs" width="1600" height="900" loading="lazy" decoding="async">
+      </div>
+      <div class="gd-body">
+        <h3 class="gd-t">Canyons Village ski-in ski-out during Presidents' Week 2027</h3>
+        <p class="gd-d">The dates, which lift you walk to, what a week costs, and when the family-sized units go.</p>
+      </div>
+    </a>
+    <a class="gd-card sr sr-d2" href="blog/presidents-week-park-city-why-it-sells-out/">
+      <div class="gd-media">
+        <img srcset="images/park-city-ski-villa-great-room-480.webp 480w, images/park-city-ski-villa-great-room-960.webp 960w" sizes="(max-width: 620px) calc(100vw - 40px), (max-width: 1040px) 46vw, 31vw"
+             src="images/park-city-ski-villa-great-room-960.webp" alt="Open great room with fireplace looking out to the snow covered mountain" width="960" height="720" loading="lazy" decoding="async">
+      </div>
+      <div class="gd-body">
+        <h3 class="gd-t">Why Presidents' Week sells out first</h3>
+        <p class="gd-d">School calendars, fixed lift capacity and a small supply of units that sleep eight.</p>
+      </div>
+    </a>
+    <a class="gd-card sr sr-d2" href="blog/ski-in-ski-out-park-city-what-it-means/">
+      <div class="gd-media">
+        <img srcset="images/park-city-ski-villa-ski-in-balcony-480.webp 480w, images/park-city-ski-villa-ski-in-balcony-960.webp 960w" sizes="(max-width: 620px) calc(100vw - 40px), (max-width: 1040px) 46vw, 31vw"
+             src="images/park-city-ski-villa-ski-in-balcony-960.webp" alt="Balcony overlooking the ski runs and chairlifts at Park City Mountain Resort" width="960" height="720" loading="lazy" decoding="async">
+      </div>
+      <div class="gd-body">
+        <h3 class="gd-t">What ski-in ski-out actually means</h3>
+        <p class="gd-d">The term is unregulated. Four questions that tell you what you are really booking.</p>
+      </div>
+    </a>
+    <a class="gd-card sr sr-d3" href="blog/slc-airport-to-park-city-transfer/">
+      <div class="gd-media">
+        <img srcset="images/park-city-slc-airport-480.webp 480w, images/park-city-slc-airport-960.webp 960w" sizes="(max-width: 620px) calc(100vw - 40px), (max-width: 1040px) 46vw, 31vw"
+             src="images/park-city-slc-airport-960.webp" alt="Aircraft at Salt Lake City International Airport with snow covered mountains behind" width="960" height="518" loading="lazy" decoding="async">
+      </div>
+      <div class="gd-body">
+        <h3 class="gd-t">Salt Lake City airport to Park City</h3>
+        <p class="gd-d">About 33 miles and 45 minutes, plus what winter does to the drive.</p>
+      </div>
+    </a>
+    <a class="gd-card sr sr-d3" href="blog/park-city-ski-week-cost-family-of-eight/">
+      <div class="gd-media">
+        <img srcset="images/park-city-ski-villa-kitchen-island-480.webp 480w, images/park-city-ski-villa-kitchen-island-960.webp 960w" sizes="(max-width: 620px) calc(100vw - 40px), (max-width: 1040px) 46vw, 31vw"
+             src="images/park-city-ski-villa-kitchen-island-960.webp" alt="Kitchen with centre island, barstool seating and two-zone wine chiller" width="1600" height="900" loading="lazy" decoding="async">
+      </div>
+      <div class="gd-body">
+        <h3 class="gd-t">What a ski week costs for a family of eight</h3>
+        <p class="gd-d">Every line in the budget, including the two most people leave out.</p>
+      </div>
+    </a>
+    <a class="gd-card sr sr-d3" href="blog/when-to-book-park-city-peak-weeks/">
+      <div class="gd-media">
+        <img srcset="images/park-city-ski-villa-king-bedroom-480.webp 480w, images/park-city-ski-villa-king-bedroom-960.webp 960w" sizes="(max-width: 620px) calc(100vw - 40px), (max-width: 1040px) 46vw, 31vw"
+             src="images/park-city-ski-villa-king-bedroom-960.webp" alt="King bedroom with upholstered headboard in the Park City two-bedroom villa" width="1600" height="900" loading="lazy" decoding="async">
+      </div>
+      <div class="gd-body">
+        <h3 class="gd-t">When to book a peak week</h3>
+        <p class="gd-d">What goes first, what waiting costs, and how to book early without taking a risk.</p>
+      </div>
+    </a>
+  </div>
+
+  <div class="gd-more sr sr-d3">
+    <a href="blog/" class="btn btn-ghost btn-lg">All 28 guides</a>
   </div>
 </section>
 
@@ -2050,44 +2123,6 @@ footer {
       <h3 class="bd-t">Answered within a day</h3>
       <p class="bd-d">Send an enquiry and you'll hear back from us inside 24 hours, with real availability.</p>
     </div>
-  </div>
-</section>
-
-<!-- ── Guides ── -->
-<section id="guides" class="section" aria-labelledby="guides-h2">
-  <span class="eyebrow sr">Planning</span>
-  <h2 id="guides-h2" class="section-title sr sr-d1">Planning a Park City week</h2>
-  <p class="sec-lede sr sr-d1">Everything we have learned owning and skiing out of this villa. Lifts, transfers, what a week really costs, and how far ahead the February weeks go.</p>
-
-  <div class="gd-grid">
-    <a class="gd-card sr sr-d1" href="blog/canyons-village-ski-in-ski-out-presidents-week-2027/">
-      <h3 class="gd-t">Canyons Village ski-in ski-out during Presidents' Week 2027</h3>
-      <p class="gd-d">The dates, which lift you walk to, what a week costs, and when the family-sized units go.</p>
-    </a>
-    <a class="gd-card sr sr-d2" href="blog/presidents-week-park-city-why-it-sells-out/">
-      <h3 class="gd-t">Why Presidents' Week sells out first</h3>
-      <p class="gd-d">School calendars, fixed lift capacity and a small supply of units that sleep eight.</p>
-    </a>
-    <a class="gd-card sr sr-d2" href="blog/ski-in-ski-out-park-city-what-it-means/">
-      <h3 class="gd-t">What ski-in ski-out actually means</h3>
-      <p class="gd-d">The term is unregulated. Four questions that tell you what you are really booking.</p>
-    </a>
-    <a class="gd-card sr sr-d3" href="blog/slc-airport-to-park-city-transfer/">
-      <h3 class="gd-t">Salt Lake City airport to Park City</h3>
-      <p class="gd-d">About 33 miles and 45 minutes, plus what winter does to the drive.</p>
-    </a>
-    <a class="gd-card sr sr-d3" href="blog/park-city-ski-week-cost-family-of-eight/">
-      <h3 class="gd-t">What a ski week costs for a family of eight</h3>
-      <p class="gd-d">Every line in the budget, including the two most people leave out.</p>
-    </a>
-    <a class="gd-card sr sr-d3" href="blog/when-to-book-park-city-peak-weeks/">
-      <h3 class="gd-t">When to book a peak week</h3>
-      <p class="gd-d">What goes first, what waiting costs, and how to book early without taking a risk.</p>
-    </a>
-  </div>
-
-  <div class="gd-more sr sr-d3">
-    <a href="blog/" class="btn btn-ghost btn-lg">All 28 guides</a>
   </div>
 </section>
 
