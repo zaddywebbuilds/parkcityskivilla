@@ -1,4 +1,34 @@
-User-agent: *
+# Park City Ski Villa
+# Indexing is limited to Google and Bing by choice of the site owner.
+# Social preview fetchers are allowed so shared links still render a card.
+
+User-agent: Googlebot
 Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: msnbot
+Allow: /
+
+# Link preview bots, not search crawlers.
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Slackbot-LinkExpanding
+Allow: /
+
+# Everything else.
+User-agent: *
+Disallow: /
 
 Sitemap: https://zaddywebbuilds.github.io/parkcityskivilla/sitemap.xml

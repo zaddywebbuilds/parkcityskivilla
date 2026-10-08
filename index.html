@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-<title>Park City Ski Villa | Premier 2-Bedroom Ski-in Villa, Park City Utah</title>
+<title>Park City Ski Villa | 2-Bedroom Ski-in Villa, Canyons Village</title>
 <meta name="description" content="Premier 2-bedroom ski-in villa at Westgate Park City Resort. 1,100 sq ft, sleeps 8, full kitchen, dual steam showers. Presidents' Week Feb 13-20, 2027.">
-<meta name="keywords" content="Park City ski villa, Westgate Park City 2 bedroom villa rental, Park City ski villa Presidents Day 2027, Park City ski villa sleeps 8, Westgate Park City villa rent by owner, Park City ski villa February, Park City 2 bedroom ski villa, ski-in ski-out Park City rental, Park City Mountain Resort villa rental, Presidents week Park City 2027">
+<meta name="keywords" content="Park City ski villa, Canyons Village ski in ski out, Westgate Park City 2 bedroom villa rental, Park City ski villa Presidents Day 2027, Park City ski villa sleeps 8, Westgate Park City villa rent by owner, Park City ski villa February, Park City 2 bedroom ski villa, ski-in ski-out Park City rental, Park City Mountain Resort villa rental, Presidents week Park City 2027">
 <meta name="author" content="Park City Ski Villa">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <link rel="canonical" href="https://zaddywebbuilds.github.io/parkcityskivilla/">
@@ -1161,6 +1161,57 @@ img { display: block; max-width: 100%; }
 }
 
 
+/* ── Guides ── */
+#guides { background: var(--bg-2); border-top: 1px solid var(--border); }
+
+.sec-lede {
+  max-width: 54ch;
+  margin: 0 0 34px;
+  color: var(--snow-muted);
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.gd-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 4px;
+}
+@media (max-width: 1040px) { .gd-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 620px)  { .gd-grid { grid-template-columns: 1fr; } }
+
+.gd-card {
+  display: block;
+  padding: 26px 24px;
+  background: var(--surface);
+  border: 1px solid transparent;
+  border-radius: var(--r);
+  text-decoration: none;
+  transition: border-color 0.25s var(--ease), background 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.gd-card:hover {
+  border-color: var(--border-gold);
+  background: var(--surface-2);
+  transform: translateY(-2px);
+}
+.gd-t {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.22rem;
+  line-height: 1.25;
+  margin: 0 0 10px;
+  color: var(--snow);
+}
+.gd-card:hover .gd-t { color: var(--gold); }
+.gd-d {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--snow-muted);
+}
+.gd-more { margin-top: 30px; }
+
+
 /* ── Why book direct ── */
 #direct {
   background: var(--bg-2);
@@ -1432,6 +1483,7 @@ footer {
     <a href="#amenities" class="nav-link">Amenities</a>
     <a href="#resort" class="nav-link">Resort</a>
     <a href="#presidents" class="nav-link">Availability</a>
+    <a href="blog/" class="nav-link">Guides</a>
     <a href="#contact" class="nav-link">Book</a>
     <a href="#contact" class="btn btn-gold" aria-label="Check availability">Check Availability</a>
   </div>
@@ -2001,6 +2053,44 @@ footer {
   </div>
 </section>
 
+<!-- ── Guides ── -->
+<section id="guides" class="section" aria-labelledby="guides-h2">
+  <span class="eyebrow sr">Planning</span>
+  <h2 id="guides-h2" class="section-title sr sr-d1">Planning a Park City week</h2>
+  <p class="sec-lede sr sr-d1">Everything we have learned owning and skiing out of this villa. Lifts, transfers, what a week really costs, and how far ahead the February weeks go.</p>
+
+  <div class="gd-grid">
+    <a class="gd-card sr sr-d1" href="blog/canyons-village-ski-in-ski-out-presidents-week-2027/">
+      <h3 class="gd-t">Canyons Village ski-in ski-out during Presidents' Week 2027</h3>
+      <p class="gd-d">The dates, which lift you walk to, what a week costs, and when the family-sized units go.</p>
+    </a>
+    <a class="gd-card sr sr-d2" href="blog/presidents-week-park-city-why-it-sells-out/">
+      <h3 class="gd-t">Why Presidents' Week sells out first</h3>
+      <p class="gd-d">School calendars, fixed lift capacity and a small supply of units that sleep eight.</p>
+    </a>
+    <a class="gd-card sr sr-d2" href="blog/ski-in-ski-out-park-city-what-it-means/">
+      <h3 class="gd-t">What ski-in ski-out actually means</h3>
+      <p class="gd-d">The term is unregulated. Four questions that tell you what you are really booking.</p>
+    </a>
+    <a class="gd-card sr sr-d3" href="blog/slc-airport-to-park-city-transfer/">
+      <h3 class="gd-t">Salt Lake City airport to Park City</h3>
+      <p class="gd-d">About 33 miles and 45 minutes, plus what winter does to the drive.</p>
+    </a>
+    <a class="gd-card sr sr-d3" href="blog/park-city-ski-week-cost-family-of-eight/">
+      <h3 class="gd-t">What a ski week costs for a family of eight</h3>
+      <p class="gd-d">Every line in the budget, including the two most people leave out.</p>
+    </a>
+    <a class="gd-card sr sr-d3" href="blog/when-to-book-park-city-peak-weeks/">
+      <h3 class="gd-t">When to book a peak week</h3>
+      <p class="gd-d">What goes first, what waiting costs, and how to book early without taking a risk.</p>
+    </a>
+  </div>
+
+  <div class="gd-more sr sr-d3">
+    <a href="blog/" class="btn btn-ghost btn-lg">All 28 guides</a>
+  </div>
+</section>
+
 <!-- ── Contact / Book ── -->
 <section id="contact" class="section" aria-labelledby="contact-h2">
   <span class="eyebrow sr">Book Your Stay</span>
@@ -2112,6 +2202,7 @@ footer {
         <li><a href="#direct">Why book direct</a></li>
         <li><a href="#faq">Questions</a></li>
         <li><a href="#resort">Resort amenities</a></li>
+        <li><a href="blog/">Park City ski guides</a></li>
         <li>Deposit, cancellation and rental terms are confirmed in writing before any payment is taken.</li>
       </ul>
     </div>

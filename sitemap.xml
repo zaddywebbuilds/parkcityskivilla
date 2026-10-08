@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
   <url>
     <loc>https://zaddywebbuilds.github.io/parkcityskivilla/</loc>
     <lastmod>2026-10-08</lastmod>
@@ -45,6 +46,292 @@
     <image:image>
       <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-ski-villa-ski-in-balcony.webp</image:loc>
       <image:title>Ski-in ski-out balcony above Park City Mountain Resort</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://zaddywebbuilds.github.io/parkcityskivilla/blog/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zaddywebbuilds.github.io/parkcityskivilla/blog/when-to-book-park-city-peak-weeks/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-ski-villa-king-bedroom.jpg</image:loc>
+      <image:title>King bedroom with upholstered headboard in a Park City two-bedroom ski villa</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://zaddywebbuilds.github.io/parkcityskivilla/blog/canyons-village-ski-in-ski-out-presidents-week-2027/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-ski-villa-mountain-view.webp</image:loc>
+      <image:title>Living area of a Canyons Village villa opening onto a balcony above the ski runs in Park City, Utah</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://zaddywebbuilds.github.io/parkcityskivilla/blog/packing-list-park-city-ski-week/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-ski-villa-laundry.webp</image:loc>
+      <image:title>In-unit laundry with full size washer and dryer and folded towels</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://zaddywebbuilds.github.io/parkcityskivilla/blog/park-city-ski-season-2026-2027/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-mountain-resort.webp</image:loc>
+      <image:title>Skiers riding the chairlift above Park City Mountain Resort village in winter</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://zaddywebbuilds.github.io/parkcityskivilla/blog/canyons-village-apres-ski/</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/resort-drafts-burger-bar.webp</image:loc>
+      <image:title>Casual resort burger bar with booth seating, drinks and a warm fireside corner</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://zaddywebbuilds.github.io/parkcityskivilla/blog/park-city-altitude-adjusting/</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/resort-fitness-yoga.webp</image:loc>
+      <image:title>Resort gym with treadmills and weights facing the mountains, and a yoga studio alongside</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://zaddywebbuilds.github.io/parkcityskivilla/blog/deer-valley-vs-park-city-mountain/</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-deer-valley.webp</image:loc>
+      <image:title>Groomed runs and lodges at Deer Valley Resort under snow</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://zaddywebbuilds.github.io/parkcityskivilla/blog/park-city-non-skiers-things-to-do/</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/resort-serenity-spa.webp</image:loc>
+      <image:title>Candlelit treatment room at Serenity Spa with a waterfall beyond the glass</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://zaddywebbuilds.github.io/parkcityskivilla/blog/where-to-eat-canyons-village/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/resort-edge-steakhouse.webp</image:loc>
+      <image:title>Candlelit steakhouse dining room with an open fire grill and mountain views at dusk</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://zaddywebbuilds.github.io/parkcityskivilla/blog/park-city-main-street-guide/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-main-street.webp</image:loc>
+      <image:title>Historic Main Street in Park City lit up at twilight with snow on the ground</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://zaddywebbuilds.github.io/parkcityskivilla/blog/ski-villa-full-kitchen-cooking-in/</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-ski-villa-gourmet-kitchen.webp</image:loc>
+      <image:title>Villa kitchen with a stone island, stainless range and wine chiller</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://zaddywebbuilds.github.io/parkcityskivilla/blog/park-city-grocery-shopping-guide/</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/resort-marketplace.webp</image:loc>
+      <image:title>Resort marketplace with shelves of provisions, drinks and grab-and-go food</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://zaddywebbuilds.github.io/parkcityskivilla/blog/park-city-ski-week-cost-family-of-eight/</loc>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-ski-villa-kitchen-island.jpg</image:loc>
+      <image:title>GE Monogram kitchen with centre island, barstool seating and two-zone wine chiller</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://zaddywebbuilds.github.io/parkcityskivilla/blog/park-city-resort-fees-hidden-costs/</loc>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-ski-villa-suite-living.jpg</image:loc>
+      <image:title>Second living area in a Park City villa with a queen sleeper sofa and kitchenette</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://zaddywebbuilds.github.io/parkcityskivilla/blog/park-city-lift-tickets-epic-pass/</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-mountain-resort.webp</image:loc>
+      <image:title>Skiers riding the chairlift above Park City Mountain Resort village in winter</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://zaddywebbuilds.github.io/parkcityskivilla/blog/ski-rentals-canyons-village/</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/resort-ski-rentals.webp</image:loc>
+      <image:title>Ski and snowboard rental shop with racked skis, boots and helmets, looking out to the slopes</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://zaddywebbuilds.github.io/parkcityskivilla/blog/westgate-park-city-resort-amenities/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/resort-heated-pools.webp</image:loc>
+      <image:title>Steaming outdoor pool and spa tub at dusk with snow-covered pines and mountains behind</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://zaddywebbuilds.github.io/parkcityskivilla/blog/westgate-park-city-book-direct-owner/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-ski-villa-living-room-fireplace.jpg</image:loc>
+      <image:title>Villa living room with marble fireplace, smart TV and queen sleeper sofa</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://zaddywebbuilds.github.io/parkcityskivilla/blog/park-city-with-kids-ski-school/</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/resort-childcare.webp</image:loc>
+      <image:title>Warm kids playroom with a teepee, soft seating, books and toys looking out to the snow</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://zaddywebbuilds.github.io/parkcityskivilla/blog/two-bedroom-villa-vs-two-hotel-rooms/</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-ski-villa-great-room.webp</image:loc>
+      <image:title>Open great room with fireplace and seating looking out to the snow covered mountain</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://zaddywebbuilds.github.io/parkcityskivilla/blog/presidents-week-park-city-why-it-sells-out/</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-ski-villa-mountain-view.webp</image:loc>
+      <image:title>Living area of a Park City ski villa opening onto a balcony above the ski runs</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://zaddywebbuilds.github.io/parkcityskivilla/blog/february-skiing-park-city-conditions/</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-deer-valley.webp</image:loc>
+      <image:title>Groomed runs and lodges under deep snow in the Park City area of Utah</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://zaddywebbuilds.github.io/parkcityskivilla/blog/slc-airport-to-park-city-transfer/</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-slc-airport.webp</image:loc>
+      <image:title>Aircraft at Salt Lake City International Airport with snow covered mountains behind</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://zaddywebbuilds.github.io/parkcityskivilla/blog/do-you-need-a-car-in-park-city/</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-main-street.webp</image:loc>
+      <image:title>Historic Main Street in Park City lit up at twilight with snow on the ground</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://zaddywebbuilds.github.io/parkcityskivilla/blog/red-pine-gondola-canyons-village/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-ski-villa-ski-in-balcony.webp</image:loc>
+      <image:title>Balcony above the ski runs and chairlifts at Park City Mountain Resort in winter</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://zaddywebbuilds.github.io/parkcityskivilla/blog/park-city-mountain-resort-by-the-numbers/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-deer-valley.webp</image:loc>
+      <image:title>Groomed runs and lodges under snow in the Park City area of Utah</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://zaddywebbuilds.github.io/parkcityskivilla/blog/canyons-village-vs-park-city-base/</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-mountain-resort.webp</image:loc>
+      <image:title>Skiers riding the chairlift above Park City Mountain Resort village in winter</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://zaddywebbuilds.github.io/parkcityskivilla/blog/ski-in-ski-out-park-city-what-it-means/</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://zaddywebbuilds.github.io/parkcityskivilla/images/park-city-ski-villa-mountain-view.webp</image:loc>
+      <image:title>Living area of a Canyons Village villa opening onto a balcony above the ski runs in Park City, Utah</image:title>
     </image:image>
   </url>
 </urlset>
