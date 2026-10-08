@@ -1363,9 +1363,9 @@ footer {
   background: #0e0905;
   border-top: 1px solid var(--border);
   padding: 36px var(--gutter);
-  display: flex; align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap; gap: 16px;
+  /* Block, not flex: .f-inner and .f-bar each centre themselves on their
+     own max-width, so a flex row leaves the two misaligned. */
+  display: block;
 }
 .f-logo { font-family: var(--serif); font-size: 1rem; color: var(--snow-muted); }
 .f-logo span { color: var(--gold); }
@@ -1393,7 +1393,7 @@ footer {
   max-width: calc(var(--max) + var(--gutter) * 2);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr;
+  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
   gap: 40px;
   padding-bottom: 28px;
 }
@@ -1418,6 +1418,7 @@ footer {
   display: inline-block;
   padding-block: 12px;
 }
+.f-all { color: var(--gold) !important; }
 .f-col a:hover { color: #e8be85; }
 .f-bar {
   max-width: calc(var(--max) + var(--gutter) * 2);
@@ -1428,7 +1429,7 @@ footer {
   flex-wrap: wrap; gap: 14px;
 }
 @media (max-width: 760px) {
-  .f-inner { grid-template-columns: 1fr; gap: 30px; }
+  .f-inner { grid-template-columns: repeat(2, 1fr); gap: 30px 32px; }
 }
 
 /* ── No reveal gate ──
@@ -1462,6 +1463,7 @@ footer {
   .ci-card { flex: 0 0 auto; min-height: 0; }
 }
 @media (max-width: 560px) {
+  .f-inner { grid-template-columns: 1fr; }
   .gallery-grid { grid-template-columns: 1fr; }
   .cf-row { grid-template-columns: 1fr; }
   .avail-bar { flex-direction: column; align-items: flex-start; }
@@ -2237,8 +2239,19 @@ footer {
         <li><a href="#direct">Why book direct</a></li>
         <li><a href="#faq">Questions</a></li>
         <li><a href="#resort">Resort amenities</a></li>
-        <li><a href="blog/">Park City ski guides</a></li>
         <li>Deposit, cancellation and rental terms are confirmed in writing before any payment is taken.</li>
+      </ul>
+    </div>
+
+    <div class="f-col">
+      <div class="f-col-t">Park City Guides</div>
+      <ul>
+        <li><a href="blog/canyons-village-ski-in-ski-out-presidents-week-2027/">Canyons Village ski-in ski-out, Presidents' Week 2027</a></li>
+        <li><a href="blog/presidents-week-park-city-why-it-sells-out/">Why Presidents' Week sells out first</a></li>
+        <li><a href="blog/slc-airport-to-park-city-transfer/">Salt Lake City airport to Park City</a></li>
+        <li><a href="blog/park-city-ski-week-cost-family-of-eight/">What a ski week costs for eight</a></li>
+        <li><a href="blog/when-to-book-park-city-peak-weeks/">When to book a peak week</a></li>
+        <li><a href="blog/" class="f-all">All 28 guides &#8594;</a></li>
       </ul>
     </div>
   </div>
@@ -2252,6 +2265,7 @@ footer {
       <a href="#resort">Resort</a>
       <a href="#direct">Book Direct</a>
       <a href="#faq">FAQ</a>
+      <a href="blog/">Guides</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
