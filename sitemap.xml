@@ -47,4 +47,16 @@
       <image:title>Kitchenette with granite countertops</image:title>
     </image:image>
   </url>
+  <url>
+    <loc>https://zaddywebbuilds.github.io/parkcityskivilla/guides/presidents-week-park-city.html</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zaddywebbuilds.github.io/parkcityskivilla/guides/salt-lake-city-airport-to-park-city.html</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

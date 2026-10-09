@@ -1,0 +1,1339 @@
+/* ===================================================
+   PARK CITY SKI VILLA: Design System
+   Dark mountain luxury. Single deliberate theme.
+   =================================================== */
+:root {
+  /* Colour tokens sampled from the hero photograph.
+     Ground = the espresso of the dark wood and shadow. Primary accent =
+     the lamp glow. Secondary = the one cool note in the frame, the sky.
+     Text = the warm cream of the walls and bedding. */
+  --bg:           #140d07;  /* deepest shadow / dark wood         */
+  --bg-2:         #1c1309;  /* warm charcoal, one step up         */
+  --surface:      #26190e;  /* mid wood tone                      */
+  --surface-2:    #312114;  /* lifted wood                        */
+  --border:       rgba(237,231,226,0.09);
+  --border-gold:  rgba(239,197,124,0.26);
+  --gold:         #efc57c;  /* lamp glow, H38 S78% L71%           */
+  --gold-lt:      #f7dcab;
+  --gold-dim:     rgba(239,197,124,0.11);
+  --wood:         #d0a37e;  /* wood floor, H27 S46% L65%          */
+  --sky:          #9bc1ea;  /* window sky, H211 S65% L76%         */
+  --sky-dim:      rgba(155,193,234,0.13);
+  --snow:         #ede7e2;  /* warm cream wall, H27 S23% L90%     */
+  --snow-muted:   rgba(237,231,226,0.58);
+  --snow-dim:     rgba(237,231,226,0.26);
+  --overlay:      rgba(20,13,7,0.72);
+
+  color-scheme: dark;
+
+  /* Type tokens */
+  --serif:  'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --sans:   'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Layout */
+  --gutter: clamp(20px, 5vw, 80px);
+  --max:    1280px;
+  --r:      3px;
+
+  /* Motion */
+  --ease:   cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0; padding: 0;
+  background: var(--bg);
+  color: var(--snow);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; max-width: 100%; }
+
+/* ── Utility ── */
+.eyebrow {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(1.9rem, 3.8vw, 3.2rem);
+  font-weight: 300;
+  line-height: 1.08;
+  margin: 0 0 20px;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+.section-lead {
+  font-size: 1rem;
+  color: var(--snow-muted);
+  line-height: 1.8;
+  max-width: 600px;
+  margin: 0 0 44px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 13px 26px;
+  border: none;
+  border-radius: var(--r);
+  cursor: pointer;
+  transition: background 0.2s var(--ease), color 0.2s var(--ease), border-color 0.2s var(--ease), transform 0.15s var(--ease);
+}
+.btn:hover { transform: translateY(-1px); }
+.btn-gold { background: var(--gold); color: var(--bg); }
+.btn-gold:hover { background: var(--gold-lt); }
+.btn-ghost { background: transparent; color: var(--snow); border: 1px solid var(--border); }
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+.btn-lg { font-size: 0.78rem; padding: 16px 34px; }
+
+/* ── Nav ── */
+.nav {
+  position: fixed;
+  top: env(safe-area-inset-top, 0px);
+  left: 0; right: 0;
+  z-index: 500;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--gutter);
+  transition: background 0.4s var(--ease), border-color 0.4s var(--ease), backdrop-filter 0.4s;
+}
+.nav.scrolled {
+  background: rgba(20,13,7,0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--snow);
+  text-decoration: none;
+  flex-shrink: 0;
+  /* Flex to the bar height gives the brand link a 44px tap area without
+     changing how it looks. */
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+.nav-logo span { color: var(--gold); }
+
+.nav-links { display: flex; align-items: center; gap: 28px; }
+
+.nav-link {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--snow-muted);
+  text-decoration: none;
+  transition: color 0.2s var(--ease);
+}
+.nav-link:hover { color: var(--gold); }
+
+@media (max-width: 768px) {
+  .nav-links .nav-link { display: none; }
+}
+@media (max-width: 480px) {
+  /* At phone width the logo and the CTA collide, so shrink both and let
+     the logo truncate rather than run underneath the button. */
+  .nav { padding-inline: 16px; gap: 10px; }
+  /* 44px minimum tap height on everything touchable. */
+  .nav .btn { min-height: 44px; display: inline-flex; align-items: center; }
+  .nav-logo {
+    font-size: 0.98rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+  }
+  .nav .btn { font-size: 0.62rem; padding: 8px 12px; white-space: nowrap; flex-shrink: 0; }
+}
+
+/* ── Hero: no background image; every photo is a surface element ── */
+.hero {
+  position: relative;
+  display: grid;
+  /* Copy column deliberately narrower than the photograph: the image
+     carries the page, the headline sits tight to the left edge. */
+  grid-template-columns: 0.62fr 1fr;
+  align-items: center;
+  gap: clamp(24px, 3vw, 44px);
+  padding: clamp(92px, 13vh, 140px) var(--gutter) clamp(48px, 7vh, 76px);
+  padding-left: clamp(18px, 3vw, 44px);
+  max-width: calc(var(--max) + var(--gutter) * 2);
+  margin: 0 auto;
+  overflow: visible;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 0%,  rgba(239,197,124,0.09) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 50% at 90% 85%, rgba(155,193,234,0.10) 0%, transparent 65%);
+}
+
+
+/* Snow drifts over the page ground, never over the photographs. */
+#snow-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 620px;
+}
+
+/* ── Hero feature image: a real <img>, raised off the surface ── */
+.hero-feature {
+  position: relative;
+  z-index: 3;
+  margin: 0;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: 0 26px 70px rgba(0,0,0,0.55), 0 3px 10px rgba(0,0,0,0.3);
+}
+.hero-feature video,
+.hero-feature img {
+  width: 100%;
+  /* height:auto is load-bearing: the width/height attributes are there to
+     reserve layout space and avoid CLS, but without this the attribute
+     height wins over aspect-ratio and the media renders stretched. */
+  height: auto;
+  /* The clip is 736x400; squaring it up slightly fills the column beside
+     the headline without cropping away the window and the view. */
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  background: var(--surface);
+}
+.hero-feature figcaption {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 44px 20px 14px;
+  background: linear-gradient(to top, rgba(46,26,9,0.86) 0%, transparent 100%);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #fdf6ec;
+}
+
+/* ── Hero photo stack: real <img> elements, raised off the surface ── */
+.hero-stack {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 12px;
+  perspective: 1400px;
+}
+
+.hs-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: 0 18px 50px rgba(0,0,0,0.5), 0 2px 8px rgba(0,0,0,0.3);
+  transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease), border-color 0.3s var(--ease);
+  will-change: transform;
+}
+.hs-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hs-card:hover {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.6), 0 3px 10px rgba(0,0,0,0.4);
+  border-color: var(--border-gold);
+}
+
+/* Tall feature card spans both rows on the left */
+.hs-card--tall { grid-row: span 2; }
+.hs-card--tall img { aspect-ratio: 3/4.6; }
+.hs-card--sm img { aspect-ratio: 4/3; }
+
+.hs-caption {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 26px 16px 12px;
+  background: linear-gradient(to top, rgba(20,13,7,0.92) 0%, transparent 100%);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--snow);
+}
+
+@media (max-width: 960px) {
+  /* Once stacked there is no image to sit beside, so the copy returns to
+     the page gutter and lines up with every section below it. */
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    min-height: 0;
+    padding-top: clamp(92px, 16vh, 130px);
+    padding-left: var(--gutter);
+  }
+  .hero-content { max-width: 100%; }
+  .hero-stack { max-width: 560px; }
+}
+@media (max-width: 480px) {
+  .hs-card--tall { grid-row: span 1; }
+  .hs-card--tall img { aspect-ratio: 4/3; }
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(239,197,124,0.12);
+  border: 1px solid var(--border-gold);
+  border-radius: 2px;
+  padding: 6px 14px;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-lt);
+  margin-bottom: 22px;
+}
+.hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; flex-shrink: 0; }
+
+.hero h1 {
+  font-family: var(--serif);
+  /* Sized so "A two-bedroom ski villa" holds one line in the narrower
+     copy column; any larger and "villa" drops on its own. */
+  font-size: clamp(2rem, 3.3vw, 2.95rem);
+  font-weight: 300;
+  line-height: 1.04;
+  margin: 0 0 10px;
+  letter-spacing: -0.02em;
+}
+.hero h1 .italic { font-style: italic; color: var(--gold-lt); }
+
+.hero-tagline {
+  font-family: var(--serif);
+  font-size: clamp(1rem, 1.8vw, 1.35rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--snow-muted);
+  margin: 0 0 36px;
+  letter-spacing: 0.01em;
+  max-width: 520px;
+}
+
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+
+/* ── Stats bar ── */
+.stats-bar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0 var(--gutter);
+  position: relative;
+  z-index: 10;
+}
+.stats-inner {
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  max-width: var(--max);
+  margin: 0 auto;
+}
+.stats-inner::-webkit-scrollbar { display: none; }
+
+.stat {
+  flex: 1;
+  min-width: 100px;
+  padding: 20px 10px;
+  text-align: center;
+  border-right: 1px solid var(--border);
+}
+.stat:last-child { border-right: none; }
+
+.stat-n {
+  font-family: var(--serif);
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--wood);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.stat-l {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--snow-dim);
+  margin-top: 5px;
+}
+
+/* ── Availability banner ── */
+.avail-bar {
+  background: linear-gradient(90deg, #1a1006 0%, #2b1b0c 30%, #2b1b0c 70%, #1a1006 100%);
+  border-top: 1px solid rgba(239,197,124,0.18);
+  border-bottom: 1px solid rgba(239,197,124,0.18);
+  padding: 14px var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.avail-tag {
+  background: var(--gold);
+  color: #1a1006;
+  font-size: 0.57rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+.avail-copy { font-size: 0.88rem; color: var(--snow); flex: 1; min-width: 160px; }
+.avail-copy strong { color: var(--gold-lt); }
+.avail-dates {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: var(--gold);
+  white-space: nowrap;
+}
+
+/* ── Sections ──
+   Everything below the hero sits above the fixed snow canvas on its own
+   opaque ground, so snow reads only behind the hero. */
+.section {
+  padding: 52px var(--gutter);
+  max-width: calc(var(--max) + var(--gutter) * 2);
+  margin: 0 auto;
+}
+
+/* Segments butt directly against each other: the dividing line is the
+   background change plus a hairline rule, never empty space. */
+#gallery, #about, #amenities, #presidents, #faq, #location, #contact {
+  margin-block: 0;
+}
+#about, #presidents, #faq, #location, #contact {
+  border-top: 1px solid var(--border);
+}
+
+.stats-bar, .avail-bar, #gallery, #about, #amenities,
+#presidents, #faq, #location, #contact, footer {
+  position: relative;
+  z-index: 2;
+}
+#about, #presidents, #location { background: var(--bg); }
+
+/* ── Gallery ── */
+#gallery { background: var(--bg-2); padding-block: 52px; }
+
+.gallery-header {
+  padding: 0 var(--gutter);
+  max-width: calc(var(--max) + var(--gutter) * 2);
+  margin: 0 auto 36px;
+}
+
+.gallery-grid {
+  padding: 0 var(--gutter);
+  max-width: calc(var(--max) + var(--gutter) * 2);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 220px);
+  gap: 5px;
+}
+
+.gi { position: relative; overflow: hidden; cursor: pointer; background: var(--surface); }
+.gi:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+.gi:nth-child(6) { grid-column: span 2; }
+.gi:nth-child(8) { grid-column: span 2; }
+
+.gi img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.55s var(--ease), filter 0.3s var(--ease);
+}
+.gi { border: 1px solid transparent; transition: border-color 0.25s var(--ease); }
+.gi:hover { border-color: var(--border-gold); }
+.gi:hover img { transform: scale(1.06); filter: brightness(1.08) saturate(1.06); }
+
+.gi-veil {
+  position: absolute; inset: 0;
+  background: rgba(20,13,7,0.55);
+  opacity: 0;
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity 0.25s var(--ease);
+}
+.gi:hover .gi-veil { opacity: 1; }
+.gi-veil svg { width: 30px; height: 30px; color: #fff; }
+
+
+/* ── Lightbox ── */
+#lb {
+  display: none;
+  position: fixed; inset: 0; z-index: 9000;
+  background: rgba(12,8,4,0.97);
+  flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 20px;
+}
+#lb.on { display: flex; }
+
+#lb-img {
+  max-width: min(92vw, 1100px);
+  max-height: 76vh;
+  object-fit: contain;
+  border-radius: 2px;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.7);
+}
+
+#lb-x {
+  position: absolute; top: 18px; right: 18px;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.18);
+  color: #fff; font-size: 1rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color 0.2s, color 0.2s;
+}
+#lb-x:hover { border-color: var(--gold); color: var(--gold); }
+
+.lb-row { display: flex; align-items: center; gap: 16px; margin-top: 18px; }
+.lb-arrow {
+  width: 46px; height: 46px; border-radius: 50%;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.14);
+  color: #fff; font-size: 1.1rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s, border-color 0.2s;
+}
+.lb-arrow:hover { background: var(--gold); border-color: var(--gold); color: var(--bg); }
+#lb-ct { font-size: 0.72rem; color: rgba(255,255,255,0.35); letter-spacing: 0.1em; min-width: 54px; text-align: center; font-variant-numeric: tabular-nums; }
+
+/* ── About ── */
+#about { background: var(--bg); }
+
+/* ── Villa intro copy: two text columns so the block fills the width ── */
+.about-intro {
+  columns: 2;
+  column-gap: 56px;
+  margin-bottom: 40px;
+}
+.about-intro p {
+  color: var(--snow-muted);
+  line-height: 1.85;
+  margin: 0 0 20px;
+  break-inside: avoid;
+}
+.about-intro p:last-child { margin-bottom: 0; }
+
+/* ── Feature cards: full-bleed photo, icon badge, copy over a scrim ── */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.feat {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-2);
+  transition: border-color 0.25s var(--ease), transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.feat:hover {
+  border-color: var(--border-gold);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(0,0,0,0.5);
+}
+
+/* The photograph is left clear: the copy sits beneath it on its own
+   panel rather than over the picture. */
+.feat-media { position: relative; overflow: hidden; }
+.feat-media img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s var(--ease);
+}
+.feat:hover .feat-media img { transform: scale(1.04); }
+
+.feat-body {
+  flex: 1;
+  padding: 17px 20px 20px;
+  border-top: 1px solid var(--border);
+}
+
+.feat-t {
+  font-family: var(--serif);
+  font-size: 1.32rem;
+  font-weight: 500;
+  line-height: 1.18;
+  color: var(--snow);
+  margin: 0 0 7px;
+  text-wrap: balance;
+}
+.feat-d {
+  font-size: 0.82rem;
+  color: var(--snow-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 1040px) {
+  .feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 620px) {
+  .about-intro { columns: 1; margin-bottom: 32px; }
+  .feature-grid { grid-template-columns: 1fr; gap: 12px; }
+  .feat { aspect-ratio: 16 / 12; }
+  .feat-t { font-size: 1.28rem; }
+}
+
+/* ── Amenities ── */
+#amenities {
+  background: var(--bg-2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.am-flat {
+  list-style: none;
+  margin: 36px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px 32px;
+}
+.am-flat li {
+  font-size: 0.86rem;
+  color: var(--snow-muted);
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding-bottom: 11px;
+  border-bottom: 1px solid var(--border);
+}
+.am-flat li::before {
+  content: '';
+  width: 4px; height: 4px;
+  background: var(--gold);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+@media (max-width: 860px) { .am-flat { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .am-flat { grid-template-columns: 1fr; } }
+
+
+/* ── Resort amenities ──
+   Five image cards carry the strongest draws; four text cards hold the
+   rest. Nine cells over three rows of three, so no slot is left empty.
+   Copy always sits beneath the photograph, never over it: the same
+   pattern as the villa feature cards, so an image is never obscured. */
+#resort {
+  background: var(--bg-2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.resort-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 40px;
+}
+
+.ra {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-2);
+  transition: border-color 0.25s var(--ease), transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.ra:hover {
+  border-color: var(--border-gold);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(0,0,0,0.5);
+}
+
+/* The photograph takes the top of the card and keeps its full frame. */
+.ra-media { position: relative; overflow: hidden; }
+.ra-media img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s var(--ease);
+}
+.ra--img:hover .ra-media img { transform: scale(1.04); }
+
+.ra-body {
+  flex: 1;
+  padding: 17px 20px 20px;
+  border-top: 1px solid var(--border);
+}
+.ra-tag {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 9px;
+}
+.ra-t {
+  font-family: var(--serif);
+  font-size: 1.32rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--snow);
+  margin: 0 0 8px;
+  text-wrap: balance;
+}
+.ra-rule {
+  width: 22px; height: 2px;
+  background: var(--gold);
+  margin-bottom: 11px;
+  transition: width 0.35s var(--ease);
+}
+.ra:hover .ra-rule { width: 38px; }
+.ra-d {
+  font-size: 0.82rem;
+  color: var(--snow-muted);
+  line-height: 1.62;
+  margin: 0;
+}
+
+.ra--wide { grid-column: span 3; }
+.ra--wide .ra-media img { aspect-ratio: 32 / 9; }
+
+@media (max-width: 900px) {
+  .resort-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ra--wide { grid-column: span 2; }
+  .ra--wide .ra-media img { aspect-ratio: 16 / 9; }
+}
+@media (max-width: 580px) {
+  .resort-grid { grid-template-columns: 1fr; }
+  .ra--wide { grid-column: span 1; }
+  .ra--wide .ra-media img { aspect-ratio: 16 / 10; }
+}
+
+/* ── Presidents' Week ── */
+#presidents { background: var(--bg); position: relative; overflow: hidden; }
+
+.pw-mark {
+  position: absolute; bottom: -40px; right: -20px;
+  font-family: var(--serif);
+  font-size: min(32vw, 340px);
+  font-weight: 300;
+  color: rgba(239,197,124,0.04);
+  line-height: 1;
+  pointer-events: none; user-select: none;
+}
+
+.pw-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: stretch;
+  position: relative; z-index: 1;
+}
+
+.pw-text h2 { margin-top: 0; }
+.pw-text p { color: var(--snow-muted); line-height: 1.85; margin-bottom: 18px; }
+
+.pw-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--gold);
+  border-radius: var(--r);
+  padding: 36px 32px;
+  position: relative;
+}
+.pw-card::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at top left, rgba(239,197,124,0.07) 0%, transparent 65%);
+  border-radius: var(--r);
+  pointer-events: none;
+}
+.pw-dates {
+  font-family: var(--serif); font-size: 2.8rem; font-weight: 400;
+  color: var(--gold); line-height: 1; margin-bottom: 4px;
+}
+.pw-yr {
+  font-size: 0.68rem; color: var(--snow-dim);
+  letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 26px;
+}
+.pw-row {
+  display: flex; gap: 10px; align-items: baseline;
+  font-size: 0.85rem; color: var(--snow-muted); margin-bottom: 10px;
+}
+.pw-row strong { color: var(--snow); font-weight: 500; }
+.pw-note {
+  margin-top: 22px; padding-top: 18px;
+  border-top: 1px solid var(--border);
+  font-size: 0.75rem; color: var(--snow-dim); line-height: 1.7;
+}
+
+/* ── FAQ ── */
+#faq { background: var(--bg-2); border-top: 1px solid var(--border); }
+
+.faq-list { display: flex; flex-direction: column; gap: 2px; margin-top: 44px; }
+
+.faq-item {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  overflow: hidden;
+  transition: border-color 0.25s var(--ease);
+}
+.faq-item:hover { border-color: var(--border-gold); }
+
+.faq-q {
+  width: 100%; background: none; border: none;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 22px; cursor: pointer; gap: 16px;
+  font-family: var(--sans); font-size: 0.9rem; font-weight: 500;
+  color: var(--snow); text-align: left; line-height: 1.4;
+  transition: color 0.2s var(--ease);
+}
+.faq-q:hover { color: var(--gold-lt); }
+
+.faq-icon {
+  flex-shrink: 0; width: 22px; height: 22px;
+  border: 1px solid var(--border);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 0.8rem; color: var(--gold);
+  transition: transform 0.3s var(--ease), background 0.2s;
+}
+.faq-item.open .faq-icon { transform: rotate(45deg); background: var(--gold-dim); }
+
+.faq-a {
+  display: none; padding: 0 22px 20px;
+  font-size: 0.88rem; color: var(--snow-muted); line-height: 1.8;
+}
+.faq-item.open .faq-a { display: block; }
+
+/* ── Location ── */
+#location { background: var(--bg); }
+
+.loc-grid {
+  display: grid;
+  grid-auto-rows: 360px;
+  /* 9 cells over 3 rows: a 2-wide card and the map close the first row,
+     three cards fill the second, one 3-wide card closes the third, so no
+     cell is ever left empty.
+     minmax(0,1fr), not 1fr: a plain 1fr floors at the content's own min
+     width, and the map tile used that to push its column wide and squash
+     the card beside it. */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 44px;
+}
+
+.loc-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-2);
+  transition: border-color 0.25s var(--ease), transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.loc-card:hover {
+  border-color: var(--border-gold);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(0,0,0,0.5);
+}
+
+.loc-card-media { position: relative; overflow: hidden; flex: 1; min-height: 0; }
+.loc-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s var(--ease);
+}
+.loc-card:hover .loc-card-media img { transform: scale(1.04); }
+
+.loc-card-body {
+  padding: 17px 20px 20px;
+  border-top: 1px solid var(--border);
+}
+
+/* Wide cards give the picture more room; the text panel stays the same
+   height so every card in a row ends level. */
+.loc-card--w2 { grid-column: span 2; }
+.loc-card--w3 { grid-column: span 3; }
+.loc-card--w2 .feat-t, .loc-card--w3 .feat-t { font-size: 1.52rem; }
+
+/* The map is a tile in the same grid rather than a separate block. */
+.loc-map {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+.loc-map-frame {
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  border: 0;
+  display: block;
+  filter: grayscale(0.25) contrast(1.05) brightness(0.92);
+}
+.loc-map-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 12px 14px;
+  border-top: 1px solid var(--sky-dim);
+  background: var(--bg-2);
+}
+.loc-map-addr { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.loc-map-addr strong { font-size: 0.8rem; color: var(--snow); }
+.loc-map-addr span { font-size: 0.72rem; color: var(--snow-muted); }
+.loc-map-dir { flex-shrink: 0; }
+
+@media (max-width: 1040px) {
+  .loc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .loc-card--w2, .loc-card--w3 { grid-column: span 2; aspect-ratio: 32 / 11; }
+}
+@media (max-width: 620px) {
+  .loc-grid { grid-template-columns: 1fr; gap: 12px; }
+  .loc-card, .loc-card--w2, .loc-card--w3 { grid-column: span 1; aspect-ratio: 16 / 12; }
+  .loc-card--w2 .feat-t, .loc-card--w3 .feat-t { font-size: 1.28rem; }
+  .loc-map { min-height: 340px; }
+}
+
+
+/* ── Why book direct ── */
+#direct {
+  background: var(--bg-2);
+  border-top: 1px solid var(--border);
+}
+.direct-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2px;
+  margin-top: 36px;
+}
+.bd {
+  background: var(--bg);
+  padding: 26px 22px 28px;
+  border-top: 2px solid var(--gold-dim);
+  transition: border-top-color 0.25s var(--ease), background 0.25s var(--ease);
+}
+.bd:hover { border-top-color: var(--gold); background: var(--surface); }
+.bd-n {
+  font-family: var(--serif);
+  font-size: 1.9rem;
+  font-weight: 500;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 10px;
+  font-variant-numeric: tabular-nums;
+}
+.bd-t {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--snow);
+  margin: 0 0 6px;
+}
+.bd-d { font-size: 0.79rem; color: var(--snow-muted); line-height: 1.6; margin: 0; }
+
+@media (max-width: 860px) { .direct-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .direct-grid { grid-template-columns: 1fr; } }
+
+/* ── Sticky booking bar ──
+   Phones only: the hero CTA scrolls away on a page this long, so the
+   enquiry route follows the reader down. Hidden again once the form
+   itself is on screen, where it would just cover the fields. */
+.sticky-cta {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 400;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+  background: rgba(20,13,7,0.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid var(--border-gold);
+  transform: translateY(110%);
+  transition: transform 0.32s var(--ease);
+}
+.sticky-cta.up { transform: translateY(0); }
+.sticky-meta { min-width: 0; }
+.sticky-dates {
+  font-family: var(--serif);
+  font-size: 1.02rem;
+  color: var(--gold);
+  line-height: 1.1;
+  white-space: nowrap;
+}
+.sticky-sub {
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--snow-muted);
+  margin-top: 2px;
+  white-space: nowrap;
+}
+.sticky-cta .btn { flex-shrink: 0; min-height: 44px; }
+
+@media (max-width: 900px) { .sticky-cta { display: flex; } }
+@media (prefers-reduced-motion: reduce) { .sticky-cta { transition: none; } }
+
+/* ── Contact ── */
+#contact { background: var(--bg-2); border-top: 1px solid var(--border); }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 64px;
+  align-items: stretch;
+  margin-top: 44px;
+}
+
+.cf { display: flex; flex-direction: column; gap: 14px; }
+.cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.cf-f { display: flex; flex-direction: column; gap: 5px; }
+
+label {
+  font-size: 0.62rem; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--snow-dim);
+}
+
+input, textarea, select {
+  width: 100%; background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--snow); font-family: var(--sans);
+  /* 16px minimum: anything smaller makes iOS Safari zoom the viewport when
+     a field takes focus, throwing the booking form off screen. */
+  font-size: 16px; padding: 12px 13px;
+  border-radius: var(--r); outline: none;
+  transition: border-color 0.2s var(--ease);
+  -webkit-appearance: none;
+}
+input:focus, textarea:focus, select:focus { border-color: var(--gold); }
+input::placeholder, textarea::placeholder { color: var(--snow-dim); }
+textarea { resize: vertical; min-height: 100px; }
+select option { background: var(--surface); }
+
+.cf-note { font-size: 0.73rem; color: var(--snow-dim); line-height: 1.65; }
+#form-msg { font-size: 0.82rem; line-height: 1.6; }
+#form-msg.ok { color: var(--gold-lt); }
+#form-msg.err { color: #e06060; }
+
+.ci { display: flex; flex-direction: column; gap: 12px; height: 100%; }
+/* The alert keeps its natural size; the three cards share what's left so
+   the column ends level with the form. */
+.ci-card { flex: 1 1 0; display: flex; flex-direction: column; justify-content: center; }
+
+.ci-alert {
+  background: var(--gold-dim);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--r);
+  padding: 16px 18px;
+  font-size: 0.83rem; color: var(--snow); line-height: 1.65;
+}
+.ci-alert strong { color: var(--gold-lt); }
+
+.ci-card {
+  padding: 18px 20px;
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: var(--r);
+}
+.ci-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 7px; }
+.ci-val { font-size: 0.92rem; color: var(--snow); }
+.ci-sub { font-size: 0.76rem; color: var(--snow-muted); margin-top: 3px; }
+
+/* ── Footer ── */
+footer {
+  background: #0e0905;
+  border-top: 1px solid var(--border);
+  padding: 36px var(--gutter);
+  display: flex; align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap; gap: 16px;
+}
+.f-logo { font-family: var(--serif); font-size: 1rem; color: var(--snow-muted); }
+.f-logo span { color: var(--gold); }
+.f-copy { font-size: 0.7rem; color: var(--snow-dim); text-align: center; }
+.f-links { display: flex; gap: 8px; flex-wrap: wrap; }
+.f-links a {
+  font-size: 0.72rem; color: var(--snow-dim);
+  text-decoration: none; transition: color 0.2s;
+  /* Padding rather than font size gives these a 44px tap area. */
+  display: inline-flex; align-items: center;
+  min-height: 44px; padding-inline: 10px;
+}
+.f-links a:hover { color: var(--gold); }
+
+/* ── 3D perspective tilt on card hover ── */
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.3s var(--ease);
+  will-change: transform;
+}
+
+
+/* ── Footer ── */
+.f-inner {
+  max-width: calc(var(--max) + var(--gutter) * 2);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 28px;
+}
+.f-col-t {
+  font-size: 0.6rem; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: #e8be85; margin-bottom: 12px;
+}
+.f-col p, .f-col li {
+  font-size: 0.78rem;
+  color: rgba(253,246,236,0.62);
+  line-height: 1.7;
+  margin: 0 0 6px;
+}
+.f-col ul { list-style: none; margin: 0; padding: 0; }
+.f-col a {
+  color: rgba(253,246,236,0.62);
+  text-decoration: none;
+  transition: color 0.2s;
+  /* Inline-block with padding gives these a 44px tap area on touch
+     without changing how the column reads. */
+  display: inline-block;
+  padding-block: 12px;
+}
+.f-col a:hover { color: #e8be85; }
+.f-bar {
+  max-width: calc(var(--max) + var(--gutter) * 2);
+  margin: 0 auto;
+  padding-top: 22px;
+  border-top: 1px solid rgba(253,246,236,0.10);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 14px;
+}
+@media (max-width: 760px) {
+  .f-inner { grid-template-columns: 1fr; gap: 30px; }
+}
+
+/* ── No reveal gate ──
+   Everything renders visible on first paint. The previous fade started
+   each block at opacity 0 and waited on an observer, which meant content
+   could sit blank if that observer was slow, throttled in a background
+   tab, or never fired at all. */
+.sr, .sr-d1, .sr-d2, .sr-d3 { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  /* Paused in script too; this keeps the first frame composited cleanly. */
+  .hero-feature video { animation: none; }
+  .btn:hover, .hs-card:hover { transform: none; }
+}
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
+  .gi { grid-column: auto !important; grid-row: auto !important; }
+  .gi img { aspect-ratio: 4/3; height: auto; }
+  /* .loc-grid is deliberately absent: it is a card grid now with its own
+     breakpoints, and forcing it to one column here left its 2-wide cards
+     spanning into an implicit second column of a different size. */
+  .pw-grid, .contact-grid { grid-template-columns: 1fr; gap: 44px; }
+
+  /* Once the columns stack there is no neighbouring column to match, so
+     release the equal-height stretch. Leaving it on forces every card to a
+     fixed height that is shorter than its own text, and overflow:hidden
+     then silently clips the copy. */
+  .ci { height: auto; }
+  .ci-card { flex: 0 0 auto; min-height: 0; }
+}
+@media (max-width: 560px) {
+  .gallery-grid { grid-template-columns: 1fr; }
+  .cf-row { grid-template-columns: 1fr; }
+  .avail-bar { flex-direction: column; align-items: flex-start; }
+  .hero-actions { flex-direction: column; }
+  .hero-actions .btn { justify-content: center; }
+  .stats-inner .stat { min-width: 90px; }
+  footer { flex-direction: column; align-items: flex-start; gap: 12px; }
+}
+
+/* ── Guide pages ──
+   Long-form articles that feed the booking page. Narrower measure than the
+   landing page: this is prose to be read, not cards to be scanned. */
+.guide {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: clamp(96px, 13vh, 150px) var(--gutter) 72px;
+}
+.crumb {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--snow-dim);
+  margin-bottom: 20px;
+}
+.crumb a { color: var(--gold); text-decoration: none; }
+.crumb a:hover { color: var(--gold-lt); }
+
+.guide h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.1rem, 4.4vw, 3.3rem);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  margin: 0 0 16px;
+  text-wrap: balance;
+}
+.guide-standfirst {
+  font-size: 1.04rem;
+  line-height: 1.75;
+  color: var(--snow-muted);
+  margin: 0 0 14px;
+}
+.guide-meta {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--snow-dim);
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 36px;
+}
+
+.guide h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  font-weight: 500;
+  line-height: 1.22;
+  margin: 44px 0 14px;
+  color: var(--snow);
+}
+.guide h3 {
+  font-size: 0.96rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin: 28px 0 8px;
+  color: var(--gold);
+}
+.guide p { color: var(--snow-muted); line-height: 1.85; margin: 0 0 18px; }
+.guide strong { color: var(--snow); font-weight: 600; }
+.guide a { color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--border-gold); }
+.guide a:hover { color: var(--gold-lt); border-color: var(--gold); }
+
+.guide ul, .guide ol { color: var(--snow-muted); line-height: 1.8; padding-left: 20px; margin: 0 0 20px; }
+.guide li { margin-bottom: 9px; }
+
+.guide figure { margin: 32px 0; }
+.guide figure img {
+  width: 100%; height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  display: block;
+}
+.guide figcaption {
+  font-size: 0.74rem;
+  color: var(--snow-dim);
+  margin-top: 9px;
+  letter-spacing: 0.02em;
+}
+
+/* Fact table */
+.g-table { width: 100%; border-collapse: collapse; margin: 0 0 26px; font-size: 0.87rem; }
+.g-table th, .g-table td {
+  text-align: left;
+  padding: 11px 14px 11px 0;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.g-table th { color: var(--gold); font-weight: 600; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; }
+.g-table td { color: var(--snow-muted); }
+.g-table td:first-child { color: var(--snow); white-space: nowrap; padding-right: 26px; }
+
+/* Inline call to action back to the booking page */
+.g-cta {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--gold);
+  border-radius: var(--r);
+  padding: 24px 26px;
+  margin: 38px 0;
+}
+.g-cta h3 { margin-top: 0; }
+.g-cta p { margin-bottom: 16px; }
+.g-cta .btn { margin-top: 2px; }
+
+@media (max-width: 560px) {
+  .g-table td:first-child { white-space: normal; }
+}
+
+/* ── Guide teaser cards on the landing page ── */
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2px;
+  margin-top: 36px;
+}
+.guide-grid .bd { transition: background 0.25s var(--ease), border-top-color 0.25s var(--ease); }
+.guide-grid .bd:hover { background: var(--surface); border-top-color: var(--gold); }
+@media (max-width: 680px) {
+  .guide-grid { grid-template-columns: 1fr; }
+}
+
+/* Links inside guide prose need a touch-sized target without breaking the
+   line rhythm, so pad the block-level ones only. */
+.crumb a, .guide-meta a {
+  display: inline-block;
+  padding-block: 15px;
+  margin-block: -15px;   /* keep the visual rhythm while the target grows */
+}
