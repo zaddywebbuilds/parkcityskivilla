@@ -468,14 +468,17 @@ img { display: block; max-width: 100%; }
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(3, 220px);
+  /* Nine tiles: the hero takes 2x2, the other eight take one cell each,
+     which is exactly the twelve cells three rows provide. Rows are sized
+     to keep each cell near square, so portrait and landscape frames crop
+     by a similar, small amount. */
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+  aspect-ratio: 4 / 3;
   gap: 5px;
 }
 
 .gi { position: relative; overflow: hidden; cursor: pointer; background: var(--surface); }
 .gi:nth-child(1) { grid-column: span 2; grid-row: span 2; }
-.gi:nth-child(6) { grid-column: span 2; }
-.gi:nth-child(8) { grid-column: span 2; }
 
 .gi img {
   width: 100%; height: 100%;
@@ -1407,3 +1410,58 @@ footer {
 
 @media (max-width: 1000px) { .lay-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 680px)  { .lay-grid { grid-template-columns: 1fr; } .lay-plan { padding: 16px 16px 8px; } }
+
+/* ── Planning guides ──
+   These cards lost their styles when the two branches were merged: the
+   markup came from one side, the rules from the other. Without them the
+   links fall back to browser defaults. */
+.sec-lede {
+  font-size: 1rem;
+  color: var(--snow-muted);
+  line-height: 1.8;
+  max-width: 640px;
+  margin: 0 0 44px;
+}
+
+.gd-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 36px;
+}
+.gd-card {
+  display: block;
+  text-decoration: none;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg-2);
+  transition: border-color 0.35s var(--ease), transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+}
+.gd-card:hover {
+  border-color: var(--border-gold);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(0,0,0,0.5);
+}
+.gd-body { padding: 20px 22px 22px; }
+.gd-t {
+  font-family: var(--serif);
+  font-size: 1.16rem;
+  font-weight: 500;
+  line-height: 1.26;
+  color: var(--snow);
+  margin: 0 0 9px;
+  text-decoration: none;
+}
+.gd-d {
+  font-size: 0.82rem;
+  color: var(--snow-muted);
+  line-height: 1.62;
+  margin: 0;
+  text-decoration: none;
+}
+
+/* Feature cards no longer carry a photograph, so the body is the card. */
+.feat > .feat-body:first-child { border-top: none; }
+
+@media (max-width: 1000px) { .gd-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 660px)  { .gd-grid { grid-template-columns: 1fr; } }
