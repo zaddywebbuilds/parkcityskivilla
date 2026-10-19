@@ -773,6 +773,10 @@ img { display: block; max-width: 100%; }
 }
 
 .pw-text h2 { margin-top: 0; }
+.pw-cards { display: flex; flex-direction: column; gap: 18px; }
+.pw-cards .pw-card { padding: 26px 26px; }
+.pw-cards .pw-dates { font-size: 2.1rem; }
+.pw-cards .pw-yr { margin-bottom: 18px; }
 .pw-text p { color: var(--snow-muted); line-height: 1.85; margin-bottom: 18px; }
 
 .pw-card {
@@ -1337,3 +1341,69 @@ footer {
   padding-block: 15px;
   margin-block: -15px;   /* keep the visual rhythm while the target grows */
 }
+
+
+/* ── Layout ── */
+/* Amenity cards carry no photograph, so the body is the whole card. */
+.ra > .ra-body:first-child { border-top: none; }
+
+.lay-plan {
+  margin: 40px auto 0;
+  max-width: 860px;
+  background: var(--snow);
+  border-radius: 10px;
+  padding: 26px 26px 14px;
+}
+.lay-plan img { width: 100%; height: auto; display: block; }
+.lay-plan figcaption {
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #4a3a2a;
+  text-align: center;
+  padding: 14px 0 6px;
+}
+
+.lay-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 40px;
+}
+.lay-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-2);
+  transition: border-color 0.35s var(--ease), transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+}
+.lay-card:hover {
+  border-color: var(--border-gold);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(0,0,0,0.5);
+}
+.lay-media { overflow: hidden; }
+.lay-media img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s var(--ease);
+}
+.lay-card:hover .lay-media img { transform: scale(1.04); }
+.lay-body { flex: 1; padding: 17px 20px 20px; border-top: 1px solid var(--border); }
+.lay-t {
+  font-family: var(--serif);
+  font-size: 1.24rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--snow);
+  margin: 0 0 8px;
+}
+.lay-d { font-size: 0.82rem; color: var(--snow-muted); line-height: 1.62; margin: 0; }
+
+@media (max-width: 1000px) { .lay-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 680px)  { .lay-grid { grid-template-columns: 1fr; } .lay-plan { padding: 16px 16px 8px; } }
