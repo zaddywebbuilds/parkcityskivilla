@@ -14,7 +14,8 @@ Allow: /
 User-agent: msnbot
 Allow: /
 
-# Link preview bots, not search crawlers.
+# Link preview bots, not search crawlers. These honour robots.txt, so a
+# link shared in any of them renders a blank card unless named here.
 User-agent: Twitterbot
 Allow: /
 
@@ -25,6 +26,27 @@ User-agent: LinkedInBot
 Allow: /
 
 User-agent: Slackbot-LinkExpanding
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
+User-agent: Discordbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: SkypeUriPreview
+Allow: /
+
+User-agent: Pinterestbot
+Allow: /
+
+User-agent: redditbot
 Allow: /
 
 # Everything else.
