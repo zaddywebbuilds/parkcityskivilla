@@ -53,4 +53,4 @@ Allow: /
 User-agent: *
 Disallow: /
 
-Sitemap: https://zaddywebbuilds.github.io/parkcityskivilla/sitemap.xml
+Sitemap: https://parkcityskivilla.com/sitemap.xml
