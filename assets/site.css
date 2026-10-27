@@ -911,7 +911,9 @@ img { display: block; max-width: 100%; }
 /* Wide cards give the picture more room; the text panel stays the same
    height so every card in a row ends level. */
 .loc-card--w2 { grid-column: span 2; }
-.loc-card--w3 { grid-column: span 3; }
+/* A full-width card one row tall squeezes its photograph to about 4.6:1,
+   which crops a landscape frame down to a strip. Two rows gives it depth. */
+.loc-card--w3 { grid-column: span 3; grid-row: span 2; }
 .loc-card--w2 .feat-t, .loc-card--w3 .feat-t { font-size: 1.52rem; }
 
 /* The map is a tile in the same grid rather than a separate block. */
