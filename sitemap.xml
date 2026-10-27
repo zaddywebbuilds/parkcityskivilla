@@ -13,11 +13,11 @@
     </image:image>
     <image:image>
       <image:loc>https://parkcityskivilla.com/images/park-city-ski-villa-kitchen-quartz-counters.jpg</image:loc>
-      <image:title>GE Monogram kitchen with center island and two-zone wine chiller</image:title>
+      <image:title>Villa kitchen with quartz counters and full-size refrigerator</image:title>
     </image:image>
     <image:image>
       <image:loc>https://parkcityskivilla.com/images/park-city-ski-villa-living-room-ski-lift-view.jpg</image:loc>
-      <image:title>Villa living room with marble fireplace and queen sleeper sofa</image:title>
+      <image:title>Villa living room with queen sleeper sofa</image:title>
     </image:image>
     <image:image>
       <image:loc>https://parkcityskivilla.com/images/park-city-ski-villa-king-bedroom-jetted-tub.jpg</image:loc>
@@ -161,7 +161,7 @@
     <priority>0.7</priority>
     <image:image>
       <image:loc>https://parkcityskivilla.com/images/park-city-ski-villa-kitchenette.webp</image:loc>
-      <image:title>Villa kitchen with a stone island, stainless range and wine chiller</image:title>
+      <image:title>Kitchenette in the lock-off studio</image:title>
     </image:image>
   </url>
   <url>
@@ -181,7 +181,7 @@
     <priority>0.7</priority>
     <image:image>
       <image:loc>https://parkcityskivilla.com/images/park-city-ski-villa-kitchen-quartz-counters.jpg</image:loc>
-      <image:title>GE Monogram kitchen with centre island, barstool seating and two-zone wine chiller</image:title>
+      <image:title>Villa kitchen with quartz counters and barstool seating</image:title>
     </image:image>
   </url>
   <url>
@@ -231,7 +231,7 @@
     <priority>0.7</priority>
     <image:image>
       <image:loc>https://parkcityskivilla.com/images/park-city-ski-villa-living-room-ski-lift-view.jpg</image:loc>
-      <image:title>Villa living room with marble fireplace, smart TV and queen sleeper sofa</image:title>
+      <image:title>Villa living room with smart TV and queen sleeper sofa</image:title>
     </image:image>
   </url>
   <url>
@@ -292,6 +292,26 @@
     <image:image>
       <image:loc>https://parkcityskivilla.com/images/canyons-village-base-area-panorama.jpg</image:loc>
       <image:title>Historic Main Street in Park City lit up at twilight with snow on the ground</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://parkcityskivilla.com/blog/canyons-village-skyway-gondola-guide/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://parkcityskivilla.com/images/canyons-village-skyway-gondola-station-1440.webp</image:loc>
+      <image:title>The Canyons Village Skyway gondola station in Park City, Utah</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://parkcityskivilla.com/blog/westgate-park-city-walk-to-lifts/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://parkcityskivilla.com/images/canyons-village-park-city-mountain-base-1440.webp</image:loc>
+      <image:title>Canyons Village base buildings and plaza at Park City Mountain Resort, Utah</image:title>
     </image:image>
   </url>
   <url>
