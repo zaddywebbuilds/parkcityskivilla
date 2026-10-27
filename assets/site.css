@@ -21,7 +21,10 @@
   --sky-dim:      rgba(155,193,234,0.13);
   --snow:         #ede7e2;  /* warm cream wall, H27 S23% L90%     */
   --snow-muted:   rgba(237,231,226,0.58);
-  --snow-dim:     rgba(237,231,226,0.26);
+  /* 0.26 left stat labels, form labels and the availability notes at roughly
+     2:1 against the dark ground — under the 4.5:1 needed to read comfortably. */
+  --snow-dim:     rgba(237,231,226,0.52);
+  --snow-faint:   rgba(237,231,226,0.30);  /* placeholders only */
   --overlay:      rgba(20,13,7,0.72);
 
   color-scheme: dark;
@@ -816,7 +819,7 @@ img { display: block; max-width: 100%; }
 .pw-note {
   margin-top: 22px; padding-top: 18px;
   border-top: 1px solid var(--border);
-  font-size: 0.75rem; color: var(--snow-dim); line-height: 1.7;
+  font-size: 0.8rem; color: var(--snow-muted); line-height: 1.7;
 }
 
 /* ── FAQ ── */
@@ -1070,7 +1073,7 @@ input, textarea, select {
   -webkit-appearance: none;
 }
 input:focus, textarea:focus, select:focus { border-color: var(--gold); }
-input::placeholder, textarea::placeholder { color: var(--snow-dim); }
+input::placeholder, textarea::placeholder { color: var(--snow-faint); }
 textarea { resize: vertical; min-height: 100px; }
 select option { background: var(--surface); }
 
@@ -1465,3 +1468,4 @@ footer {
 
 @media (max-width: 1000px) { .gd-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 660px)  { .gd-grid { grid-template-columns: 1fr; } }
+
