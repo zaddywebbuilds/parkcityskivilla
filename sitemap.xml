@@ -366,4 +366,24 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://parkcityskivilla.com/blog/canyons-village-lift-map-guide/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://parkcityskivilla.com/images/canyons-village-park-city-mountain-base.jpg</image:loc>
+      <image:title>The Canyons Village base area with tiered lodging buildings and a lift line climbing the hillside behind</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://parkcityskivilla.com/blog/first-morning-canyons-village/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://parkcityskivilla.com/images/park-city-mountain-valley-view.jpg</image:loc>
+      <image:title>A wide view down the Park City valley from above Canyons Village with pine-covered ridges on both sides</image:title>
+    </image:image>
+  </url>
 </urlset>
