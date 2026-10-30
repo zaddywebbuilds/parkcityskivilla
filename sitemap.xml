@@ -406,4 +406,24 @@
       <image:title>The Park City Ski and Snowboard School sales office and deck at Canyons Village</image:title>
     </image:image>
   </url>
+  <url>
+    <loc>https://parkcityskivilla.com/blog/deer-valley-world-cup-2027/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://parkcityskivilla.com/images/park-city-mountain-valley-view.jpg</image:loc>
+      <image:title>A wide view down the Park City valley from above Canyons Village with pine-covered ridges on both sides</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://parkcityskivilla.com/blog/park-city-january-2027-events/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://parkcityskivilla.com/images/canyons-village-skyway-gondola-station.jpg</image:loc>
+      <image:title>The Canyons Village Skyway station with its curved glazed roof and red gondola cabins on the hillside behind</image:title>
+    </image:image>
+  </url>
 </urlset>
