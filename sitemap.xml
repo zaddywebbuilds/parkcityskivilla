@@ -449,6 +449,26 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://parkcityskivilla.com/blog/multi-family-ski-trip-park-city/</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://parkcityskivilla.com/images/westgate-park-city-villa-studio-entry.jpg</image:loc>
+      <image:title>The entry hallway of the lock-off studio in a Westgate Park City villa, with its own front door, a wall mirror and a luggage bench</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://parkcityskivilla.com/blog/park-city-group-villa-logistics/</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://parkcityskivilla.com/images/westgate-park-city-signature-suite-kitchen-dining.jpg</image:loc>
+      <image:title>The kitchen and dining area of a Signature suite at Westgate Park City Resort, with a dining table, bar stools at the counter and a window to the living room</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://parkcityskivilla.com/blog/march-skiing-park-city-conditions/</loc>
     <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>
