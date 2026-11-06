@@ -478,4 +478,24 @@
       <image:title>A wide view down the Park City valley from above Canyons Village with pine-covered ridges on both sides</image:title>
     </image:image>
   </url>
+  <url>
+    <loc>https://parkcityskivilla.com/blog/westgate-two-bedroom-villa-what-you-get/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://parkcityskivilla.com/images/westgate-park-city-two-bedroom-deluxe-living-room.webp</image:loc>
+      <image:title>Living room of a two-bedroom deluxe villa at Westgate Park City Resort and Spa</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://parkcityskivilla.com/blog/park-city-villa-direct-vs-agency/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://parkcityskivilla.com/images/westgate-park-city-signature-two-bedroom-villa-floor-plan.webp</image:loc>
+      <image:title>Floor plan of the Signature two-bedroom villa at Westgate Park City Resort, showing both bedrooms, two living rooms, the kitchen, master bath with hot tub and two separate entries</image:title>
+    </image:image>
+  </url>
 </urlset>
