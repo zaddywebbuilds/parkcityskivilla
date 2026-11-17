@@ -558,4 +558,24 @@
       <image:title>A wide view down the Park City valley from above Canyons Village with pine-covered ridges running away on both sides</image:title>
     </image:image>
   </url>
+  <url>
+    <loc>https://parkcityskivilla.com/blog/canyons-village-opening-weekend-2026/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://parkcityskivilla.com/images/canyons-village-skyway-gondola-park-city-1440.webp</image:loc>
+      <image:title>Wide view across Canyons Village showing the Skyway gondola line and enclosed cabins on the cable above the village buildings</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://parkcityskivilla.com/blog/canyons-village-lifts-what-changed/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://parkcityskivilla.com/images/canyons-village-skyway-ski-lift-1440.webp</image:loc>
+      <image:title>Wide panoramic view of the Canyons Village Skyway gondola line with enclosed cabins on the cable above the village buildings</image:title>
+    </image:image>
+  </url>
 </urlset>
