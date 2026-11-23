@@ -116,7 +116,7 @@
   </url>
   <url>
     <loc>https://parkcityskivilla.com/blog/deer-valley-vs-park-city-mountain/</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -296,7 +296,7 @@
   </url>
   <url>
     <loc>https://parkcityskivilla.com/blog/canyons-village-skyway-gondola-guide/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -368,7 +368,7 @@
   </url>
   <url>
     <loc>https://parkcityskivilla.com/blog/canyons-village-lift-map-guide/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -378,7 +378,7 @@
   </url>
   <url>
     <loc>https://parkcityskivilla.com/blog/first-morning-canyons-village/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -388,7 +388,7 @@
   </url>
   <url>
     <loc>https://parkcityskivilla.com/blog/snow-league-park-city-2027-lodging/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -418,7 +418,7 @@
   </url>
   <url>
     <loc>https://parkcityskivilla.com/blog/park-city-january-2027-events/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -428,7 +428,7 @@
   </url>
   <url>
     <loc>https://parkcityskivilla.com/blog/park-city-spring-break-2027/</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -470,7 +470,7 @@
   </url>
   <url>
     <loc>https://parkcityskivilla.com/blog/march-skiing-park-city-conditions/</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -540,7 +540,7 @@
   </url>
   <url>
     <loc>https://parkcityskivilla.com/blog/park-city-opening-day-2026/</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -550,7 +550,7 @@
   </url>
   <url>
     <loc>https://parkcityskivilla.com/blog/early-season-skiing-park-city-november/</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <image:image>
@@ -560,7 +560,7 @@
   </url>
   <url>
     <loc>https://parkcityskivilla.com/blog/canyons-village-opening-weekend-2026/</loc>
-    <lastmod>2026-11-17</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -577,5 +577,17 @@
       <image:loc>https://parkcityskivilla.com/images/canyons-village-skyway-ski-lift-1440.webp</image:loc>
       <image:title>Wide panoramic view of the Canyons Village Skyway gondola line with enclosed cabins on the cable above the village buildings</image:title>
     </image:image>
+  </url>
+  <url>
+    <loc>https://parkcityskivilla.com/blog/park-city-lift-tickets-cost-2026-27/</loc>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://parkcityskivilla.com/blog/deer-valley-opening-december-2026/</loc>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>
