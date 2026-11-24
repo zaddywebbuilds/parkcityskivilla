@@ -590,4 +590,24 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://parkcityskivilla.com/blog/christmas-park-city-2026-whats-left/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://parkcityskivilla.com/images/canyons-village-park-city-mountain-base-1440.webp</image:loc>
+      <image:title>Skiers and snowboarders on a wide groomed run at the base of Canyons Village, Park City Mountain, with timber and stone lodge buildings rising above the lower slopes</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://parkcityskivilla.com/blog/new-year-park-city-2027/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://parkcityskivilla.com/images/canyons-village-skyway-gondola-station-1440.webp</image:loc>
+      <image:title>The Skyway gondola station at Canyons Village with skiers queuing at the base in winter morning light, timber and stone architecture visible behind the lift terminals</image:title>
+    </image:image>
+  </url>
 </urlset>
