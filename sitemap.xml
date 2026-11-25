@@ -610,4 +610,24 @@
       <image:title>The Skyway gondola station at Canyons Village with skiers queuing at the base in winter morning light, timber and stone architecture visible behind the lift terminals</image:title>
     </image:image>
   </url>
+  <url>
+    <loc>https://parkcityskivilla.com/blog/park-city-advance-purchase-46-days/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://parkcityskivilla.com/images/park-city-mountain-valley-view-1440.webp</image:loc>
+      <image:title>Park City Mountain Resort ski terrain seen from an elevated vantage point, showing groomed runs descending into the valley on a clear winter day</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://parkcityskivilla.com/blog/january-2027-park-city-quiet-weeks/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://parkcityskivilla.com/images/canyons-village-park-city-mountain-base-1440.webp</image:loc>
+      <image:title>Canyons Village base area at Park City Mountain Resort in winter, with skiers and the main gondola building in the foreground</image:title>
+    </image:image>
+  </url>
 </urlset>
