@@ -630,4 +630,24 @@
       <image:title>Canyons Village base area at Park City Mountain Resort in winter, with skiers and the main gondola building in the foreground</image:title>
     </image:image>
   </url>
+  <url>
+    <loc>https://parkcityskivilla.com/blog/park-city-group-24-holidays/</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://parkcityskivilla.com/images/park-city-ski-villa-king-bedroom-jetted-tub-1440.webp</image:loc>
+      <image:title>King bedroom with jetted tub in a two-bedroom villa at Westgate Park City Resort at Canyons Village</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://parkcityskivilla.com/blog/canyons-village-ski-week-cost-2027/</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://parkcityskivilla.com/images/park-city-mountain-valley-view-1440.webp</image:loc>
+      <image:title>Park City Mountain Resort terrain seen from across the valley in winter, with ski runs visible on forested slopes</image:title>
+    </image:image>
+  </url>
 </urlset>
